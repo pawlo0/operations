@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @intervention.day %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @intervention.equipment %>
+</p>
+
+<p>
+  <strong>Eq hours:</strong>
+  <%= @intervention.eq_hours %>
+</p>
+
+<p>
+  <strong>Repair:</strong>
+  <%= @intervention.repair %>
+</p>
+
+<p>
+  <strong>Preventive:</strong>
+  <%= @intervention.preventive %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @intervention.description %>
+</p>
+
+<p>
+  <strong>Changed parts:</strong>
+  <%= @intervention.changed_parts %>
+</p>
+
+<p>
+  <strong>Maintainer:</strong>
+  <%= @intervention.maintainer %>
+</p>
+
+<p>
+  <strong>Task num:</strong>
+  <%= @intervention.task_num %>
+</p>
+
+<p>
+  <strong>Estimate num:</strong>
+  <%= @intervention.estimate_num %>
+</p>
+
+<p>
+  <strong>Purchase num:</strong>
+  <%= @intervention.purchase_num %>
+</p>
+
+<p>
+  <strong>Parts cost:</strong>
+  <%= @intervention.parts_cost %>
+</p>
+
+<p>
+  <strong>Labor cost:</strong>
+  <%= @intervention.labor_cost %>
+</p>
+
+<%= link_to 'Edit', edit_intervention_path(@intervention) %> |
+<%= link_to 'Back', interventions_path %>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_id: 1
+  name: MyString
+  manufacturer: MyString
+  model: MyString
+  serial: MyString
+  assigned_to: MyString
+  location: MyString
+  function: MyString
+  manuf_date: 2014-07-18
+  buy_date: 2014-07-18
+  obs: MyText
+  maintenance_period: 1
+  maintenance_contact: MyString
+
+two:
+  num_id: 1
+  name: MyString
+  manufacturer: MyString
+  model: MyString
+  serial: MyString
+  assigned_to: MyString
+  location: MyString
+  function: MyString
+  manuf_date: 2014-07-18
+  buy_date: 2014-07-18
+  obs: MyText
+  maintenance_period: 1
+  maintenance_contact: MyString

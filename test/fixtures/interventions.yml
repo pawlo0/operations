@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2014-07-18
+  equipment_id: 
+  eq_hours: 1
+  repair: false
+  preventive: false
+  description: MyText
+  changed_parts: MyText
+  maintainer: MyString
+  task_num: MyString
+  estimate_num: MyString
+  purchase_num: MyString
+  parts_cost: 9.99
+  labor_cost: 9.99
+
+two:
+  day: 2014-07-18
+  equipment_id: 
+  eq_hours: 1
+  repair: false
+  preventive: false
+  description: MyText
+  changed_parts: MyText
+  maintainer: MyString
+  task_num: MyString
+  estimate_num: MyString
+  purchase_num: MyString
+  parts_cost: 9.99
+  labor_cost: 9.99

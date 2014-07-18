@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Num:</strong>
+  <%= @equipment.num_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @equipment.name %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @equipment.manufacturer %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @equipment.model %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @equipment.serial %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @equipment.assigned_to %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @equipment.location %>
+</p>
+
+<p>
+  <strong>Function:</strong>
+  <%= @equipment.function %>
+</p>
+
+<p>
+  <strong>Manuf date:</strong>
+  <%= @equipment.manuf_date %>
+</p>
+
+<p>
+  <strong>Buy date:</strong>
+  <%= @equipment.buy_date %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @equipment.obs %>
+</p>
+
+<p>
+  <strong>Maintenance period:</strong>
+  <%= @equipment.maintenance_period %>
+</p>
+
+<p>
+  <strong>Maintenance contact:</strong>
+  <%= @equipment.maintenance_contact %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+<%= link_to 'Back', equipment_index_path %>

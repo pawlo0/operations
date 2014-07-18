@@ -1,0 +1,69 @@
+<%= form_for(@intervention) do |f| %>
+  <% if @intervention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
+
+      <ul>
+      <% @intervention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day %><br>
+    <%= f.date_select :day %>
+  </div>
+  <div class="field">
+    <%= f.label :equipment_id %><br>
+    <%= f.text_field :equipment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :eq_hours %><br>
+    <%= f.number_field :eq_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :repair %><br>
+    <%= f.check_box :repair %>
+  </div>
+  <div class="field">
+    <%= f.label :preventive %><br>
+    <%= f.check_box :preventive %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :changed_parts %><br>
+    <%= f.text_area :changed_parts %>
+  </div>
+  <div class="field">
+    <%= f.label :maintainer %><br>
+    <%= f.text_field :maintainer %>
+  </div>
+  <div class="field">
+    <%= f.label :task_num %><br>
+    <%= f.text_field :task_num %>
+  </div>
+  <div class="field">
+    <%= f.label :estimate_num %><br>
+    <%= f.text_field :estimate_num %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_num %><br>
+    <%= f.text_field :purchase_num %>
+  </div>
+  <div class="field">
+    <%= f.label :parts_cost %><br>
+    <%= f.text_field :parts_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :labor_cost %><br>
+    <%= f.text_field :labor_cost %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

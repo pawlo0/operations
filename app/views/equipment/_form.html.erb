@@ -1,0 +1,69 @@
+<%= form_for(@equipment) do |f| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :num_id %><br>
+    <%= f.number_field :num_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :serial %><br>
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_to %><br>
+    <%= f.text_field :assigned_to %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :function %><br>
+    <%= f.text_field :function %>
+  </div>
+  <div class="field">
+    <%= f.label :manuf_date %><br>
+    <%= f.date_select :manuf_date %>
+  </div>
+  <div class="field">
+    <%= f.label :buy_date %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :obs %><br>
+    <%= f.text_area :obs %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_period %><br>
+    <%= f.number_field :maintenance_period %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_contact %><br>
+    <%= f.text_field :maintenance_contact %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

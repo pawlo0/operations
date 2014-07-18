@@ -24,7 +24,7 @@
     <% @interventions.each do |intervention| %>
       <tr>
         <td><%= intervention.day %></td>
-        <td><%= intervention.equipment_id %></td>
+        <td><%= intervention.equipment %></td>
         <td><%= intervention.eq_hours %></td>
         <td><%= intervention.repair %></td>
         <td><%= intervention.preventive %></td>

@@ -7,7 +7,7 @@
 
 <p>
   <strong>Equipment:</strong>
-  <%= @intervention.equipment_id %>
+  <%= @intervention.equipment %>
 </p>
 
 <p>

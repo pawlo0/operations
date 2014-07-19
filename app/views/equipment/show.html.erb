@@ -1,69 +1,88 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Num:</strong>
+  <strong>Número:</strong>
   <%= @equipment.num_id %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Equipamento:</strong>
   <%= @equipment.name %>
 </p>
 
 <p>
-  <strong>Manufacturer:</strong>
+  <strong>Marca:</strong>
   <%= @equipment.manufacturer %>
 </p>
 
 <p>
-  <strong>Model:</strong>
+  <strong>Modelo:</strong>
   <%= @equipment.model %>
 </p>
 
 <p>
-  <strong>Serial:</strong>
+  <strong>Número de série:</strong>
   <%= @equipment.serial %>
 </p>
 
 <p>
-  <strong>Assigned to:</strong>
+  <strong>Assignado a:</strong>
   <%= @equipment.assigned_to %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>Localização:</strong>
   <%= @equipment.location %>
 </p>
 
 <p>
-  <strong>Function:</strong>
+  <strong>Função:</strong>
   <%= @equipment.function %>
 </p>
 
 <p>
-  <strong>Manuf date:</strong>
+  <strong>Data fabrico:</strong>
   <%= @equipment.manuf_date %>
 </p>
 
 <p>
-  <strong>Buy date:</strong>
+  <strong>Data compra:</strong>
   <%= @equipment.buy_date %>
 </p>
 
 <p>
-  <strong>Obs:</strong>
+  <strong>Observações:</strong>
   <%= @equipment.obs %>
 </p>
 
 <p>
-  <strong>Maintenance period:</strong>
+  <strong>Período de manutenção:</strong>
   <%= @equipment.maintenance_period %>
 </p>
 
 <p>
-  <strong>Maintenance contact:</strong>
+  <strong>Contacto de manutenção:</strong>
   <%= @equipment.maintenance_contact %>
 </p>
 
 <%= link_to 'Edit', edit_equipment_path(@equipment) %> |
 <%= link_to 'Back', equipment_index_path %>
+
+<hr>
+
+<p>
+<%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment) %>
+</p>
+
+<table>
+  <tr>
+    <th>Data Intervenção</th>
+    <th>Descrição</th>
+  </tr>
+  <% @equipment.interventions.each do |intervention| %>
+    <tr>
+    <td><%= link_to intervention.day, equipment_intervention_path(@equipment,intervention) %></td>
+    <td><%= intervention.description %></td>
+    </tr>
+  <% end %>
+</table>

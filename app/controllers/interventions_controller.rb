@@ -14,21 +14,24 @@ class InterventionsController < ApplicationController
 
   # GET /interventions/new
   def new
+    @equipment = Equipment.find(params[:equipment_id])
     @intervention = Intervention.new
   end
 
   # GET /interventions/1/edit
   def edit
+    @equipment = Equipment.find(params[:equipment_id])
   end
 
   # POST /interventions
   # POST /interventions.json
   def create
-    @intervention = Intervention.new(intervention_params)
+    @equipment = Equipment.find(params[:equipment_id])
+    @intervention = @equipment.interventions.new(intervention_params)
 
     respond_to do |format|
       if @intervention.save
-        format.html { redirect_to @intervention, notice: 'Intervention was successfully created.' }
+        format.html { redirect_to equipment_path(@equipment), notice: 'Intervention was successfully created.' }
         format.json { render :show, status: :created, location: @intervention }
       else
         format.html { render :new }
@@ -40,9 +43,10 @@ class InterventionsController < ApplicationController
   # PATCH/PUT /interventions/1
   # PATCH/PUT /interventions/1.json
   def update
+    @equipment = Equipment.find(params[:equipment_id])
     respond_to do |format|
       if @intervention.update(intervention_params)
-        format.html { redirect_to @intervention, notice: 'Intervention was successfully updated.' }
+        format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'Intervention was successfully updated.' }
         format.json { render :show, status: :ok, location: @intervention }
       else
         format.html { render :edit }

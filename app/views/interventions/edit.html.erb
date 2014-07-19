@@ -1,6 +1,6 @@
-<h1>Editing intervention</h1>
+<h1>Editar intervenção</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @intervention %> |
-<%= link_to 'Back', interventions_path %>
+<%= link_to 'Show', equipment_intervention_path(params[:equipment_id], @intervention) %> |
+<%= link_to 'Back', equipment_path(params[:equipment_id]) %>

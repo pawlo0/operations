@@ -1,69 +1,69 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Day:</strong>
+  <strong>Data:</strong>
   <%= @intervention.day %>
 </p>
 
-<p>
-  <strong>Equipment:</strong>
-  <%= @intervention.equipment_id %>
-</p>
+<!-- <p> -->
+<!--   <strong>Equipment:</strong> -->
+<!--   <%= @intervention.equipment_id %> -->
+<!-- </p> -->
 
 <p>
-  <strong>Eq hours:</strong>
+  <strong>Horas equipamento:</strong>
   <%= @intervention.eq_hours %>
 </p>
 
 <p>
-  <strong>Repair:</strong>
+  <strong>Reparação:</strong>
   <%= @intervention.repair %>
 </p>
 
 <p>
-  <strong>Preventive:</strong>
+  <strong>Manutenção preventiva:</strong>
   <%= @intervention.preventive %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @intervention.description %>
 </p>
 
 <p>
-  <strong>Changed parts:</strong>
+  <strong>Peças mudadas:</strong>
   <%= @intervention.changed_parts %>
 </p>
 
 <p>
-  <strong>Maintainer:</strong>
+  <strong>Pessoa / empresa que interviu:</strong>
   <%= @intervention.maintainer %>
 </p>
 
 <p>
-  <strong>Task num:</strong>
+  <strong>Número de tarefa / obra:</strong>
   <%= @intervention.task_num %>
 </p>
 
 <p>
-  <strong>Estimate num:</strong>
+  <strong>Número de orçamento:</strong>
   <%= @intervention.estimate_num %>
 </p>
 
 <p>
-  <strong>Purchase num:</strong>
+  <strong>Número de compra:</strong>
   <%= @intervention.purchase_num %>
 </p>
 
 <p>
-  <strong>Parts cost:</strong>
+  <strong>Custo de peças / material:</strong>
   <%= @intervention.parts_cost %>
 </p>
 
 <p>
-  <strong>Labor cost:</strong>
+  <strong>Custo de mão-de-obra e deslocações:</strong>
   <%= @intervention.labor_cost %>
 </p>
 
-<%= link_to 'Edit', edit_intervention_path(@intervention) %> |
-<%= link_to 'Back', interventions_path %>
+<%= link_to 'Editar', edit_equipment_intervention_path(params[:equipment_id], @intervention) %> |
+<%= link_to 'Voltar', equipment_path(params[:equipment_id]) %>

@@ -25,7 +25,7 @@
   <tbody>
     <% @equipment.each do |equipment| %>
       <tr>
-        <td><%= link_to equipment.num_id, equipment %></td>
+        <td><%= link_to equipment.id, equipment %></td>
         <td><%= link_to equipment.name, equipment %></td>
         <td><%= equipment.manufacturer %></td>
         <td><%= equipment.model %></td>

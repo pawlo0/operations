@@ -1,4 +1,5 @@
 class EquipmentController < ApplicationController
+  rescue_from ActiveRecord::RecordNotUnique, :with => :not_unique
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
   # GET /equipment
@@ -62,6 +63,11 @@ class EquipmentController < ApplicationController
   end
 
   private
+
+    def not_unique
+      redirect_to edit_equipment_path(params[:id]), notice: 'Já existe um equipamento com esse número.'
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_equipment
       @equipment = Equipment.find(params[:id])
@@ -69,6 +75,6 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:num_id, :name, :manufacturer, :model, :serial, :assigned_to, :location, :function, :manuf_date, :buy_date, :obs, :maintenance_period, :maintenance_contact)
+      params.require(:equipment).permit(:id, :num_id, :name, :manufacturer, :model, :serial, :assigned_to, :location, :function, :manuf_date, :buy_date, :obs, :maintenance_period, :maintenance_contact)
     end
 end

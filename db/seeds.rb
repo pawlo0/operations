@@ -28,8 +28,9 @@ doc.css("ELEMENTOS").each do |node|
   purchase = 1900 if purchase < 1900
 
   Equipment.create(
+    :id => (children.css("NIdentifica").inner_text).to_i,
     :num_id => children.css("NIdentifica").inner_text,
-    :name => children.css("Equipamento").inner_text,
+    :name => (children.css("Equipamento").inner_text).mb_chars.capitalize,
     :manufacturer => children.css("Marca").inner_text,
     :model => children.css("Modelo").inner_text,
     :assigned_to => children.css("AssignadoA").inner_text,

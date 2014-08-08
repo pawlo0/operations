@@ -2,11 +2,8 @@
 
 <%= search_form_for @search do |f| %>
   <div class="field">
-    <%= f.label :id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont, "Busca:" %>
-    <%= f.text_field :id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont %>
-  </div>
-  <div class="actions"><%= f.submit "Buscar" %></div>
-
+    <%= f.label  "Buscar por:" %>
+    <%= f.text_field :id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont %> <%= f.submit "Buscar" %></div>
 <% end %>
 
 <%= link_to 'Novo Equipamento', new_equipment_path %>

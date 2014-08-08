@@ -5,12 +5,16 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @search = Equipment.search(params[:q])
+    @equipment = @search.result.includes(:interventions)
   end
 
   # GET /equipment/1
   # GET /equipment/1.json
   def show
+    @search = @equipment.interventions.search(params[:q])
+    @search.sorts = 'day desc' if @search.sorts.empty?
+    @interventions = @search.result
   end
 
   # GET /equipment/new

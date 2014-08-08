@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140718101125) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "equipment", force: true do |t|
     t.integer  "num_id"
     t.string   "name"
@@ -52,6 +49,6 @@ ActiveRecord::Schema.define(version: 20140718101125) do
     t.datetime "updated_at"
   end
 
-  add_index "interventions", ["equipment_id"], name: "index_interventions_on_equipment_id", using: :btree
+  add_index "interventions", ["equipment_id"], name: "index_interventions_on_equipment_id"
 
 end

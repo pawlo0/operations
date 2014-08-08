@@ -76,10 +76,10 @@
 
 <table>
   <tr>
-    <th>Data Intervenção</th>
+    <th><%= sort_link @search, :day, 'Data Intervenção' %></th>
     <th>Descrição</th>
   </tr>
-  <% @equipment.interventions.each do |intervention| %>
+  <% @interventions.each do |intervention| %>
     <tr>
     <td><%= link_to intervention.day, equipment_intervention_path(@equipment,intervention) %></td>
     <td><%= intervention.description %></td>

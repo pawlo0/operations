@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', equipment_intervention_path(params[:equipment_id], @intervention) %> |
-<%= link_to 'Back', equipment_path(params[:equipment_id]) %>
+<%= link_to 'Show', equipment_intervention_path(@intervention.equipment_id, @intervention) %> |
+<%= link_to 'Back', equipment_path(@intervention.equipment_id) %>

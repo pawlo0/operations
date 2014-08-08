@@ -15,10 +15,10 @@
     <%= f.label 'Data:' %><br>
     <%= f.date_select :day %>
   </div>
-  <!-- <div class="field"> -->
-    <%# <%= f.label :equipment_id %><br>
-    <%# <%= f.text_field :equipment_id %>
-  <!-- </div> -->
+  <div class="field">
+    <%= f.label 'Equipamento:' %><br>
+    <%= collection_select(:intervention, :equipment_id, Equipment.all, :id, :name) %>
+  </div>
   <div class="field">
     <%= f.label 'Horas do equipamento:' %><br>
     <%= f.number_field :eq_hours %>

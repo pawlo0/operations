@@ -5,10 +5,10 @@
   <%= @intervention.day %>
 </p>
 
-<!-- <p> -->
-<!--   <strong>Equipment:</strong> -->
-<!--   <%= @intervention.equipment_id %> -->
-<!-- </p> -->
+<p>
+  <strong>Equipamento:</strong>
+   <%= @intervention.equipment_id %>
+</p>
 
 <p>
   <strong>Horas equipamento:</strong>
@@ -65,5 +65,5 @@
   <%= @intervention.labor_cost %>
 </p>
 
-<%= link_to 'Editar', edit_equipment_intervention_path(params[:equipment_id], @intervention) %> |
-<%= link_to 'Voltar', equipment_path(params[:equipment_id]) %>
+<%= link_to 'Editar', edit_equipment_intervention_path(@intervention.equipment_id, @intervention) %> |
+<%= link_to 'Voltar', equipment_path(@intervention.equipment_id) %>

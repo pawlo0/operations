@@ -20,7 +20,7 @@ class InterventionsController < ApplicationController
 
   # GET /interventions/1/edit
   def edit
-    @equipment = Equipment.find(params[:equipment_id])
+
   end
 
   # POST /interventions
@@ -43,7 +43,7 @@ class InterventionsController < ApplicationController
   # PATCH/PUT /interventions/1
   # PATCH/PUT /interventions/1.json
   def update
-    @equipment = Equipment.find(params[:equipment_id])
+    @equipment = Equipment.find(@intervention.equipment_id)
     respond_to do |format|
       if @intervention.update(intervention_params)
         format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'Intervention was successfully updated.' }

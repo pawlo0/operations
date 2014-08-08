@@ -20,7 +20,6 @@ class InterventionsController < ApplicationController
 
   # GET /interventions/1/edit
   def edit
-
   end
 
   # POST /interventions
@@ -31,7 +30,7 @@ class InterventionsController < ApplicationController
 
     respond_to do |format|
       if @intervention.save
-        format.html { redirect_to equipment_path(@equipment), notice: 'Intervention was successfully created.' }
+        format.html { redirect_to equipment_path(@equipment), notice: 'A intervenção foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @intervention }
       else
         format.html { render :new }
@@ -46,7 +45,7 @@ class InterventionsController < ApplicationController
     @equipment = Equipment.find(@intervention.equipment_id)
     respond_to do |format|
       if @intervention.update(intervention_params)
-        format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'Intervention was successfully updated.' }
+        format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'A intervention foi actualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @intervention }
       else
         format.html { render :edit }
@@ -60,7 +59,7 @@ class InterventionsController < ApplicationController
   def destroy
     @intervention.destroy
     respond_to do |format|
-      format.html { redirect_to interventions_url, notice: 'Intervention was successfully destroyed.' }
+      format.html { redirect_to interventions_url, notice: 'A intervention foi apagada.' }
       format.json { head :no_content }
     end
   end

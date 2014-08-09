@@ -6,12 +6,7 @@ gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -29,6 +24,23 @@ gem 'spring',        group: :development
 
 gem 'nokogiri'
 gem 'ransack'
+
+#group :assets do
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.3'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+  # Use CoffeeScript for .js.coffee assets and views
+  gem 'coffee-rails', '~> 4.0.0'
+  
+  gem 'twitter-bootstrap-rails'
+  gem 'libv8'
+  gem 'less'
+  gem 'less-rails'
+  gem 'therubyracer', :platforms => :ruby
+  
+#end
+  
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

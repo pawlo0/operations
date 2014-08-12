@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :maintasks
+
   resources :interventions
 
   resources :equipment do

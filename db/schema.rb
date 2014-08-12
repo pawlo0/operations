@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718101125) do
+ActiveRecord::Schema.define(version: 20140812163214) do
 
   create_table "equipment", force: true do |t|
     t.integer  "num_id"
@@ -50,5 +50,16 @@ ActiveRecord::Schema.define(version: 20140718101125) do
   end
 
   add_index "interventions", ["equipment_id"], name: "index_interventions_on_equipment_id"
+
+  create_table "maintasks", force: true do |t|
+    t.integer  "equipment_id"
+    t.string   "task"
+    t.integer  "period"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "maintasks", ["equipment_id"], name: "index_maintasks_on_equipment_id"
 
 end

@@ -1,0 +1,2 @@
+module MaintasksHelper
+end

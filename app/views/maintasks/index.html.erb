@@ -1,0 +1,31 @@
+<h1>Listing maintasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Equipment</th>
+      <th>Task</th>
+      <th>Period</th>
+      <th>Unit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maintasks.each do |maintask| %>
+      <tr>
+        <td><%= maintask.equipment %></td>
+        <td><%= maintask.task %></td>
+        <td><%= maintask.period %></td>
+        <td><%= maintask.unit %></td>
+        <td><%= link_to 'Show', maintask %></td>
+        <td><%= link_to 'Edit', edit_maintask_path(maintask) %></td>
+        <td><%= link_to 'Destroy', maintask, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Maintask', new_maintask_path %>

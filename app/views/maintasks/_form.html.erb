@@ -1,0 +1,33 @@
+<%= form_for(@maintask) do |f| %>
+  <% if @maintask.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maintask.errors.count, "error") %> prohibited this maintask from being saved:</h2>
+
+      <ul>
+      <% @maintask.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :equipment_id %><br>
+    <%= f.text_field :equipment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :task %><br>
+    <%= f.text_field :task %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.number_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br>
+    <%= f.text_field :unit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @maintask.equipment %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @maintask.task %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @maintask.period %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @maintask.unit %>
+</p>
+
+<%= link_to 'Edit', edit_maintask_path(@maintask) %> |
+<%= link_to 'Back', maintasks_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equipment_id: 
+  task: MyString
+  period: 1
+  unit: MyString
+
+two:
+  equipment_id: 
+  task: MyString
+  period: 1
+  unit: MyString

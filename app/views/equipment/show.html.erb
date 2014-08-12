@@ -41,8 +41,9 @@
   </tr>
   <% @interventions.each do |intervention| %>
     <tr>
-    <td><%= link_to intervention.day, equipment_intervention_path(@equipment,intervention) %></td>
-    <td><%= link_to intervention.description, equipment_intervention_path(@equipment,intervention) %></td>
+    <td><%= link_to intervention.day, equipment_intervention_path(@equipment, intervention) %></td>
+    <td><%= link_to intervention.description, equipment_intervention_path(@equipment, intervention) %></td>
+    <td><%= link_to 'Editar', edit_equipment_intervention_path(@equipment, intervention), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>
 </table>

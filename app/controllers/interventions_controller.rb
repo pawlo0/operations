@@ -10,6 +10,8 @@ class InterventionsController < ApplicationController
   # GET /interventions/1
   # GET /interventions/1.json
   def show
+    @equipment = Equipment.find(params[:equipment_id])
+    @interventions = Intervention.where(equipment_id: @equipment.id)
   end
 
   # GET /interventions/new

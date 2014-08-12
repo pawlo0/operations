@@ -51,9 +51,10 @@
 
   <div class="span3">
     <div class="well sidebar-nav">
-        <h3>Equipamentos</h3>
+        <h3><%= link_to 'Equipamentos', equipment_index_path %></h3>
+        <i class="icon-chevron-left"> </i><%= link_to 'Anterior', @equipment.previous %> | 
+        <%= link_to 'Seguinte ', @equipment.next %><i class="icon-chevron-right"> </i>
         <hr>
-        <p><%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %></p>
         <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
         <p>  <%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
         <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>

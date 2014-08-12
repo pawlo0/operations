@@ -6,6 +6,7 @@ class EquipmentController < ApplicationController
   # GET /equipment.json
   def index
     @search = Equipment.search(params[:q])
+    @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
   end
 

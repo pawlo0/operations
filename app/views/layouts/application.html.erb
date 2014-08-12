@@ -11,8 +11,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Operações</a>
+          <div class="container nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "Equipamentos", equipment_index_path  %></li>
+              <li><%= link_to "Link2", ""  %></li>
+              <li><%= link_to "Link3", ""  %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-<%= yield %>
+  <div class="container">
+    <div class="row">
+      
+      <%= bootstrap_flash %>    
+      <%= yield %>
+    </div>
+  
+  <footer>
+    <p>&copy; Paulo Santos 2014</p>
+  </footer>
+
+  </div> <!-- /container -->    
 
 </body>
 </html>

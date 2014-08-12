@@ -1,17 +1,20 @@
+
+<div class="row">
+  <div class = "span9">
+
 <h1>Lista de equipamentos</h1>
 
-<%= search_form_for @search do |f| %>
-  <div class="field">
-    <%= f.label  "Buscar por:" %>
-    <%= f.text_field :id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont %> <%= f.submit "Buscar" %></div>
+<%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
+  <div class="form-group">
+    <%= f.text_field :num_id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
+    <%= f.submit "Buscar", :class => 'btn btn-default' %>
+    </div>
 <% end %>
 
-<%= link_to 'Novo Equipamento', new_equipment_path %>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th><%= sort_link @search, :id, "Número" %></th>
+      <th><%= sort_link @search, :num_id, "Número" %></th>
       <th><%= sort_link @search, :name, "Equipamento" %></th>
       <th><%= sort_link @search, :manufacturer, "Marca" %></th>
       <th><%= sort_link @search, :model, "Modelo" %></th>
@@ -31,7 +34,7 @@
   <tbody>
     <% @equipment.each do |equipment| %>
       <tr>
-        <td><%= link_to equipment.id, equipment %></td>
+        <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
         <td><%= link_to equipment.name, equipment %></td>
         <td><%= equipment.manufacturer %></td>
         <td><%= equipment.model %></td>
@@ -45,12 +48,26 @@
         <!-- <td><%= equipment.maintenance_period %></td> -->
         <!-- <td><%= equipment.maintenance_contact %></td> -->
         <!-- <td><%= link_to 'Show', equipment %></td> -->
-        <td><%= link_to 'Editar', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Apagar', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' %></td>
+        <!-- <td><%= link_to 'Apagar', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
+  </div><!--/span-->
+
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3>Equipamentos</h3>
+        <hr>
+        <%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %>
+        <hr>
+          
+
+    </div><!--/.well -->
+  </div><!--/span-->
+
+</div><!-- row -->
 <br>
 

@@ -1,80 +1,40 @@
+
+<div class="row">
+  <div class = "span9">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Número:</strong>
-  <%= @equipment.id %>
-</p>
-
-<p>
-  <strong>Equipamento:</strong>
-  <%= @equipment.name %>
-</p>
-
-<p>
-  <strong>Marca:</strong>
-  <%= @equipment.manufacturer %>
-</p>
-
-<p>
-  <strong>Modelo:</strong>
-  <%= @equipment.model %>
-</p>
-
-<p>
-  <strong>Número de série:</strong>
-  <%= @equipment.serial %>
-</p>
-
-<p>
-  <strong>Assignado a:</strong>
-  <%= @equipment.assigned_to %>
-</p>
-
-<p>
-  <strong>Localização:</strong>
-  <%= @equipment.location %>
-</p>
-
-<p>
-  <strong>Função:</strong>
-  <%= @equipment.function %>
-</p>
-
-<p>
-  <strong>Data fabrico:</strong>
-  <%= @equipment.manuf_date %>
-</p>
-
-<p>
-  <strong>Data compra:</strong>
-  <%= @equipment.buy_date %>
-</p>
-
-<p>
-  <strong>Observações:</strong>
-  <%= @equipment.obs %>
-</p>
-
-<p>
-  <strong>Período de manutenção:</strong>
-  <%= @equipment.maintenance_period %>
-</p>
-
-<p>
-  <strong>Contacto de manutenção:</strong>
-  <%= @equipment.maintenance_contact %>
-</p>
-
-<%= link_to 'Editar Equipamento', edit_equipment_path(@equipment) %> |
-<%= link_to 'Voltar a Lista de Equipamentos', equipment_index_path %>
+<h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %></small></h2>
 
 <hr>
 
-<p>
-<%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment) %>
-</p>
+<div class="row">
+  <div class="span4">
+    <p>Marca: <%= @equipment.manufacturer %></p>
+    <p>Modelo:<%= @equipment.model %></p>
+    <p>Número de série: <%= @equipment.serial %></p>
+    <p>Data fabrico: <%= @equipment.manuf_date %></p>
+    <p>Data compra:<%= @equipment.buy_date %></p>    
 
-<table>
+  </div>
+  
+  <div class="span4">
+    <p>Função:<%= @equipment.function %></p>
+    <p>Assignado a: <%= @equipment.assigned_to %></p>
+    <p>Localização: <%= @equipment.location %></p>
+    <p>Período de manutenção:<%= @equipment.maintenance_period %></p>
+    <p>Observações: <%= @equipment.obs %></p>
+  </div>
+</div>
+  
+  <p>Contacto de manutenção:<%= @equipment.maintenance_contact %></p>
+
+
+<hr>
+<h3>Lista de Intervenções <small>Equipamento nº<%= @equipment.num_id %></small></h3>
+
+
+<table class="table table-hover">
   <tr>
     <th><%= sort_link @search, :day, 'Data Intervenção' %></th>
     <th>Descrição</th>
@@ -82,7 +42,25 @@
   <% @interventions.each do |intervention| %>
     <tr>
     <td><%= link_to intervention.day, equipment_intervention_path(@equipment,intervention) %></td>
-    <td><%= intervention.description %></td>
+    <td><%= link_to intervention.description, equipment_intervention_path(@equipment,intervention) %></td>
     </tr>
   <% end %>
 </table>
+
+</div><!-- span9 -->
+
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3>Equipamentos</h3>
+        <hr>
+        <p><%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
+        <p>  <%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
+        <hr>
+          
+
+    </div><!--/.well -->
+  </div><!--/span-->
+
+</div><!-- row -->

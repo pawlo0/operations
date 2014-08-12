@@ -1,69 +1,45 @@
+
+<div class="row">
+  <div class = "span9">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @intervention.day %>
-</p>
+<h2> Intervenções <small>Equipamento nº<%= Equipment.find(@intervention.equipment_id).num_id %></small></h2>
 
-<p>
-  <strong>Equipamento:</strong>
-   <%= @intervention.equipment_id %>
-</p>
+<hr>
 
-<p>
-  <strong>Horas equipamento:</strong>
-  <%= @intervention.eq_hours %>
-</p>
+<div class="row">
+  <div class="span4">
+    <p>Data: <%= @intervention.day %></p>
+    <p>Horas equipamento: <%= @intervention.eq_hours %></p>
+    <p>Reparação? <%= @intervention.repair == false ? "Não" : "Sim" %></p>
+    <p>Manutenção preventiva? <%= @intervention.preventive == false ? "Não" : "Sim" %></p>
+    <p>Peças mudadas: <%= @intervention.changed_parts %></p>
+    <p>Pessoa / empresa que interviu: <%= @intervention.maintainer %></p>
+    <p>Descrição: <%= @intervention.description %></p>
+  </div>
+  <div class="span4">
+    <p>Número obra: <%= @intervention.task_num %></p>
+    <p>Número de orçamento: <%= @intervention.estimate_num %></p>
+    <p>Número de compra: <%= @intervention.purchase_num %></p>
+    <p>Custo de peças / material: <%= @intervention.parts_cost %></p>
+    <p>Custo de mão-de-obra e deslocações: <%= @intervention.labor_cost %></p>
+    <p>Cutos total: <%= @intervention.parts_cost + @intervention.labor_cost %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Reparação:</strong>
-  <%= @intervention.repair %>
-</p>
+</div><!-- span9 -->
 
-<p>
-  <strong>Manutenção preventiva:</strong>
-  <%= @intervention.preventive %>
-</p>
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3>Intervenções</h3>
+        <hr>
+        <p><%= link_to 'Voltar', equipment_path(@intervention.equipment_id), :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Editar Intervenção', edit_equipment_intervention_path(@intervention.equipment_id, @intervention), :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@intervention.equipment_id), :class => 'btn btn-primary' %></p>
+        <p>  <%= link_to 'Apagar Intervenção', @intervention, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <hr>
+    </div><!--/.well -->
+  </div><!--/span3-->
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @intervention.description %>
-</p>
-
-<p>
-  <strong>Peças mudadas:</strong>
-  <%= @intervention.changed_parts %>
-</p>
-
-<p>
-  <strong>Pessoa / empresa que interviu:</strong>
-  <%= @intervention.maintainer %>
-</p>
-
-<p>
-  <strong>Número de tarefa / obra:</strong>
-  <%= @intervention.task_num %>
-</p>
-
-<p>
-  <strong>Número de orçamento:</strong>
-  <%= @intervention.estimate_num %>
-</p>
-
-<p>
-  <strong>Número de compra:</strong>
-  <%= @intervention.purchase_num %>
-</p>
-
-<p>
-  <strong>Custo de peças / material:</strong>
-  <%= @intervention.parts_cost %>
-</p>
-
-<p>
-  <strong>Custo de mão-de-obra e deslocações:</strong>
-  <%= @intervention.labor_cost %>
-</p>
-
-<%= link_to 'Editar Intervenção', edit_equipment_intervention_path(@intervention.equipment_id, @intervention) %> |
-<%= link_to 'Voltar a Equipamento', equipment_path(@intervention.equipment_id) %>
+</div><!-- row -->

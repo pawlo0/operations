@@ -20,6 +20,7 @@ class InterventionsController < ApplicationController
 
   # GET /interventions/1/edit
   def edit
+    @equipment = Equipment.find(params[:equipment_id])
   end
 
   # POST /interventions
@@ -59,7 +60,7 @@ class InterventionsController < ApplicationController
   def destroy
     @intervention.destroy
     respond_to do |format|
-      format.html { redirect_to interventions_url, notice: 'A intervention foi apagada.' }
+      format.html { redirect_to equipment_path(@intervention.equipment_id), notice: 'A intervenção foi apagada.' }
       format.json { head :no_content }
     end
   end

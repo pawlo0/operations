@@ -1,4 +1,4 @@
-<%= form_for [@equipment, @intervention] do |f| %>
+<%= form_for [@equipment, @intervention], :html => { :class => 'form-horizontal'} do |f| %>
   <% if @intervention.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
@@ -10,60 +10,76 @@
       </ul>
     </div>
   <% end %>
+  
+  <hr>
 
-  <div class="field">
-    <%= f.label 'Data:' %><br>
-    <%= f.date_select :day %>
+  <div class = "row">
+    <div class = "span4">
+      <div class="control-group">
+        <%= f.label 'Data:' %>
+        <%= f.date_field :day %>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="control-group">
+        <%= f.label 'Equipamento:' %>
+        <%= collection_select(:intervention, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'Equipamento:' %><br>
-    <%= collection_select(:intervention, :equipment_id, Equipment.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label 'Horas do equipamento:' %><br>
-    <%= f.number_field :eq_hours %>
-  </div>
-  <div class="field">
-    <%= f.label 'Reparação?' %><br>
-    <%= f.check_box :repair %>
-  </div>
-  <div class="field">
-    <%= f.label 'Manutenção preventiva?' %><br>
-    <%= f.check_box :preventive %>
-  </div>
-  <div class="field">
-    <%= f.label 'Descrição:' %><br>
+  
+  <div class = "row">
+    <div class = "span4">
+      <div class="control-group">
+        <%= f.label 'Horas do equipamento:' %>
+        <%= f.number_field :eq_hours %>
+      </div>
+      <div class="control-group">
+        <p>Reparação? <%= f.check_box :repair %></p>
+      </div>
+      <div class="control-group">
+        <p>Manutenção preventiva? <%= f.check_box :preventive %></p>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Peças mudadas:' %>
+        <%= f.text_area :changed_parts %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Pessoa / empresa que interviu:' %>
+        <%= f.text_field :maintainer %>
+      </div>  
+    </div>
+    
+    <div class = "span4">
+      <div class="control-group">
+        <%= f.label 'Número de obra:' %>
+        <%= f.text_field :task_num %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Número de orçamento:' %>
+        <%= f.text_field :estimate_num %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Número de pedido de compra:' %>
+        <%= f.text_field :purchase_num %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Custo em peças / material:' %>
+        <%= f.text_field :parts_cost %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Custo de mão-de-obra e deslocações:' %>
+        <%= f.text_field :labor_cost %>
+      </div>
+    </div>
+  </div><!-- row -->
+
+  <div class="control-group">
+    <%= f.label 'Descrição:' %>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label 'Peças mudadas:' %><br>
-    <%= f.text_area :changed_parts %>
-  </div>
-  <div class="field">
-    <%= f.label 'Pessoa / empresa que interviu:' %><br>
-    <%= f.text_field :maintainer %>
-  </div>
-  <div class="field">
-    <%= f.label 'Número de tarefa / obra:' %><br>
-    <%= f.text_field :task_num %>
-  </div>
-  <div class="field">
-    <%= f.label 'Número de orçamento:' %><br>
-    <%= f.text_field :estimate_num %>
-  </div>
-  <div class="field">
-    <%= f.label 'Número de pedido de compra:' %><br>
-    <%= f.text_field :purchase_num %>
-  </div>
-  <div class="field">
-    <%= f.label 'Custo em peças / material:' %><br>
-    <%= f.text_field :parts_cost %>
-  </div>
-  <div class="field">
-    <%= f.label 'Custo de mão-de-obra e deslocações:' %><br>
-    <%= f.text_field :labor_cost %>
-  </div>
+
   <div class="actions">
-    <%= f.submit "Actualizar Intervenção" %>
+    <%= f.submit "Salvar", :class => 'btn btn-primary' %>
   </div>
 <% end %>

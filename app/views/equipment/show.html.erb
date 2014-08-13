@@ -7,7 +7,6 @@
 <h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %></small></h2>
 
 <hr>
-
 <div class="row">
   <div class="span4">
     <p>Marca: <%= @equipment.manufacturer %></p>
@@ -30,9 +29,30 @@
   <p>Contacto de manutenção:<%= @equipment.maintenance_contact %></p>
 
 
+<% if @maintasks.count > 0 %>
+<hr>
+<h3>Plano de manutenção <small>Equipamento nº<%= @equipment.num_id %></small></h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>Tarefa</th>
+    <th>Periodicidade</th>
+    <th>Unidades</th>
+  </tr>
+  <% @maintasks.each do |maintask| %>
+    <tr>
+      <td><%= maintask.task %></td>
+      <td><%= maintask.period %></td>
+      <td><%= maintask.unit %></td>
+      <td><%= link_to 'Editar', edit_equipment_maintask_path(@equipment, maintask), :class => 'btn btn-default' %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
+
+<% if @interventions.count > 0 %>
 <hr>
 <h3>Lista de Intervenções <small>Equipamento nº<%= @equipment.num_id %></small></h3>
-
 
 <table class="table table-hover">
   <tr>
@@ -47,6 +67,7 @@
     </tr>
   <% end %>
 </table>
+<% end %>
 
 </div><!-- span9 -->
 

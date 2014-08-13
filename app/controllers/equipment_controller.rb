@@ -16,6 +16,8 @@ class EquipmentController < ApplicationController
     @search = @equipment.interventions.search(params[:q])
     @search.sorts = 'day desc' if @search.sorts.empty?
     @interventions = @search.result
+    
+    @maintasks = @equipment.maintasks
   end
 
   # GET /equipment/new

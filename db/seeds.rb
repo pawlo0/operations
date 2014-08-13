@@ -83,27 +83,27 @@ p "Created #{Intervention.count} interventions."
 [9, 10, 11, 12, 59, 69].each do |f|
 Maintask.create!([{
     equipment_id: f,
-    taks: "Lubrificar. Verificar correia e parafusos.",
+    task: "Lubrificar. Verificar correia e parafusos.",
     period: 250,
-    units: "Horas"
+    unit: "Horas"
 },
 {
     equipment_id: f,
     task: "Inverter rotação do motor.",
     period: 500,
-    units: "Horas"
+    unit: "Horas"
 },
 {
     equipment_id: f,
     task: "Efectuar manutenção total à parte quente.",
     period: 1000,
-    units: "Horas"
+    unit: "Horas"
 },
 {
     equipment_id: f,
     task: "Efectuar manutenção total à parte fria.",
     period: 2000,
-    units: "Horas"  
+    unit: "Horas"  
 }])
 end
 

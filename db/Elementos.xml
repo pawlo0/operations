@@ -28,82 +28,7 @@
 <PeriodManut>CONTRATO MANUT.</PeriodManut>
 <Contacto>PROMEC S.A</Contacto>
 </ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>3</NIdentifica>
-<Equipamento>DEPÓSITO CRIOGÉNICO AZOTO</Equipamento>
-<Marca>TW</Marca>
-<Modelo>CC 27000</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>353</NFabricante>
-<AnoFabrico>1990</AnoFabrico>
-<AnoCompra>1990</AnoCompra>
-<Funcao>ENCHIMENTO</Funcao>
-<Obs>REGISTO MIE 16424/P</Obs>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>4</NIdentifica>
-<Equipamento>DEPÓSITO CRIOGÉNICO ARGON</Equipamento>
-<Marca>TW</Marca>
-<Modelo>CC 27000</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>289</NFabricante>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Funcao>ENCHIMENTO</Funcao>
-<Obs>REGISTO MIE - 16425/P</Obs>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>5</NIdentifica>
-<Equipamento>DEPÓSITO CRIOGÉNICO OXIGENIO</Equipamento>
-<Marca>TW</Marca>
-<Modelo>CC 27000</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>291</NFabricante>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Funcao>ENCHIMENTO</Funcao>
-<Obs>REGISTO MIE - 16426/P</Obs>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>6</NIdentifica>
-<Equipamento>DEPÓSITO CRIOGÉNICO CO2</Equipamento>
-<Marca>CRIO-TERUEL</Marca>
-<Modelo>TEVV 22/24</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>01.1791/2</NFabricante>
-<AnoFabrico>2001</AnoFabrico>
-<AnoCompra>2001</AnoCompra>
-<Funcao>ENCHIMENTO</Funcao>
-<Obs>REGISTO MIE - 20210/P</Obs>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>7</NIdentifica>
-<Equipamento>DEPÓSITO AR COMPRIMIDO</Equipamento>
-<Marca>SOVAPOR</Marca>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>SV-234/9/87</NFabricante>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-<Obs>REGISTO MIE - 16361/P</Obs>
-<Contacto>SOVAPOR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>8</NIdentifica>
-<Equipamento>DEPÓSITO DE ÁGUA A PRESSÃO</Equipamento>
-<Marca>COSTA &amp; GARCIA</Marca>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>80278/26</NFabricante>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-<Obs>REGSITO MIE - 16291/P</Obs>
-<Contacto>COSTA &amp; GARCIA</Contacto>
-</ELEMENTOS>
+
 <ELEMENTOS>
 <NIdentifica>9</NIdentifica>
 <Equipamento>BOMBA CRIOGENICA</Equipamento>
@@ -162,53 +87,7 @@
 <PeriodManut>VER MAPA</PeriodManut>
 <Contacto>PRAXAIR</Contacto>
 </ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>13</NIdentifica>
-<Equipamento>BOMBA VAZIO</Equipamento>
-<Marca>LEYBOLD</Marca>
-<Modelo>SV 100</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>13192-1/251</NFabricante>
-<NSerie>J95 12 00008</NSerie>
-<AnoFabrico>1995</AnoFabrico>
-<AnoCompra>1995</AnoCompra>
-<Potencia>2,69 KW</Potencia>
-<Funcao>LINHA VAZIO O2</Funcao>
-<Obs>FOI P/ VFXIRA - FICHA INUTILIZADA</Obs>
-<Consumiveis>FOMBLIN</Consumiveis>
-<PeriodManut>VER MAPA</PeriodManut>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>14</NIdentifica>
-<Equipamento>BOMBA VAZIO</Equipamento>
-<Marca>BUSCH</Marca>
-<Modelo>RS/SUPER 100-132</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>412176</NSerie>
-<AnoFabrico>1989</AnoFabrico>
-<AnoCompra>1989</AnoCompra>
-<Potencia>2,2 KW</Potencia>
-<Funcao>LINHA VAZIO N2</Funcao>
-<Consumiveis>FOMBLIN</Consumiveis>
-<PeriodManut>VER MAPA</PeriodManut>
-<Contacto>PRAXAIR</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>15</NIdentifica>
-<Equipamento>COMPRESSOR AR</Equipamento>
-<Marca>INGERSOLL-RAND</Marca>
-<Modelo>SSR ML-15</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>E 87 11 215</NSerie>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Potencia>18,5 KW</Potencia>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-<Obs>SR. NOGUEIRA (229 829 619)</Obs>
-<PeriodManut>VER MAPA</PeriodManut>
-<Contacto>TRIAR</Contacto>
-</ELEMENTOS>
+
 <ELEMENTOS>
 <NIdentifica>16</NIdentifica>
 <Equipamento>PORTA-PALETES ELÉCTRICO</Equipamento>
@@ -251,192 +130,7 @@
 <PeriodManut>CONTRATO MANUT.</PeriodManut>
 <Contacto>PROMEC</Contacto>
 </ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>19</NIdentifica>
-<Equipamento>BOMBA ÁGUA SUBMERGIVEL</Equipamento>
-<Marca>SALMSON</Marca>
-<Modelo>D40415-T14</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>080-24555</NFabricante>
-<AnoFabrico>2001</AnoFabrico>
-<AnoCompra>2001</AnoCompra>
-<Potencia>1,1 KW</Potencia>
-<Funcao>POÇO DE ÁGUA</Funcao>
-<PeriodManut>ANUAL</PeriodManut>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>20</NIdentifica>
-<Equipamento>BÁSCULA DIGITAL</Equipamento>
-<Marca>MINERVA</Marca>
-<Modelo>LC 50</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>625291</NSerie>
-<AnoFabrico>1994</AnoFabrico>
-<AnoCompra>1994</AnoCompra>
-<Potencia>150 Kg</Potencia>
-<Funcao>PROVA HIDRAULICA</Funcao>
-<EquipComplem>PLATAFORMA 250mm X 250mm</EquipComplem>
-<Obs>DIVISÃO 20g - Instrumento 606</Obs>
-<PeriodManut>ANUAL</PeriodManut>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>21</NIdentifica>
-<Equipamento>BÁSCULA DIGITAL</Equipamento>
-<Marca>MOBBA</Marca>
-<Modelo>V 3000</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>661607</NSerie>
-<AnoFabrico>1993</AnoFabrico>
-<AnoCompra>1993</AnoCompra>
-<Potencia>3000 Kg</Potencia>
-<Funcao>ENCHIMENTO PGS/PT´S</Funcao>
-<EquipComplem>PLATAFORMA DE LB1010 (1000mm X 1000mm)</EquipComplem>
-<Obs>DIVISÃO 1Kg</Obs>
-<PeriodManut>ANUAL</PeriodManut>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>22</NIdentifica>
-<Equipamento>BÁSCULA DIGITAL</Equipamento>
-<Marca>MOBBA</Marca>
-<Modelo>FT 526</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>91557</NSerie>
-<AnoFabrico>1988</AnoFabrico>
-<AnoCompra>1988</AnoCompra>
-<Potencia>400 Kg</Potencia>
-<Funcao>ENCHIMENTO PGS</Funcao>
-<EquipComplem>PLATAFORMA LB88 (800mm X 800mm)</EquipComplem>
-<Obs>DIVISÃO 200g - Instrumento 605</Obs>
-<PeriodManut>ANUAL</PeriodManut>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>23</NIdentifica>
-<Equipamento>BÁSCULA ELECTRÓNICA</Equipamento>
-<Marca>MOBBA</Marca>
-<Modelo>V-2500</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>710263</NSerie>
-<AnoFabrico>2007</AnoFabrico>
-<AnoCompra>2007</AnoCompra>
-<Potencia>200 Kg</Potencia>
-<Funcao>ENCHIMENTO CO2</Funcao>
-<EquipComplem>PLATAFORMA LB66 (600mm X 600mm)</EquipComplem>
-<Obs>DIVISÃO 50g - Instrumento 604</Obs>
-<PeriodManut>ANUAL</PeriodManut>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>24</NIdentifica>
-<Equipamento>GRUPO HIDROPNEUMÁTICO</Equipamento>
-<Marca>GRUNDFOS</Marca>
-<Modelo>CP8-20</Modelo>
-<AssignadoA>AGUAS INSDUSTRIAIS</AssignadoA>
-<AnoFabrico>1988</AnoFabrico>
-<AnoCompra>1988</AnoCompra>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>25</NIdentifica>
-<Equipamento>GRUPO HIDROPNEUMÁTICO</Equipamento>
-<Marca>GRUNDFOS</Marca>
-<Modelo>CP-30</Modelo>
-<AssignadoA>ÁGUAS DOMÉSTICAS</AssignadoA>
-<AnoFabrico>1988</AnoFabrico>
-<AnoCompra>1988</AnoCompra>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>26</NIdentifica>
-<Equipamento>GRUPO HIDROPNEUMÁTICO</Equipamento>
-<Marca>MAJMAR</Marca>
-<Modelo>VLR-2/80</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<AnoFabrico>1992</AnoFabrico>
-<AnoCompra>1992</AnoCompra>
-<Funcao>PROVA HIDRAULICA</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>27</NIdentifica>
-<Equipamento>PLATAFORMAS</Equipamento>
-<Marca>ACL</Marca>
-<Modelo>MEX 10-12</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<AnoFabrico>1987</AnoFabrico>
-<AnoCompra>1987</AnoCompra>
-<Potencia>1000Kg</Potencia>
-<Funcao>PRODUÇÃO</Funcao>
-<EquipComplem>PLATAFORMA 1000mm X 2300mm</EquipComplem>
-<Obs>CONTACTO-226170054</Obs>
-<PeriodManut>ANUAL</PeriodManut>
-<Contacto>ACL (SR.FERREIRA)</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>28</NIdentifica>
-<Equipamento>GRUPO MOTOR DIESEL+TURBINA ÁGUA</Equipamento>
-<Marca>LISTER+EFACEC</Marca>
-<Modelo>HL4</Modelo>
-<AssignadoA>INCÊNDIOS</AssignadoA>
-<AnoFabrico>1988</AnoFabrico>
-<AnoCompra>1988</AnoCompra>
-<Funcao>CASA DAS MÁQUINAS</Funcao>
-<EquipComplem>TEM ACOPLADO UMA TURBINA EFACEC</EquipComplem>
-<Contacto>AUTOLUX</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>29</NIdentifica>
-<Equipamento>ANALIZADOR ppm O2</Equipamento>
-<Marca>TELEDYNE</Marca>
-<Modelo>311C</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>109085</NSerie>
-<AnoFabrico>1997</AnoFabrico>
-<AnoCompra>1997</AnoCompra>
-<EquipComplem>CÉLULA B-2</EquipComplem>
-<Contacto>ESINDUS S.A</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>30</NIdentifica>
-<Equipamento>ANALISADOR ppm HC On-Line</Equipamento>
-<Marca>TELEDYNE</Marca>
-<Modelo>102C</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>153993</NSerie>
-<AnoFabrico>1995</AnoFabrico>
-<AnoCompra>1995</AnoCompra>
-<Obs>SENSOR-B12093</Obs>
-<Contacto>ESINDUS S.A - AMBICONTROL</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>31</NIdentifica>
-<Equipamento>ANALISADOR %O2</Equipamento>
-<Marca>SERVOMEX</Marca>
-<Modelo>244 A</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>1572</NSerie>
-<AnoFabrico>1994</AnoFabrico>
-<AnoCompra>1994</AnoCompra>
-<Obs>PRECISÃO +/-0,02%</Obs>
-<Contacto>ARIES S.A</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>32</NIdentifica>
-<Equipamento>ANALISADOR ppm HC</Equipamento>
-<Marca>TELEDYNE</Marca>
-<Modelo>402R</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>165581/155571</NSerie>
-<AnoFabrico>2000</AnoFabrico>
-<AnoCompra>2000</AnoCompra>
-<Contacto>ESINDUS S.A</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>33</NIdentifica>
-<Equipamento>ASPIRADOR</Equipamento>
-<Marca>KARCHER</Marca>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<AnoFabrico>1998</AnoFabrico>
-<AnoCompra>1998</AnoCompra>
-<Contacto>NEOPARTS LDA.</Contacto>
-</ELEMENTOS>
+
 <ELEMENTOS>
 <NIdentifica>34</NIdentifica>
 <Equipamento>MAQUINAS APERTAR GRIFOS</Equipamento>
@@ -738,17 +432,6 @@
 <Contacto>TIPSAL</Contacto>
 </ELEMENTOS>
 <ELEMENTOS>
-<NIdentifica>57</NIdentifica>
-<Equipamento>DEPÓSITO CRIOGÉNICO OXIGENIO</Equipamento>
-<Marca>TAYLOR-WHARTON HARSO</Marca>
-<Modelo>SCS-200000/18,5</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NFabricante>2635</NFabricante>
-<AnoFabrico>0</AnoFabrico>
-<AnoCompra>0</AnoCompra>
-<Funcao>ENCHIMENTO O2 35</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
 <NIdentifica>58</NIdentifica>
 <Equipamento>ELEVADOR DE CARRO</Equipamento>
 <Marca>BISHAMON</Marca>
@@ -784,28 +467,6 @@
 <AnoCompra>0</AnoCompra>
 </ELEMENTOS>
 <ELEMENTOS>
-<NIdentifica>62</NIdentifica>
-<Equipamento>MAQUINA MARCAR GARRAFAS</Equipamento>
-<Marca>EXPOCONTROL</Marca>
-<Modelo>SITELMK3</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>07A4474</NSerie>
-<AnoFabrico>2007</AnoFabrico>
-<AnoCompra>2007</AnoCompra>
-<Funcao>MARCAÇÃO DE GARRAFAS</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>63</NIdentifica>
-<Equipamento>ANALIZADOR DE HUMIDADE</Equipamento>
-<Marca>AMETEK</Marca>
-<Modelo>303B-STD</Modelo>
-<AssignadoA>PRODUÇÃO</AssignadoA>
-<NSerie>1105216303A340</NSerie>
-<AnoFabrico>2006</AnoFabrico>
-<AnoCompra>2007</AnoCompra>
-<Funcao>ANÁLISE</Funcao>
-</ELEMENTOS>
-<ELEMENTOS>
 <NIdentifica>64</NIdentifica>
 <Equipamento>BOMBA VAZIO</Equipamento>
 <Marca>LEYBOLD</Marca>
@@ -835,43 +496,5 @@
 <PeriodManut>VER MAPA</PeriodManut>
 <Contacto>PRAXAIR / CRYOSPAIN</Contacto>
 </ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>66</NIdentifica>
-<Equipamento>EMPILHADOR DE CAMIÃO</Equipamento>
-<Marca>Moffett</Marca>
-<Modelo>M1501</Modelo>
-<AssignadoA>Distribuição</AssignadoA>
-<NSerie>19425</NSerie>
-<AnoFabrico>1999</AnoFabrico>
-<AnoCompra>1999</AnoCompra>
-<Potencia>1500kg</Potencia>
-<Funcao>Empilhador 40-70-PN</Funcao>
-<PeriodManut>Semestral</PeriodManut>
-<Contacto>Empigest Sr. Sergio Mateus 93 744 0501</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>67</NIdentifica>
-<Equipamento>EMPILHADOR DE CAMIÃO</Equipamento>
-<Marca>Moffett</Marca>
-<Modelo>M2503</Modelo>
-<AssignadoA>Distribuição</AssignadoA>
-<NSerie>16008</NSerie>
-<AnoFabrico>1996</AnoFabrico>
-<AnoCompra>1996</AnoCompra>
-<Potencia>3000kg</Potencia>
-<Funcao>Empilhador 36-65-QC</Funcao>
-<PeriodManut>Semestral</PeriodManut>
-<Contacto>Empigest Sr. Sergio Mateus 93 744 0501</Contacto>
-</ELEMENTOS>
-<ELEMENTOS>
-<NIdentifica>68</NIdentifica>
-<Equipamento>ATRELADO DE CAMIÃO</Equipamento>
-<Marca>LECIÑENA</Marca>
-<AssignadoA>Distribuição</AssignadoA>
-<NSerie>L-151709</NSerie>
-<AnoFabrico>0</AnoFabrico>
-<AnoCompra>0</AnoCompra>
-<Potencia>38.000kg</Potencia>
-<Funcao>Atrelado do 40-60-PN</Funcao>
-</ELEMENTOS>
+
 </dataroot>

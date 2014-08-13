@@ -10,24 +10,26 @@
 <div class="row">
   <div class="span4">
     <p>Marca: <%= @equipment.manufacturer %></p>
-    <p>Modelo:<%= @equipment.model %></p>
+    <p>Modelo: <%= @equipment.model %></p>
     <p>Número de série: <%= @equipment.serial %></p>
     <p>Data fabrico: <%= @equipment.manuf_date %></p>
-    <p>Data compra:<%= @equipment.buy_date %></p>    
+    <p>Data compra: <%= @equipment.buy_date %></p>    
 
   </div>
   
   <div class="span4">
-    <p>Função:<%= @equipment.function %></p>
+    <p>Função: <%= @equipment.function %></p>
     <p>Assignado a: <%= @equipment.assigned_to %></p>
     <p>Localização: <%= @equipment.location %></p>
-    <p>Período de manutenção:<%= @equipment.maintenance_period %></p>
+    <p>Período de manutenção: <%= @equipment.maintenance_period %></p>
     <p>Observações: <%= @equipment.obs %></p>
   </div>
 </div>
   
-  <p>Contacto de manutenção:<%= @equipment.maintenance_contact %></p>
-
+  <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>
+  <% if @intercept %>
+  <p>Horas actuais estimadas: <%= @intercept.round(0) %></p>
+  <% end %>
 
 <% if @maintasks.count > 0 %>
 <hr>

@@ -1,3 +1,5 @@
+require 'linear'
+
 class EquipmentController < ApplicationController
   rescue_from ActiveRecord::RecordNotUnique, :with => :not_unique
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
@@ -18,6 +20,19 @@ class EquipmentController < ApplicationController
     @interventions = @search.result
     
     @maintasks = @equipment.maintasks
+    
+    @days = []
+    @hours = []
+    @interventions.each do |interv|
+      if interv.eq_hours > 0
+        @days << (interv.day - Date.today).to_i
+        @hours << interv.eq_hours
+      end
+    end
+    
+    @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0
+    @intercept = @linear.y_intercept if @linear
+    
   end
 
   # GET /equipment/new

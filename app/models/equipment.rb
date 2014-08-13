@@ -5,12 +5,13 @@ class Equipment < ActiveRecord::Base
   validates_uniqueness_of :id, message: "Já existe um equipamento com esse número!"
   validates_presence_of :id, message: "O equipamento tem mesmo de ter um número."
 
-def previous
-  Equipment.where('equipment.num_id < ?', self.num_id).last
-end
+  def previous
+    Equipment.where('equipment.num_id < ?', self.num_id).last
+  end
 
-def next
-  Equipment.where('equipment.num_id > ?', self.num_id).first
-end
+  def next
+    Equipment.where('equipment.num_id > ?', self.num_id).first
+  end
+  
 
 end

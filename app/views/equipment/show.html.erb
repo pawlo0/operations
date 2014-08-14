@@ -39,13 +39,11 @@
   <tr>
     <th>Tarefa</th>
     <th>Periodicidade</th>
-    <th>Unidades</th>
   </tr>
   <% @maintasks.each do |maintask| %>
     <tr>
-      <td><%= maintask.task %></td>
-      <td><%= maintask.period %></td>
-      <td><%= maintask.unit %></td>
+      <td><%= link_to maintask.task, equipment_maintask_path(@equipment, maintask) %></td>
+      <td><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
       <td><%= link_to 'Editar', edit_equipment_maintask_path(@equipment, maintask), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>

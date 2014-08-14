@@ -1,24 +1,34 @@
+
+<div class="row">
+<div class = "span9">
+  
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Equipment:</strong>
-  <%= @maintask.equipment %>
-</p>
+<h2> Tarefa de Manutenção <small>Equipamento nº <%= Equipment.find(@maintask.equipment_id).num_id %></small></h2>
 
-<p>
-  <strong>Task:</strong>
-  <%= @maintask.task %>
-</p>
+<hr>
 
-<p>
-  <strong>Period:</strong>
-  <%= @maintask.period %>
-</p>
+<div class="row">
+  <div class="span6">
+    <p>Tarefa: <%= @maintask.task %></p>
+  </div>
+  <div class="span4">
+    <p>Periodicidade: A cada <%= @maintask.period %> <%= @maintask.unit %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Unit:</strong>
-  <%= @maintask.unit %>
-</p>
+  </div><!-- span9 -->
 
-<%= link_to 'Edit', edit_maintask_path(@maintask) %> |
-<%= link_to 'Back', maintasks_path %>
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3><%= link_to 'Manutenção', equipment_path(@maintask.equipment_id) %></h3>
+        <i class="icon-chevron-left"> </i><%= link_to 'Anterior', equipment_maintask_path(@maintask.equipment_id, @maintask.previous) if @maintask.previous %> | 
+        <%= link_to 'Seguinte ', equipment_maintask_path(@maintask.equipment_id, @maintask.next) if @maintask.next %><i class="icon-chevron-right"> </i>        
+        <hr>
+        <p><%= link_to 'Editar Tarefa', edit_equipment_maintask_path(@maintask.equipment_id, @maintask), :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@maintask.equipment_id), :class => 'btn btn-primary' %></p>
+        <p>  <%= link_to 'Apagar Tarefa', @maintask, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <hr>
+    </div><!--/.well -->
+  </div><!--/span3-->
+</div><!-- row -->

@@ -1,4 +1,4 @@
-<%= form_for(@maintask) do |f| %>
+<%= form_for @maintask, :html => { :class => 'form-horizontal'} do |f| %>
   <% if @maintask.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@maintask.errors.count, "error") %> prohibited this maintask from being saved:</h2>
@@ -11,23 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :equipment_id %><br>
-    <%= f.text_field :equipment_id %>
-  </div>
-  <div class="field">
-    <%= f.label :task %><br>
-    <%= f.text_field :task %>
-  </div>
-  <div class="field">
-    <%= f.label :period %><br>
-    <%= f.number_field :period %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><br>
-    <%= f.text_field :unit %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="span6 col-md-offset-1">
+    <div class="control-group">
+      <%= f.label 'Equipamento' %>
+      <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+    </div>
+    <div class="control-group">
+      <%= f.label 'Tarefa' %>
+      <%= f.text_area :task %>
+    </div>
+    
+    <div class="control-group">
+      <div class="row">
+        <div class="span3">
+          <%= f.label 'Periodicidade:' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span6">
+          <p>A cada: <%= f.number_field :period, :class => 'input-small' %> <%= select_tag(:unit, options_for_select(['Horas', 'Meses']), :class => 'input-medium') %></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Salvar", :class => 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

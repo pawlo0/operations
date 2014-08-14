@@ -1,6 +1,21 @@
-<h1>Editing maintask</h1>
+<div class="row">
+  <div class = "span9">
+
+<h1>Editar tarefa</h1>
+
+<p id="notice"><%= notice %></p>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @maintask %> |
-<%= link_to 'Back', maintasks_path %>
+</div>
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3>Manutenção</h3>
+        <hr>
+        <p><%= link_to 'Voltar', equipment_maintask_path(@maintask.equipment_id, @maintask), :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Nova intervenção', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
+        <p>  <%= link_to 'Apagar Intervenção', @maintask, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <hr>
+    </div><!--/.well -->
+  </div><!--/span-->
+</div><!-- row -->

@@ -4,7 +4,12 @@ class MaintasksController < ApplicationController
   # GET /maintasks
   # GET /maintasks.json
   def index
-    @maintasks = Maintask.all
+    @search = Maintask.search(params[:q])
+    @search.sorts = 'equipment_id asc' if @search.sorts.empty?
+    @maintasks = @search.result.includes(:equipment)
+    @equip_with_maintasks = Equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
+    
+    
   end
 
   # GET /maintasks/1

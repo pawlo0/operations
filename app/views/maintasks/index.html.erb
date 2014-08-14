@@ -1,31 +1,64 @@
-<h1>Listing maintasks</h1>
+<div class="row">
+  <div class = "span9">
 
-<table>
+<h1>Plano de Manutenção</h1>
+
+<%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
+  <div class="form-group">
+    <div class ="span3">
+      <%= f.text_field :equipment_num_id_eq, :class => 'form-control input-small', :placeholder => 'Nº Equip'%>
+      <%= f.submit "Filtrar", :class => 'btn btn-default' %>
+    </div>
+    <div class ="span4">
+      <%= f.text_field :task_or_period_or_equipment_name_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
+      <%= f.submit "Buscar", :class => 'btn btn-default' %>        
+    </div>
+    <div class ="span1">
+      <%= link_to 'Limpar', maintasks_path, :class => 'btn btn-default' if params[:q] %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Equipment</th>
-      <th>Task</th>
-      <th>Period</th>
-      <th>Unit</th>
+      <th>Equipamento</th>
+      <th>Tarefas</th>
+      <th>Periodicidade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @maintasks.each do |maintask| %>
+    <% @equip_with_maintasks.each do |equip| %>
       <tr>
-        <td><%= maintask.equipment_id %></td>
-        <td><%= maintask.task %></td>
-        <td><%= maintask.period %></td>
-        <td><%= maintask.unit %></td>
-        <td><%= link_to 'Show', maintask %></td>
-        <td><%= link_to 'Edit', edit_maintask_path(maintask) %></td>
-        <td><%= link_to 'Destroy', maintask, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% name = equip.name + " Eq. " + equip.num_id.to_s %>
+        <td rowspan = "<%= equip.maintasks.count + 1 %>"><%= link_to name, equipment_path(equip) %></td>
+        <% equip.maintasks.each do |eqtask| %>
+          <tr>
+            <td><%= link_to eqtask.task, equipment_maintask_path(equip, eqtask) %></td>
+            <td><p>A cada <%= eqtask.period %> <%= eqtask.unit %></p></td>
+          </tr>
+        <% end %>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
+  </div><!--/span-->
+
+  <div class="span3">
+    <div class="well sidebar-nav">
+        <h3>Manutenção</h3>
+        <hr>
+        <%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %>
+        <hr>
+        <%= link_to 'Imprimir', "", :class => 'btn btn-default' %>
+    </div><!--/.well -->
+  </div><!--/span-->
+
+</div><!-- row -->
 <br>
 
-<%= link_to 'New Maintask', new_maintask_path %>
+<br>

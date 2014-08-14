@@ -5,10 +5,19 @@
 <h1>Lista de equipamentos</h1>
 
 <%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
-  <div class="form-group">
-    <%= f.text_field :num_id_or_name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
-    <%= f.submit "Buscar", :class => 'btn btn-default' %>
-    </div>
+<div class="form-group">
+  <div class ="span3">
+    <%= f.text_field :num_id_eq, :class => 'form-control input-small', :placeholder => 'Nº Equip'%>
+    <%= f.submit "Filtrar", :class => 'btn btn-default' %>
+  </div>
+  <div class ="span4">
+    <%= f.text_field :name_or_serial_or_assigned_to_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
+    <%= f.submit "Buscar", :class => 'btn btn-default' %>    
+  </div>
+  <div class ="span1">
+        <%= button_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q] %>
+  </div>
+</div>
 <% end %>
 
 <table class="table table-hover">
@@ -63,8 +72,7 @@
         <hr>
         <%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %>
         <hr>
-          
-
+        <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
     </div><!--/.well -->
   </div><!--/span-->
 

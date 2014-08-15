@@ -18,6 +18,12 @@ class InterventionsController < ApplicationController
   def new
     @equipment = Equipment.find(params[:equipment_id])
     @intervention = Intervention.new
+    @period = params[:period].to_i
+    @descrip = ""
+    Maintask.where('equipment_id == ?', params[:equipment_id]).where('unit = ?', params[:unit]).sort_by(&:unit).reverse.each do |t|
+      @descrip << t.task + " " if t.period < @period && (@period % t.period).zero?
+      @descrip << t.task + " " if t.period == @period
+    end
   end
 
   # GET /interventions/1/edit

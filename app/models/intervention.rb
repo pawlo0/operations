@@ -13,6 +13,6 @@ class Intervention < ActiveRecord::Base
   def next
     Intervention.where('equipment_id == ?', self.equipment_id).where('day > ?', self.day).sort_by(&:day).first
   end
-
+  
 end
 

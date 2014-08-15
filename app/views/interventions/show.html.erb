@@ -24,7 +24,7 @@
     <p>Número de compra: <%= @intervention.purchase_num %></p>
     <p>Custo de peças / material: <%= @intervention.parts_cost %></p>
     <p>Custo de mão-de-obra e deslocações: <%= @intervention.labor_cost %></p>
-    <p>Cutos total: <%= @intervention.parts_cost + @intervention.labor_cost %></p>
+    <p>Cutos total: <%= @intervention.parts_cost + @intervention.labor_cost if @intervention.parts_cost || @intervention.labor_cost %></p>
   </div>
 </div>
 

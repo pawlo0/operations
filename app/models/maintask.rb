@@ -9,4 +9,11 @@ class Maintask < ActiveRecord::Base
     Maintask.where('equipment_id == ?', self.equipment_id).where('period > ?', self.period).sort_by(&:period).first
   end
   
+  def find_more_freq_tasks(period)
+    Maintask.where('equipment_id == ?', self.equipment_id).each do |t|
+      descrip = []
+      descrip << t.task if t.period < period && t.period % period == 0
+    end
+  end
+  
 end

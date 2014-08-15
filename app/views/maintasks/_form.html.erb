@@ -12,14 +12,24 @@
   <% end %>
 
   <div class="span6 col-md-offset-1">
-    <div class="control-group">
-      <%= f.label 'Equipamento' %>
-      <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+    <div class="span3">
+      <div class="control-group">
+        <%= f.label 'Equipamento:' %>
+        <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Tarefa:' %>
+        <%= f.text_area :task %>
+      </div>      
     </div>
-    <div class="control-group">
-      <%= f.label 'Tarefa' %>
-      <%= f.text_area :task %>
+  
+    <div class="span3">
+      <div class="control-group">
+        <%= f.label 'Peças a mudar' %>
+        <%= f.text_area :parts %>
+      </div>        
     </div>
+  
     
     <div class="control-group">
       <div class="row">

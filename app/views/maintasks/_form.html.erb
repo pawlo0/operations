@@ -12,7 +12,6 @@
   <% end %>
 
   <div class="span6 col-md-offset-1">
-    <div class="span3">
       <div class="control-group">
         <%= f.label 'Equipamento:' %>
         <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
@@ -21,25 +20,20 @@
         <%= f.label 'Tarefa:' %>
         <%= f.text_area :task %>
       </div>      
-    </div>
-  
-    <div class="span3">
       <div class="control-group">
-        <%= f.label 'Peças a mudar' %>
+        <%= f.label 'Peças a mudar:' %>
         <%= f.text_area :parts %>
-      </div>        
-    </div>
-  
+      </div> 
     
     <div class="control-group">
       <div class="row">
         <div class="span3">
-          <%= f.label 'Periodicidade:' %>
+        <p> Periodicidade: </p>
         </div>
       </div>
       <div class="row">
         <div class="span6">
-          <p>A cada: <%= f.number_field :period, :class => 'input-small' %> <%= select_tag(:unit, options_for_select(['Horas', 'Meses']), :class => 'input-medium') %></p>
+          <p>A cada: <%= f.number_field :period, :class => 'input-small' %> <%= f.select(:unit, options_for_select(['Horas', 'Meses', 'Dias'], @maintask.unit), :class => 'input-small') %></p>
         </div>
       </div>
     </div>

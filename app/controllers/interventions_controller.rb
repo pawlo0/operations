@@ -24,6 +24,7 @@ class InterventionsController < ApplicationController
       @descrip << t.task + " " if t.period < @period && (@period % t.period).zero?
       @descrip << t.task + " " if t.period == @period
     end
+    @parts = params[:parts]
   end
 
   # GET /interventions/1/edit

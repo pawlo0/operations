@@ -19,6 +19,7 @@ class MaintasksController < ApplicationController
 
   # GET /maintasks/new
   def new
+    @equipment = Equipment.find(params[:equipment_id])
     @maintask = Maintask.new
   end
 
@@ -34,7 +35,7 @@ class MaintasksController < ApplicationController
 
     respond_to do |format|
       if @maintask.save
-        format.html { redirect_to @maintask, notice: 'A tarefa de manutenção foi criado com sucesso.' }
+        format.html { redirect_to equipment_maintask_path(@maintask.equipment_id,@maintask), notice: 'A tarefa de manutenção foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @maintask }
       else
         format.html { render :new }
@@ -48,7 +49,7 @@ class MaintasksController < ApplicationController
   def update
     respond_to do |format|
       if @maintask.update(maintask_params)
-        format.html { redirect_to @maintask, notice: 'A tarefa foi actualizada com sucesso.' }
+        format.html { redirect_to equipment_maintask_path(@maintask.equipment_id,@maintask), notice: 'A tarefa foi actualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @maintask }
       else
         format.html { render :edit }
@@ -62,7 +63,7 @@ class MaintasksController < ApplicationController
   def destroy
     @maintask.destroy
     respond_to do |format|
-      format.html { redirect_to maintasks_url, notice: 'A tarefa foi apagada.' }
+      format.html { redirect_to equipment_path(@maintask.equipment_id), notice: 'A tarefa foi apagada.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +76,6 @@ class MaintasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintask_params
-      params.require(:maintask).permit(:equipment_id, :task, :period, :unit)
+      params.require(:maintask).permit(:equipment_id, :task, :period, :unit, :parts)
     end
 end

@@ -44,7 +44,7 @@
     <tr>
       <td><%= link_to truncate(maintask.task, :length => 100), equipment_maintask_path(@equipment, maintask) %></td>
       <td><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
-      <td><%= link_to 'Intervenção', new_equipment_intervention_path(@equipment, :period => maintask.period, :unit => maintask.unit), :class => 'btn btn-default' %></td>
+      <td><%= link_to 'Intervenção', new_equipment_intervention_path(@equipment, :period => maintask.period, :unit => maintask.unit, :parts => maintask.parts), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>
 </table>

@@ -9,6 +9,11 @@ class MaintasksController < ApplicationController
     @maintasks = @search.result.includes(:equipment)
     @equip_with_maintasks = Equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
     
+    respond_to do |format|
+      format.html
+      format.csv { send_data @maintasks.to_csv }
+      format.xls 
+    end
     
   end
 

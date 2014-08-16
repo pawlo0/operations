@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+  <Table>
+    <Row>
+      <Cell><Data ss:Type="String">Nº Equipamento</Data></Cell>
+      <Cell><Data ss:Type="String">Tarefa</Data></Cell>
+      <Cell><Data ss:Type="String">Periodicidade</Data></Cell>
+      <Cell><Data ss:Type="String">Unidade</Data></Cell>
+      <Cell><Data ss:Type="String">Peças a mudar</Data></Cell>
+      <Cell><Data ss:Type="String">Observações</Data></Cell>
+    </Row>
+    <% @maintasks.each do |task| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= task.equipment_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.task %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= task.period %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= task.parts %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

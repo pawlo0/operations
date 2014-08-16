@@ -54,7 +54,8 @@
         <hr>
         <%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %>
         <hr>
-        <%= link_to 'Imprimir', "", :class => 'btn btn-default' %>
+        <p><%= link_to 'Imprimir', "", :class => 'btn btn-default' %></p>
+        <p><%= link_to 'Exportar Excel', maintasks_path(format: "xls"), :class => 'btn btn-default' %></p>
     </div><!--/.well -->
   </div><!--/span-->
 

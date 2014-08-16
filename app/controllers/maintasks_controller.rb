@@ -81,6 +81,6 @@ class MaintasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintask_params
-      params.require(:maintask).permit(:equipment_id, :task, :period, :unit, :parts)
+      params.require(:maintask).permit(:equipment_id, :task, :period, :unit, :parts, :obs)
     end
 end

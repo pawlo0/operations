@@ -25,7 +25,7 @@
       <th>Equipamento</th>
       <th>Tarefas</th>
       <th>Periodicidade</th>
-      <th colspan="3"></th>
+      <th><p class ="text-right"><%= link_to '', maintasks_path(format: "xls"), :class => 'fa fa-file-excel-o fa-2x' %></p></th>
     </tr>
   </thead>
 
@@ -55,7 +55,6 @@
         <%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %>
         <hr>
         <p><%= link_to 'Imprimir', "", :class => 'btn btn-default' %></p>
-        <p><%= link_to 'Exportar Excel', maintasks_path(format: "xls"), :class => 'btn btn-default' %></p>
     </div><!--/.well -->
   </div><!--/span-->
 

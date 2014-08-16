@@ -12,19 +12,18 @@
   <% end %>
 
   <div class="span6 col-md-offset-1">
-      <div class="control-group">
-        <%= f.label 'Equipamento:' %>
-        <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Tarefa:' %>
-        <%= f.text_area :task %>
-      </div>      
-      <div class="control-group">
-        <%= f.label 'Peças a mudar:' %>
-        <%= f.text_area :parts %>
-      </div> 
-    
+    <div class="control-group">
+      <%= f.label 'Equipamento:' %>
+      <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+    </div>
+    <div class="control-group">
+      <%= f.label 'Tarefa:' %>
+      <%= f.text_area :task %>
+    </div>      
+    <div class="control-group">
+      <%= f.label 'Peças a mudar:' %>
+      <%= f.text_area :parts %>
+    </div> 
     <div class="control-group">
       <div class="row">
         <div class="span3">
@@ -37,13 +36,13 @@
         </div>
       </div>
     </div>
-      <div class="row">
-        <div class="span6">
-          <%= f.label 'Observações:' %>
-          <%= f.text_area :obs %>
-        </div>
+    <div class="row">
+      <div class="span6">
+        <%= f.label 'Observações:' %>
+        <%= f.text_area :obs %>
       </div>
-    
+    </div>
+  <p></p>
     <div class="actions">
       <%= f.submit "Salvar", :class => 'btn btn-primary' %>
     </div>

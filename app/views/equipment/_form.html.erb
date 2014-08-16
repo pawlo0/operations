@@ -41,12 +41,8 @@
         <%= f.text_field :serial %>
       </div>
       <div class="control-group">
-        <%= f.label 'Data de fabrico:' %>
-        <%= f.date_field :manuf_date %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Data de compra:' %>
-        <%= f.date_field :buy_date %>
+        <%= f.label 'Observações:' %>
+        <%= f.text_area :obs %>
       </div>
     
     </div><!-- span4 -->
@@ -56,29 +52,23 @@
         <%= f.text_field :function %>
       </div>
       <div class="control-group">
-      <%= f.label 'Assignado a:' %>
-      <%= f.text_field :assigned_to %>
-      </div>
-      <div class="control-group">
         <%= f.label 'Localização:' %>
         <%= f.text_field :location %>
       </div>
       <div class="control-group">
-        <%= f.label 'Periodo de manutenção:' %>
-        <%= f.number_field :maintenance_period %>
-      </div>      
-      <div class="control-group">
         <%= f.label 'Contacto de manutenção:' %>
         <%= f.text_field :maintenance_contact %>
       </div>
+      <div class="control-group">
+        <%= f.label 'Data de fabrico:' %>
+        <%= f.date_field :manuf_date %>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Data de compra:' %>
+        <%= f.date_field :buy_date %>
+      </div>
     </div><!-- span4 -->
   </div><!-- row -->
-
-  <div class="control-group">
-    <%= f.label 'Observações:' %>
-    <%= f.text_area :obs %>
-  </div>
-
 
   <div class="actions">
     <%= f.submit "Salvar", :class => 'btn btn-primary' %>

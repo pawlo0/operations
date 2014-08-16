@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816141901) do
+ActiveRecord::Schema.define(version: 20140816144205) do
 
   create_table "equipment", force: true do |t|
     t.integer  "num_id"
@@ -19,13 +19,11 @@ ActiveRecord::Schema.define(version: 20140816141901) do
     t.string   "manufacturer"
     t.string   "model"
     t.string   "serial"
-    t.string   "assigned_to"
     t.string   "location"
     t.string   "function"
     t.date     "manuf_date"
     t.date     "buy_date"
     t.text     "obs"
-    t.integer  "maintenance_period"
     t.string   "maintenance_contact"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -19,14 +19,12 @@
   
   <div class="span4">
     <p>Função: <%= @equipment.function %></p>
-    <p>Assignado a: <%= @equipment.assigned_to %></p>
     <p>Localização: <%= @equipment.location %></p>
-    <p>Período de manutenção: <%= @equipment.maintenance_period %></p>
+    <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>
     <p>Observações: <%= @equipment.obs %></p>
   </div>
 </div>
   
-  <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>
   <% if @intercept =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/ %>
   <p>Horas actuais estimadas: <%= @intercept.round(0) %></p>
   <% end %>
@@ -77,8 +75,11 @@
         <i class="icon-chevron-left"> </i><%= link_to 'Anterior', @equipment.previous %> | 
         <%= link_to 'Seguinte ', @equipment.next %><i class="icon-chevron-right"> </i>
         <hr>
+        <p><%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %></p>
         <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
-        <p>  <%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <p><%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+        <hr>
+        <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
         <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
         <hr>
           

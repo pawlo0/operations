@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+  <Table>
+    <Row>
+      <Cell><Data ss:Type="String">Numero</Data></Cell>
+      <Cell><Data ss:Type="String">Nome</Data></Cell>
+      <Cell><Data ss:Type="String">Marca</Data></Cell>
+      <Cell><Data ss:Type="String">Modelo</Data></Cell>
+      <Cell><Data ss:Type="String">Número Serie</Data></Cell>
+      <Cell><Data ss:Type="String">Assignado</Data></Cell>
+      <Cell><Data ss:Type="String">Localização</Data></Cell>
+      <Cell><Data ss:Type="String">Função</Data></Cell>
+      <Cell><Data ss:Type="String">Data Fabrico</Data></Cell>
+      <Cell><Data ss:Type="String">Data Compra</Data></Cell>
+      <Cell><Data ss:Type="String">Periodo Manutenção</Data></Cell>
+      <Cell><Data ss:Type="String">Contacto Manutenção</Data></Cell>
+      <Cell><Data ss:Type="String">Observações</Data></Cell>
+    </Row>
+    <% @equipment.each do |equipment| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= equipment.num_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.manufacturer %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.model %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.serial.to_s %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.assigned_to %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.location %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.function %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= equipment.manuf_date %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= equipment.buy_date %></Data></Cell>
+        <Cell><Data ss:Type="Integer"><%= equipment.maintenance_period %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.maintenance_contact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= equipment.obs %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

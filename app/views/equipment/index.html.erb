@@ -27,6 +27,7 @@
       <th><%= sort_link @search, :name, "Equipamento" %></th>
       <th><%= sort_link @search, :manufacturer, "Marca" %></th>
       <th><%= sort_link @search, :model, "Modelo" %></th>
+      <th><%= link_to 'XLS', equipment_index_path(format: "xls"), :class => 'icon-chevron-save' %></th>
       <!-- <th>Serial</th> -->
       <!-- <th>Assigned to</th> -->
       <!-- <th>Location</th> -->

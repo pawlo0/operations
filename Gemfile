@@ -38,7 +38,8 @@ gem 'ransack'
   gem 'less'
   gem 'less-rails'
   gem 'therubyracer', :platforms => :ruby
-  
+  gem 'font-awesome-rails'
+
 #end
   
 

@@ -13,5 +13,14 @@ class Equipment < ActiveRecord::Base
     Equipment.where('equipment.num_id > ?', self.num_id).first
   end
   
+  def self.to_csv
+    CSV.generate do |cvs|
+      csv << column_names
+      all.each do |product|
+        csv << product.attributes.values_at(*column_name)
+      end
+    end
+  end
+  
 
 end

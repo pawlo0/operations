@@ -10,6 +10,11 @@ class EquipmentController < ApplicationController
     @search = Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @equipment.to_csv }
+    end
   end
 
   # GET /equipment/1

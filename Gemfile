@@ -24,6 +24,7 @@ gem 'spring',        group: :development
 
 gem 'nokogiri'
 gem 'ransack'
+gem 'devise'
 
 #group :assets do
   # Use SCSS for stylesheets

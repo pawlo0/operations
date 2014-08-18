@@ -34,7 +34,6 @@ doc.css("ELEMENTOS").each do |node|
     :name => (children.css("Equipamento").inner_text).mb_chars.capitalize,
     :manufacturer => children.css("Marca").inner_text,
     :model => children.css("Modelo").inner_text,
-    :assigned_to => children.css("AssignadoA").inner_text,
     :serial => children.css("NSerie").inner_text,
     :manuf_date => Date.new(manuf,1,1),
     :buy_date => Date.new(purchase,1,1),

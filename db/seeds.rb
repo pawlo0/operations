@@ -39,7 +39,6 @@ doc.css("ELEMENTOS").each do |node|
     :buy_date => Date.new(purchase,1,1),
     :function => children.css("Funcao").inner_text,
     :obs => children.css("Obs").inner_text,
-    :maintenance_period => children.css("PeriodManut").inner_text,
     :maintenance_contact => children.css("Contacto").inner_text
   )
 end

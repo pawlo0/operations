@@ -1,5 +1,3 @@
-
-<div class="row">
 <div class = "span9">
   
 <p id="notice"><%= notice %></p>
@@ -18,19 +16,19 @@
   </div>
 </div>
 
-  </div><!-- span9 -->
+</div><!-- span9 -->
 
-  <div class="span3">
-    <div class="well sidebar-nav">
-        <h3><%= link_to 'Manutenção', equipment_path(@maintask.equipment_id) %></h3>
-        <i class="icon-chevron-left"> </i><%= link_to 'Anterior', equipment_maintask_path(@maintask.equipment_id, @maintask.previous) if @maintask.previous %> | 
-        <%= link_to 'Seguinte ', equipment_maintask_path(@maintask.equipment_id, @maintask.next) if @maintask.next %><i class="icon-chevron-right"> </i>        
-        <hr>
-        <p><%= link_to 'Editar Tarefa', edit_equipment_maintask_path(@maintask.equipment_id, @maintask), :class => 'btn btn-default' %></p>
-        <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@maintask.equipment_id), :class => 'btn btn-primary' %></p>
-        <p>  <%= link_to 'Apagar Tarefa', @maintask, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
-        <hr>
-        <p><%= link_to 'Registar como Intervenção', new_equipment_intervention_path(params[:equipment_id], :period => @maintask.period, :unit => @maintask.unit, :parts => @maintask.parts), :class => 'btn btn-default' %><p>        <hr>
-    </div><!--/.well -->
-  </div><!--/span3-->
-</div><!-- row -->
+<div class="span3">
+  <div class="well sidebar-nav">
+      <h3><%= link_to 'Manutenção', equipment_path(@maintask.equipment_id) %></h3>
+      <i class="icon-chevron-left"> </i><%= link_to 'Anterior', equipment_maintask_path(@maintask.equipment_id, @maintask.previous) if @maintask.previous %> | 
+      <%= link_to 'Seguinte ', equipment_maintask_path(@maintask.equipment_id, @maintask.next) if @maintask.next %><i class="icon-chevron-right"> </i>        
+      <hr>
+      <p><%= link_to 'Editar Tarefa', edit_equipment_maintask_path(@maintask.equipment_id, @maintask), :class => 'btn btn-default' %></p>
+      <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@maintask.equipment_id), :class => 'btn btn-primary' %></p>
+      <p>  <%= link_to 'Apagar Tarefa', @maintask, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
+      <hr>
+      <p><%= link_to 'Registar como Intervenção', new_equipment_intervention_path(params[:equipment_id], :period => @maintask.period, :unit => @maintask.unit, :parts => @maintask.parts), :class => 'btn btn-default' %><p>        <hr>
+  </div><!--/.well -->
+</div><!--/span3-->
+

@@ -1,0 +1,10 @@
+<div class="well sidebar-nav">
+  <div id="user_nav">
+    <% if user_signed_in? %>
+      Sessão iniciada para: <%= current_user.username %> |
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

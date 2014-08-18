@@ -1,10 +1,9 @@
 
-<div class="row">
-  <div class = "span9">
+<div class = "span9">
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %></small></h2>
+<h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %><span class="pull-right"><%= render 'arrows' %></span></small></h2>
 
 <hr>
 <div class="row">
@@ -14,9 +13,9 @@
     <p>Número de série: <%= @equipment.serial %></p>
     <p>Data fabrico: <%= @equipment.manuf_date %></p>
     <p>Data compra: <%= @equipment.buy_date %></p>    
-
-  </div>
   
+  </div>
+
   <div class="span4">
     <p>Função: <%= @equipment.function %></p>
     <p>Localização: <%= @equipment.location %></p>
@@ -24,10 +23,10 @@
     <p>Observações: <%= @equipment.obs %></p>
   </div>
 </div>
-  
-  <% if @intercept =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/ %>
-  <p>Horas actuais estimadas: <%= @intercept.round(0) %></p>
-  <% end %>
+
+<% if @intercept =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/ %>
+<p>Horas actuais estimadas: <%= @intercept.round(0) %></p>
+<% end %>
 
 <% if @maintasks.count > 0 %>
 <hr>
@@ -69,22 +68,8 @@
 
 </div><!-- span9 -->
 
-  <div class="span3">
-    <div class="well sidebar-nav">
-        <h3><%= link_to 'Equipamentos', equipment_index_path %></h3>
-        <i class="icon-chevron-left"> </i><%= link_to 'Anterior', @equipment.previous %> | 
-        <%= link_to 'Seguinte ', @equipment.next %><i class="icon-chevron-right"> </i>
-        <hr>
-        <p><%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %></p>
-        <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
-        <p><%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
-        <hr>
-        <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
-        <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
-        <hr>
-          
+<div class="span3">
+  <%= render 'side' %>
+</div>
 
-    </div><!--/.well -->
-  </div><!--/span-->
 
-</div><!-- row -->

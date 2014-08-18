@@ -1,8 +1,7 @@
 
-<div class="row">
-  <div class = "span9">
+<div class = "span9">
 
-<h1>Lista de equipamentos</h1>
+<h2>Lista de equipamentos</h2>
 
 <%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
 <div class="form-group">
@@ -48,16 +47,8 @@
 
   </div><!--/span-->
 
-  <div class="span3">
-    <div class="well sidebar-nav">
-        <h3>Equipamentos</h3>
-        <hr>
-        <%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %>
-        <hr>
-        <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
-    </div><!--/.well -->
-  </div><!--/span-->
-
-</div><!-- row -->
+<div class="span3">
+  <%= render 'side' %>
+</div>
 <br>
 

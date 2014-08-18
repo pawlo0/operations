@@ -1,9 +1,9 @@
-<% if params[:id] %>
-    <% if @equipment.previous %>
-        <%= link_to '', @equipment.previous, :class => 'icon-chevron-left', :title => 'Equipamento Anterior' %> |
+    <% if params[:id] %>
+        <% if @equipment.previous %>
+            <%= link_to '', @equipment.previous, :class => 'icon-chevron-left', :title => 'Equipamento Anterior' %> |
+        <% end %>
+        <%= link_to '', equipment_index_path, :class => 'icon-chevron-up', :title => 'Voltar' %>
+        <% if @equipment.next %>
+            | <%= link_to '', @equipment.next, :class => 'icon-chevron-right', :title => 'Equipamento Seguinte' %>
+        <% end %>
     <% end %>
-    <%= link_to '', equipment_index_path, :class => 'icon-chevron-up', :title => 'Voltar' %>
-    <% if @equipment.next %>
-        | <%= link_to '', @equipment.next, :class => 'icon-chevron-right', :title => 'Equipamento Seguinte' %>
-    <% end %>
-<% end %>

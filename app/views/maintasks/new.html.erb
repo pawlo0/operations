@@ -1,16 +1,11 @@
 <div class = "span9">
 
-<h1>Nova Tarefa</h1>
+<h2>Nova Tarefa </h2>
 
 <%= render 'form' %>
 
 </div>
 <div class="span3">
-  <div class="well sidebar-nav">
-      <h3>Manutenção</h3>
-      <hr>
-      <p><%= link_to 'Voltar', equipment_path(@equipment), :class => 'btn btn-default' %></p>
-      <hr>
-  </div><!--/.well -->
+  <%= render 'side' %>
 </div><!--/span-->
 

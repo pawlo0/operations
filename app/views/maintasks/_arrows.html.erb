@@ -1,0 +1,9 @@
+<% if params[:id] %>
+    <% if @maintask.previous %>
+        <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.previous), :class => 'icon-chevron-left', :title => 'Tarefa Anterior' %> |
+    <% end %>
+    <%= link_to '', equipment_path(@maintask.equipment_id), :class => 'icon-chevron-up', :title => 'Voltar' %>
+    <% if @maintask.next %>
+        | <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.next), :class => 'icon-chevron-right', :title => 'Tarefa Seguinte' %>
+    <% end %>
+<% end %>

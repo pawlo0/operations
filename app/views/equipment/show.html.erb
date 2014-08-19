@@ -14,6 +14,7 @@
   </div>
 
   <div class="span4">
+    <p>Fábrica: <%= @equipment.plant.name if @equipment.plant %></p>
     <p>Função: <%= @equipment.function %></p>
     <p>Localização: <%= @equipment.location %></p>
     <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>

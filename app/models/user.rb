@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:username]
          
-  validates :username, :uniqueness => {:case_sensitive => false}         
+  validates :username, :uniqueness => {:case_sensitive => false}
+  
+  before_save do
+    self.name = self.name.split.map(&:capitalize).join(' ')
+  end
          
   def login=(login)
     @login = login

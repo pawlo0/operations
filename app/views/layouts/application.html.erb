@@ -30,11 +30,19 @@
         </div>
       </div>
     </div>
-
+    
   <div class="container">
     <div class="row">
       <div class="span9">
-        <h1>Fábrica da Maia</h1>
+        <% if notice %>
+          <p class="alert alert-sucess"><%= notice %></p><br/>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p><br/>
+        <% end %>
+        <% if user_signed_in? %>
+        <h1>Fábrica da <%= current_user.plant %></h1>
+        <% end %>
       </div>
       <div class="span3">
         <%= render 'layouts/session' %>
@@ -43,10 +51,10 @@
 
       
     <div class="row">
-      
-        <%= bootstrap_flash %>    
-        <%= yield %>
 
+      
+      <%= bootstrap_flash %>    
+      <%= yield %>
     </div>
   
   <footer>

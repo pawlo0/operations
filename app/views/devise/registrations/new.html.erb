@@ -24,7 +24,7 @@
       <%= f.text_field :name %></div>
       
     <div class="control-group"><%= f.label 'Fábrica:' %>
-      <%= f.text_field :plant %></div>
+      <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
   </div>
 </div>
   <div><%= f.submit "Salvar" %></div>

@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
          
   belongs_to :plant
-         
-  validates :username, :uniqueness => {:case_sensitive => false}
   
+  validates :username, :uniqueness => {:case_sensitive => false}
+
   before_save do
     self.name = self.name.split.map(&:capitalize).join(' ')
   end

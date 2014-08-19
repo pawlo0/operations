@@ -31,16 +31,15 @@
     </div>
     <div class="control-group">
       <%= f.label 'Fábrica:' %>
-      <%= f.text_field :plant %>
-    </div>
+      <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
   </div>
 </div>
-  <div><%= f.submit "Salvar" %></div>
+  <div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
 <% end %>
 
 <h3>Cancelar usuário</h3>
 
 <p>Cancelar usuário? <%= button_to "Cancelar usuário", registration_path(resource_name), data: { confirm: "Tem a certeza?" }, method: :delete %></p>
 
-<%= link_to "Voltar", :back %>
+
 </div>

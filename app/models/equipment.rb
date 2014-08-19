@@ -1,4 +1,7 @@
 class Equipment < ActiveRecord::Base
+  
+  belongs_to :plant
+  
   has_many :interventions
   has_many :maintasks
 

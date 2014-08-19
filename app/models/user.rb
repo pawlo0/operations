@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:username]
          
+  belongs_to :plant
+         
   validates :username, :uniqueness => {:case_sensitive => false}
   
   before_save do

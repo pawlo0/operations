@@ -71,6 +71,7 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
+    @equipment.plant_id = current_user.plant.id
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'O Equipamento foi editado com sucesso.' }

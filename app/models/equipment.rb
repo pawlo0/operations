@@ -5,8 +5,11 @@ class Equipment < ActiveRecord::Base
   has_many :interventions
   has_many :maintasks
 
-  validates_uniqueness_of :id, message: "Já existe um equipamento com esse número!"
-  validates_presence_of :num_id, message: "O equipamento tem mesmo de ter um número."
+  validates :num_id, 
+    presence: {message: "O equipamento tem mesmo de ter um número único."}, 
+    uniqueness: { scope: :plant_id, message: "Já existe um equipamento com esse número!" }
+  
+  validates :name, presence: {message: "O equipamento tem de ter um nome."}
   
   def previous
     Equipment.where('equipment.num_id < ?', self.num_id).last

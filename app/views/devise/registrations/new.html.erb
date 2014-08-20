@@ -27,7 +27,7 @@
       <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
   </div>
 </div>
-  <div><%= f.submit "Salvar" %></div>
+  <div><%= f.submit "Salvar" %></div> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
 <% end %>
 
 <%= render "devise/shared/links" %>

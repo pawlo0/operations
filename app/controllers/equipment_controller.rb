@@ -27,10 +27,6 @@ class EquipmentController < ApplicationController
     end
   end
   
-  def clean
-    @filter = nil
-    index
-  end
 
   # GET /equipment/1
   # GET /equipment/1.json

@@ -24,11 +24,14 @@
   <thead>
     <tr>
       <th><%= sort_link @search, :num_id, "Número" %></th>
+      <% unless params[:filter].nil? %>
+      <th><%= sort_link @search, :plant_id, "Fábrica" %></th>
+      <% end %>
       <th><%= sort_link @search, :name, "Equipamento" %></th>
       <th><%= sort_link @search, :manufacturer, "Marca" %></th>
       <th><%= sort_link @search, :model, "Modelo" %></th>
       <th>
-      <p class ="text-right"> <%= link_to '', equipment_index_path(format: "xls"), :class => 'fa fa-file-excel-o fa' %></p></th>
+      <p class ="text-right"><%= link_to '', equipment_index_path(format: "xls"), :class => 'fa fa-file-excel-o fa' %></p></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -37,6 +40,9 @@
     <% @equipment.each do |equipment| %>
       <tr>
         <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
+        <% unless params[:filter].nil? %>
+        <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
+        <% end %>
         <td><%= link_to equipment.name, equipment %></td>
         <td><%= equipment.manufacturer %></td>
         <td><%= equipment.model %></td>

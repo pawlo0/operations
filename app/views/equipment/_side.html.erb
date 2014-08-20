@@ -14,5 +14,11 @@
         <% end %>
         <hr>
         <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
+        <hr>
+        <% if params[:filter] == true || params[:filter].nil?%>
+            <%= link_to 'Tudo', {:filter => false}  %>
+        <% else %>
+            <%= link_to 'Filtrar', {:filter => nil} %>
+        <% end %>
     <% end %>
 </div><!--/.well -->

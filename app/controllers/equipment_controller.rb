@@ -8,15 +8,28 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @search = Equipment.where(plant_id: current_user.plant.id).search(params[:q])
+    
+    if params[:filter].nil? || params[:filter] == true 
+      @filter = true
+    elsif params[:filter] == false
+      @filter = false
+    end
+    
+    @search = Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
+    @equipment = @equipment.where(plant_id: current_user.plant_id) if @filter == true
     
     respond_to do |format|
       format.html
       format.csv { send_data @equipment.to_csv }
       format.xls # { send_data @equipment.to_csv(col_sep: "\t") }
     end
+  end
+  
+  def clean
+    @filter = nil
+    index
   end
 
   # GET /equipment/1

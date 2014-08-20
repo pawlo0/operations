@@ -14,7 +14,7 @@
     <%= f.submit "Buscar", :class => 'btn btn-default' %>    
   </div>
   <div class ="span1">
-        <%= button_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q] %>
+        <%= link_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q] %>
   </div>
 </div>
 <% end %>

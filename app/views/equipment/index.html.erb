@@ -24,7 +24,7 @@
   <thead>
     <tr>
       <th><%= sort_link @search, :num_id, "Número" %></th>
-      <% unless params[:filter].nil? %>
+      <% if @filter == 'false' %>
       <th><%= sort_link @search, :plant_id, "Fábrica" %></th>
       <% end %>
       <th><%= sort_link @search, :name, "Equipamento" %></th>
@@ -40,7 +40,7 @@
     <% @equipment.each do |equipment| %>
       <tr>
         <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
-        <% unless params[:filter].nil? %>
+        <% if @filter == 'false' %>
         <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
         <% end %>
         <td><%= link_to equipment.name, equipment %></td>

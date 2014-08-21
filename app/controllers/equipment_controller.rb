@@ -9,16 +9,15 @@ class EquipmentController < ApplicationController
   # GET /equipment.json
   def index
     
-    if params[:filter].nil? || params[:filter] == true 
-      @filter = true
-    elsif params[:filter] == false
-      @filter = false
-    end
-    
+    @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
+
     @search = Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
-    @equipment = @equipment.where(plant_id: current_user.plant_id) if @filter == true
+    @equipment = @equipment.where(plant_id: current_user.plant_id) if @filter == 'true'
+    
+    
+    session[:filter] = @filter
     
     respond_to do |format|
       format.html
@@ -31,6 +30,9 @@ class EquipmentController < ApplicationController
   # GET /equipment/1
   # GET /equipment/1.json
   def show
+    
+    @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : true
+    
     @search = @equipment.interventions.search(params[:q])
     @search.sorts = 'day desc' if @search.sorts.empty?
     @interventions = @search.result
@@ -45,6 +47,8 @@ class EquipmentController < ApplicationController
         @hours << interv.eq_hours
       end
     end
+    
+    session[:filter] = @filter
     
     @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0
     @intercept = @linear.y_intercept if @linear

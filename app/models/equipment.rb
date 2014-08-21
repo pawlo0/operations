@@ -11,12 +11,20 @@ class Equipment < ActiveRecord::Base
   
   validates :name, presence: {message: "O equipamento tem de ter um nome."}
   
-  def previous
-    Equipment.where('equipment.num_id < ?', self.num_id).last
+  def previous(plant, filter)
+    if filter == 'true'
+      Equipment.where(plant_id: plant).where('equipment.num_id < ?', self.num_id).last
+    else
+      Equipment.where('equipment.num_id < ?', self.num_id).last
+    end
   end
 
-  def next
-    Equipment.where('equipment.num_id > ?', self.num_id).first
+  def next(plant, filter)
+    if filter == 'true'
+      Equipment.where(plant_id: plant).where('equipment.num_id > ?', self.num_id).first
+    else
+      Equipment.where('equipment.num_id > ?', self.num_id).first
+    end
   end
   
   def self.to_csv(options = {})

@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :equipment do
     resources :interventions
     resources :maintasks
+    collection { post 'import' }
   end
-
+  
   root to: "equipment#index"
   
   # The priority is based upon order of creation: first created -> highest priority.

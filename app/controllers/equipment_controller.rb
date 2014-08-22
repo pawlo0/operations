@@ -23,9 +23,16 @@ class EquipmentController < ApplicationController
       format.html
       format.csv { send_data @equipment.to_csv }
       format.xls # { send_data @equipment.to_csv(col_sep: "\t") }
+      format.xlsx
     end
   end
   
+  def import
+    Equipment.import(params[:file])
+    redirect_to equipment_index_path, notice: "Equipamentos importados."
+  end
+
+
 
   # GET /equipment/1
   # GET /equipment/1.json
@@ -105,6 +112,13 @@ class EquipmentController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def import
+    Equipment.import(params[:file])
+    redirect_to equipment_index_url, notice: "Equipamentos importados."
+  end
+
+
 
   private
 

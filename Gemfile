@@ -25,6 +25,8 @@ gem 'spring',        group: :development
 gem 'nokogiri'
 gem 'ransack'
 gem 'devise'
+gem 'roo'
+gem 'axlsx_rails', '>= 0.2.0'
 
 #group :assets do
   # Use SCSS for stylesheets

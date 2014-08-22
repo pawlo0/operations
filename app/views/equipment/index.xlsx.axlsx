@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Equipment") do |sheet|
+  arr = []
+  @equipment.column_names.each do |name|
+    arr << name
+  end
+  sheet.add_row arr
+  @equipment.each do |equip|
+    line = sheet.add_row
+    @equipment.column_names.each do |name|
+      if equip.send(name) == '' || equip.send(name) == nil
+        line.add_cell "."
+      else
+        line.add_cell equip.send(name)
+      end
+    end
+  end
+end

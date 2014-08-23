@@ -28,7 +28,7 @@ class EquipmentController < ApplicationController
   end
   
   def import
-    Equipment.import(params[:file])
+    Equipment.import(current_user.plant_id, params[:file])
     redirect_to equipment_index_path, notice: "Equipamentos importados."
   end
 
@@ -113,13 +113,6 @@ class EquipmentController < ApplicationController
     end
   end
   
-  def import
-    Equipment.import(params[:file])
-    redirect_to equipment_index_url, notice: "Equipamentos importados."
-  end
-
-
-
   private
 
     def not_unique

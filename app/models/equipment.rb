@@ -37,14 +37,16 @@ class Equipment < ActiveRecord::Base
     end
   end
 
-  def self.import(file)
-    spreadsheet = open_spreadsheet(file)
-    header = spreadsheet.row(1)
-    (2..spreadsheet.last_row).each do |i|
-      row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["id"]) || new
-      product.attributes = row.to_hash.slice(*column_names)
-      product.save!
+  def self.import(plant, file)
+    spreadsheet = open_spreadsheet(file)    
+    header = spreadsheet.row(1)             
+    (2..spreadsheet.last_row).each do |i|   
+      row = Hash[[header, spreadsheet.row(i)].transpose]    # makes hash, sets the key from header array and the value from each cell's content (also an array)
+      row = row.reject{|k,v| v.nil?}        # removes keys with nil values. Otherwisem if updating an element, nil keys would erase existing info 
+      equipment = where(num_id: row["num_id"], plant_id: plant).first || new    # if exists, sets equipment varible as existing record, otherwise creates new equipment
+      equipment.attributes = row 
+      equipment.attributes = {plant_id: plant}
+      equipment.save!
     end
   end
   

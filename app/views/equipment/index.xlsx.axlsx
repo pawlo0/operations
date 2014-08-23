@@ -1,18 +1,14 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Equipment") do |sheet|
-  arr = []
-  @equipment.column_names.each do |name|
-    arr << name
+  columns_arr = []
+  @equipment.column_names.each do |col_name|
+    columns_arr << col_name unless col_name == "id" || col_name == "plant_id"
   end
-  sheet.add_row arr
+  sheet.add_row columns_arr
   @equipment.each do |equip|
     line = sheet.add_row
-    @equipment.column_names.each do |name|
-      if equip.send(name) == '' || equip.send(name) == nil
-        line.add_cell "."
-      else
-        line.add_cell equip.send(name)
-      end
+    columns_arr.each do |col_name|
+      line.add_cell equip.send(col_name)
     end
   end
 end

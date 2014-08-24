@@ -40,7 +40,7 @@
           <p class="alert alert-danger"><%= alert %></p><br/>
         <% end %>
         <% if user_signed_in? && current_user.plant != nil %>
-        <h1>Fábrica da <%= current_user.plant.name %></h1>
+        <h1>Fábrica <%= current_user.plant.name %></h1>
         <% end %>
       </div>
       <div class="span3">

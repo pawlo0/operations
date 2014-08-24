@@ -4,15 +4,20 @@ class MaintasksController < ApplicationController
   # GET /maintasks
   # GET /maintasks.json
   def index
-    @search = Maintask.search(params[:q])
+    
+    @equipment = Equipment.where(plant_id: current_user.plant_id)
+    @equipment_ids = @equipment.pluck(:id)
+    @search = Maintask.where(equipment_id: @equipment_ids).search(params[:q])
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?
     @maintasks = @search.result.includes(:equipment)
-    @equip_with_maintasks = Equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
+    
+    @equip_with_maintasks = @equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
     
     respond_to do |format|
       format.html
       format.csv { send_data @maintasks.to_csv }
       format.xls 
+      format.xlsx
     end
     
   end

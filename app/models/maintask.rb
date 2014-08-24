@@ -25,5 +25,8 @@ class Maintask < ActiveRecord::Base
     end
   end
   
+  def self.with_equipments
+    joins(:equipment_id).merge( Equipment.id )
+  end
   
 end

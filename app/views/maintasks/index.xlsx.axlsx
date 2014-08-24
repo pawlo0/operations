@@ -1,12 +1,12 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Equipment") do |sheet|
+wb.add_worksheet(name: "Plano Manutenção") do |sheet|
   columns_arr = []
-  not_export = ["id", "plant_id", "created_at", "updated_at"]
-  @equipment.column_names.each do |col_name|
+  not_export = ["id", "created_at", "updated_at"]
+  @maintasks.column_names.each do |col_name|
     columns_arr << col_name unless not_export.include?(col_name)
   end
   sheet.add_row columns_arr
-  @equipment.each do |element|
+  @maintasks.each do |element|
     line = sheet.add_row
     columns_arr.each do |col_name|
       line.add_cell element.send(col_name)

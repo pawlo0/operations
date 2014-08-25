@@ -11,11 +11,9 @@ class EquipmentController < ApplicationController
     
     @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
 
-    @search = Equipment.search(params[:q])
+    @search = (@filter == 'true') ? Equipment.filter_plant(current_user.plant_id).search(params[:q]) : Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
-    @equipment = @equipment.filter_plant(current_user.plant_id) if @filter == 'true'
-    
     
     session[:filter] = @filter
     
@@ -40,25 +38,32 @@ class EquipmentController < ApplicationController
     
     @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : true
     
-    @search = @equipment.interventions.search(params[:q])
+    @search = (@filter == 'true') ? @equipment.interventions.without_hour_registers.search(params[:q]) : @equipment.interventions.search(params[:q])
     @search.sorts = 'day desc' if @search.sorts.empty?
     @interventions = @search.result
     
     @maintasks = @equipment.maintasks
     
+    session[:filter] = @filter
+    
+    # linear regression of equipment hours estimate
     @days = []
     @hours = []
-    @interventions.each do |interv|
+    @equipment.interventions.each do |interv|
       if interv.eq_hours > 0
-        @days << (interv.day - Date.today).to_i
+        @days << (Date.today - interv.day).to_i.round(0)
         @hours << interv.eq_hours
       end
     end
-    
-    session[:filter] = @filter
-    
-    @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0
-    @intercept = @linear.y_intercept if @linear
+    if @days.sort.first == 0 
+      # If registered today it prints today's equipment hours
+      @intercept = @hours.sort.last
+    else 
+      # Else calculates linear regression
+      @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0 
+      @intercept = @linear.y_intercept if @linear
+    end
+    # -------
     
   end
 

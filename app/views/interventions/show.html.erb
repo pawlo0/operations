@@ -8,7 +8,7 @@
   <div class="span4">
     <p>Data: <%= @intervention.day %></p>
     <p>Horas equipamento: <%= @intervention.eq_hours %></p>
-    <p>Tipo de intervenção: </p>
+    <p>Tipo de intervenção: <%= InterventionType.find_by_id(@intervention.intervention_type_id).name if @intervention.intervention_type_id %></p>
     <p>Peças mudadas: <%= @intervention.changed_parts %></p>
     <p>Pessoa / empresa que interviu: <%= @intervention.maintainer %></p>
     <p>Descrição: <%= @intervention.description %></p>

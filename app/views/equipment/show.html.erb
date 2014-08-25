@@ -21,10 +21,16 @@
     <p>Observações: <%= @equipment.obs %></p>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="span6">
+    <%= form_tag hour_register_interventions_path(:id => @equipment.id), multipart: true, :class => 'form-horizontal' do %>
+    <% @intercept = 0 if @intercept == /\A[-+]?[0-9]*\.?[0-9]+\Z/ %>
+    <p>Horas actuais estimadas: <%= number_field_tag :hours, @intercept %> <%= submit_tag "Registar horas" %>
+    <% end %></p>
+  </div>
+</div>
 
-<% if @intercept =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/ %>
-<p>Horas actuais estimadas: <%= @intercept.round(0) %></p>
-<% end %>
 
 <% if @maintasks.count > 0 %>
 <hr>

@@ -29,8 +29,13 @@ class InterventionsController < ApplicationController
     @parts = params[:parts]
     @intervention_type = params[:intervention_type]
     # ----------------------
-    
   end
+  
+  def hour_register
+    Intervention.hour_register(params[:id], params[:hours])
+    redirect_to equipment_path(params[:id]), notice: "Horas registas."
+  end
+    
 
   # GET /interventions/1/edit
   def edit
@@ -60,7 +65,7 @@ class InterventionsController < ApplicationController
     @equipment = Equipment.find(@intervention.equipment_id)
     respond_to do |format|
       if @intervention.update(intervention_params)
-        format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'A intervention foi actualizada com sucesso.' }
+        format.html { redirect_to equipment_intervention_path(@equipment, @intervention), notice: 'A intervenção foi actualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @intervention }
       else
         format.html { render :edit }

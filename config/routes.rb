@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :maintasks
 
-  resources :interventions
+  resources :interventions do
+    collection { post 'hour_register' }
+  end
 
   resources :equipment do
     resources :interventions

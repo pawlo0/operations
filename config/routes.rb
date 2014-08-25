@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :intervention_types
+
   resources :plants
 
   devise_for :users

@@ -1,5 +1,5 @@
 <div class="well sidebar-nav">
-  <h3><%= link_to 'Intervenções', equipment_path(@intervention.equipment_id), :title => 'Voltar' %></h3>
+  <h3><%= link_to 'Intervenções', equipment_path(params[:equipment_id]), :title => 'Voltar' %></h3>
   <hr>
   <% if params[:action] == 'new' %>
     <p><%= link_to 'Voltar', equipment_path(@equipment), :class => 'btn btn-default' %></p>

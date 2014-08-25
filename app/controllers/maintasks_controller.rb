@@ -5,7 +5,7 @@ class MaintasksController < ApplicationController
   # GET /maintasks.json
   def index
     
-    @equipment = Equipment.where(plant_id: current_user.plant_id)
+    @equipment = Equipment.filter_plant(current_user.plant_id)
     @equipment_ids = @equipment.pluck(:id)
     @search = Maintask.where(equipment_id: @equipment_ids).search(params[:q])
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?

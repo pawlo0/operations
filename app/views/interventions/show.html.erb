@@ -8,8 +8,7 @@
   <div class="span4">
     <p>Data: <%= @intervention.day %></p>
     <p>Horas equipamento: <%= @intervention.eq_hours %></p>
-    <p>Reparação? <%= @intervention.repair == false ? "Não" : "Sim" %></p>
-    <p>Manutenção preventiva? <%= @intervention.preventive == false ? "Não" : "Sim" %></p>
+    <p>Tipo de intervenção: </p>
     <p>Peças mudadas: <%= @intervention.changed_parts %></p>
     <p>Pessoa / empresa que interviu: <%= @intervention.maintainer %></p>
     <p>Descrição: <%= @intervention.description %></p>

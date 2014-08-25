@@ -23,7 +23,7 @@
     <div class="span4">
       <div class="control-group">
         <%= f.label 'Equipamento:' %>
-        <%= collection_select(:intervention, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
+        <%= collection_select(:intervention, :equipment_id, Equipment.filter_plant(current_user.plant_id), :id, :name, {:selected => @equipment.id}) %>
       </div>
     </div>
   </div>
@@ -34,12 +34,9 @@
         <%= f.label 'Horas do equipamento:' %>
         <%= f.number_field :eq_hours %>
       </div>
-      <div class="control-group">
-        <p>Reparação? <%= f.check_box :repair %></p>
-      </div>
-      <div class="control-group">
-        <p>Manutenção preventiva? <%= f.check_box :preventive %></p>
-      </div>
+        <%= f.label 'Tipo de intervenção: ' %>
+        <% @intervention.intervention_type_id = @intervention_type if @intervention_type %>
+        <%= collection_select(:intervention, :intervention_type_id, InterventionType.all, :id, :name, {:selected => @intervention.intervention_type_id}) %>
       <div class="control-group">
         <%= f.label 'Peças mudadas:' %>
         <%= f.text_area :changed_parts, :value => @parts %>
@@ -76,7 +73,8 @@
 
   <div class="control-group">
     <%= f.label 'Descrição:' %>
-    <%= f.text_area :description, :value => @descrip %>
+    <% @intervention.description = @descrip if @descrip %>
+    <%= f.text_area :description %>
   </div>
 
   <div class="actions">

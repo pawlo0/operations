@@ -14,7 +14,7 @@ class EquipmentController < ApplicationController
     @search = Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
-    @equipment = @equipment.where(plant_id: current_user.plant_id) if @filter == 'true'
+    @equipment = @equipment.filter_plant(current_user.plant_id) if @filter == 'true'
     
     
     session[:filter] = @filter

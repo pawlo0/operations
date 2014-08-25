@@ -18,6 +18,8 @@ class InterventionsController < ApplicationController
   def new
     @equipment = Equipment.find(params[:equipment_id])
     @intervention = Intervention.new
+    
+    # When intervention are submited through maintasks the following params are inserted automatically
     @period = params[:period].to_i
     @descrip = ""
     Maintask.where('equipment_id == ?', params[:equipment_id]).where('unit = ?', params[:unit]).sort_by(&:unit).reverse.each do |t|
@@ -25,6 +27,9 @@ class InterventionsController < ApplicationController
       @descrip << t.task + " " if t.period == @period
     end
     @parts = params[:parts]
+    @intervention_type = params[:intervention_type]
+    # ----------------------
+    
   end
 
   # GET /interventions/1/edit
@@ -82,6 +87,6 @@ class InterventionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intervention_params
-      params.require(:intervention).permit(:day, :equipment_id, :eq_hours, :repair, :preventive, :description, :changed_parts, :maintainer, :task_num, :estimate_num, :purchase_num, :parts_cost, :labor_cost)
+      params.require(:intervention).permit(:day, :equipment_id, :eq_hours, :description, :changed_parts, :maintainer, :task_num, :estimate_num, :purchase_num, :parts_cost, :labor_cost, :intervention_type_id)
     end
 end

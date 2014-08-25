@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819142639) do
+ActiveRecord::Schema.define(version: 20140825103039) do
 
   create_table "equipment", force: true do |t|
     t.integer  "num_id"
@@ -32,12 +32,17 @@ ActiveRecord::Schema.define(version: 20140819142639) do
 
   add_index "equipment", ["plant_id"], name: "index_equipment_on_plant_id"
 
+  create_table "intervention_types", force: true do |t|
+    t.string   "name"
+    t.string   "obs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "interventions", force: true do |t|
     t.date     "day"
     t.integer  "equipment_id"
     t.integer  "eq_hours"
-    t.boolean  "repair"
-    t.boolean  "preventive"
     t.text     "description"
     t.text     "changed_parts"
     t.string   "maintainer"
@@ -48,9 +53,11 @@ ActiveRecord::Schema.define(version: 20140819142639) do
     t.decimal  "labor_cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "intervention_type_id"
   end
 
   add_index "interventions", ["equipment_id"], name: "index_interventions_on_equipment_id"
+  add_index "interventions", ["intervention_type_id"], name: "index_interventions_on_intervention_type_id"
 
   create_table "maintasks", force: true do |t|
     t.integer  "equipment_id"

@@ -1,8 +1,11 @@
 <div class="well sidebar-nav">
   <div id="user_nav">
     <% if user_signed_in? %>
-      Ligado: <%= link_to current_user.name, edit_user_registration_path(current_user) %> |
-      <%= link_to "Sair", destroy_user_session_path,  :method => :delete %>
+      <p>Ligado: <%= link_to current_user.name, edit_user_registration_path(current_user) %> |
+      <%= link_to "Sair", destroy_user_session_path,  :method => :delete %></p>
+      <% if can? :create, User %>
+        <%= link_to "Criar Novo Utilizador", new_user_registration_path %>
+      <% end %>
     <% else %>
       <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
     <% end %>

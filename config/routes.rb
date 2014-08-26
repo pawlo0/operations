@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :plants
 
   devise_for :users
+  scope "/admin" do
+  resources :users
+  end
+  
   resources :maintasks
 
   resources :interventions do

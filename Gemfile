@@ -27,6 +27,7 @@ gem 'ransack'
 gem 'devise'
 gem 'roo'
 gem 'axlsx_rails', '>= 0.2.0'
+gem 'cancancan'
 
 #group :assets do
   # Use SCSS for stylesheets

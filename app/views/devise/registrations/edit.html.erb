@@ -34,6 +34,7 @@
       <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
   </div>
 </div>
+  <%= f.collection_select :role, User::ROLES, :to_s, :to_s %>
   <div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
 <% end %>
 

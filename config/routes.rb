@@ -3,10 +3,8 @@ Rails.application.routes.draw do
 
   resources :plants
 
-  devise_for :users
-  scope "/admin" do
-  resources :users
-  end
+  devise_for :users,  :controllers => { :registrations => "users/registrations", :sessions => "users/sessions" } 
+
   
   resources :maintasks
 

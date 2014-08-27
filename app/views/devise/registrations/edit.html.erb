@@ -7,6 +7,29 @@
 
 <div class = "row">
   <div class = "span4">
+  
+    <div class="control-group">
+      <%= f.label 'Primeiro e último nome:' %>
+      <%= f.text_field :name %> 
+    </div>
+
+    <% if current_user.role == "administrador" %>
+      <div class="control-group">
+        <%= f.label 'Fábrica:' %>
+        <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
+      <div class="control-group">
+        <%= f.label 'Permissões:' %>
+        <%= f.collection_select :role, User::ROLES, :to_s, :to_s %></div>
+    <% elsif current_user.role =="gestor" %>
+        <%= f.hidden_field :plant_id, :value => current_user.plant_id %>
+        <%= f.label 'Permissões:' %>
+        <%= f.select :role, options_for_select([['gestor','gestor'],['utilizador','utilizador']]) %>
+    <% end %>
+
+  </div>
+  
+  <div class = "span4"> 
+  
     <div class="control-group"> 
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true %></div>
@@ -19,28 +42,18 @@
       <%= f.password_field :password, autocomplete: "off" %></div>
   
     <div class="control-group"><%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>  
+      
+  </div>
   
-    <div class="control-group"><%= f.label :current_password %> <i>(é necessário a password actual para salvar dados)</i>
-      <%= f.password_field :current_password, autocomplete: "off" %></div>
-  </div>
-  <div class = "span4"> 
-    <div class="control-group">
-      <%= f.label 'Primeiro e último nome:' %>
-      <%= f.text_field :name %> 
-    </div>
-    <div class="control-group">
-      <%= f.label 'Fábrica:' %>
-      <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
-  </div>
 </div>
-  <%= f.collection_select :role, User::ROLES, :to_s, :to_s %>
-  <div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
+
+<div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
 <% end %>
 
 <h3>Cancelar usuário</h3>
 
-<p>Cancelar usuário? <%= button_to "Cancelar usuário", registration_path(resource_name), data: { confirm: "Tem a certeza?" }, method: :delete %></p>
+<%= button_to "Eliminar usuário", registration_path(resource_name), data: { confirm: "Tem a certeza?" }, method: :delete %>
 
 
 </div>

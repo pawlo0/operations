@@ -3,7 +3,7 @@ require 'linear'
 class EquipmentController < ApplicationController
   rescue_from ActiveRecord::RecordNotUnique, :with => :not_unique
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
-  
+  load_and_authorize_resource
 
   # GET /equipment
   # GET /equipment.json

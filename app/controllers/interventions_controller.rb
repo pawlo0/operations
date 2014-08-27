@@ -1,5 +1,6 @@
 class InterventionsController < ApplicationController
   before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /interventions
   # GET /interventions.json

@@ -7,9 +7,10 @@ class Ability
     user ||= User.new # guest user (not logged in)
       if user.role == "administrador"
          can :manage, :all
-       elsif user.gestor?
-        can :manage, [Equipment, User], :plant_id => user.plant_id
-        can :manage [Intervention, Maintask], :equipment_id => { :plant_id => user.plant_id }
+       elsif user.role == "gestor"
+        can :manage, Equipment, :plant_id => user.plant_id
+        can :manage, User
+        can :manage, [Intervention, Maintask], :equipment_id => { :plant_id => user.plant_id }
       else
         can :manage, [Intervention, Maintask], :equipment_id => { :plant_id => user.plant_id }
         can :read, Equipment, :plant_id => user.plant_id

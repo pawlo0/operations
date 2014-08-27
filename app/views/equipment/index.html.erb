@@ -44,17 +44,16 @@
         <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
         <% end %>
         <td><%= link_to equipment.name, equipment %></td>
-        <td><%= equipment.manufacturer %></td>
-        <td><%= equipment.model %></td>
-        <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' %></td>
-        <!-- <td><%= link_to 'Apagar', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td><%= link_to equipment.manufacturer, equipment %></td>
+        <td><%= link_to equipment.model, equipment %></td>
+        <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' if can? :manage, equipment %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<%= render 'import' %>
+<%= render 'import' if can? :manage, Equipment %>
 
 </div><!--/span9-->
 

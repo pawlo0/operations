@@ -14,11 +14,14 @@
         <% end %>
         <hr>
         <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
+        
+        <% if current_user.role == "administrador" %>
         <hr>
-        <% if @filter == 'true' %>
-            <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
-        <% else %>
-            <%= link_to 'Filtrar', {:filter => true}, :class => 'btn btn-default' %>
+            <% if @filter == 'true' %>
+                <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
+            <% else %>
+                <%= link_to 'Filtrar', {:filter => true}, :class => 'btn btn-default' %>
+            <% end %>
         <% end %>
     <% end %>
 </div><!--/.well -->

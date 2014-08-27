@@ -38,14 +38,26 @@
       <div class="control-group">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
   
-    <div class="control-group"><%= f.label :password %> <i>(deixar em branco se não pretende alterar)</i>
-      <%= f.password_field :password, autocomplete: "off" %></div>
-  
-    <div class="control-group"><%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>  
-      
   </div>
   
+</div>
+
+<hr>
+<div class="row">
+  <div class = "span4">
+    <div class="control-group"><%= f.label :password %>
+      <p><i>Deixar em branco se não pretende alterar a password</i></p>
+      <%= f.password_field :password, autocomplete: "off" %></div>
+  
+    <div class="control-group"><%= f.label 'Repetir nova password' %>
+      <p><i>Apenas se pretender alterar a password</i></p>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>  
+  </div>
+  <div class = "span4"> 
+    <div class="control-group"><%= f.label 'Password actual' %>
+    <p><i>É necessário a password actual se a deseja alterar</i></p>
+      <%= f.password_field :current_password, autocomplete: "off" %></div>
+  </div>
 </div>
 
 <div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>

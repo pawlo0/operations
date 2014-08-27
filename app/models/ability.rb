@@ -10,9 +10,10 @@ class Ability
        elsif user.role == "gestor"
         can :manage, Equipment, :plant_id => user.plant_id
         can :manage, User
-        can :manage, [Intervention, Maintask], :equipment_id => { :plant_id => user.plant_id }
+        can :manage, [Intervention, Maintask], :equipment => { :plant_id => user.plant_id }
       else
-        can :manage, [Intervention, Maintask], :equipment_id => { :plant_id => user.plant_id }
+        can :create, [Intervention, Maintask]
+        can :manage, [Intervention, Maintask], :equipment => { :plant_id => user.plant_id }
         can :read, Equipment, :plant_id => user.plant_id
         can :update, User, :id => user.id
        end

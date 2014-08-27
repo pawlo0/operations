@@ -7,21 +7,18 @@
 
 <div class = "row">
   <div class = "span4">
-    <div class="control-group"><%= f.label :email %>
-      <%= f.email_field :email, autofocus: true %></div>
 
-    <div class="control-group"><%= f.label :password %> <% if @validatable %><i>No mínimo (<%= @minimum_password_length %> caracteres)</i><% end %>
-      <%= f.hidden_field :password, value: '1111', autocomplete: "off" %></div>
-
-    <div class="control-group"><%= f.label :password_confirmation %>
-      <%= f.hidden_field :password_confirmation, value: '1111', autocomplete: "off" %></div>
-  </div>
-  <div class = "span4"> 
     <div class="control-group"><%= f.label 'usuário' %>
       <%= f.text_field :username, autofocus: true %></div>
     
     <div class="control-group"><%= f.label 'Primeiro e último nome:' %>
       <%= f.text_field :name %></div>
+      
+  </div>
+  <div class = "span4"> 
+  
+    <div class="control-group"><%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %></div>
       
     <% if current_user.role == "administrador" %>
       <div class="control-group">
@@ -31,15 +28,22 @@
         <%= f.label 'Permissões:' %>
         <%= f.collection_select :role, User::ROLES, :to_s, :to_s %></div>
     <% elsif current_user.role =="gestor" %>
+      <div class="control-group">
         <%= f.hidden_field :plant_id, :value => current_user.plant_id %>
         <%= f.label 'Permissões:' %>
-        <%= f.select :role, options_for_select([['gestor','gestor'],['utilizador','utilizador']]) %>
-    <% end %>
+        <%= f.select :role, options_for_select([['gestor','gestor'],['utilizador','utilizador']], selected: "utilizador") %></div>
+    <% end %>      
+
+    <div class="control-group">
+      <%= f.hidden_field :password, value: '1111', autocomplete: "off" %></div>
+
+    <div class="control-group">
+      <%= f.hidden_field :password_confirmation, value: '1111', autocomplete: "off" %></div>  
+
   </div>
 </div>
 
 <div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
 </div>

@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sqlite3', group: [:development, :test]
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby, group: :production
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,10 +38,9 @@ gem 'cancancan'
   gem 'coffee-rails', '~> 4.0.0'
   
   gem 'twitter-bootstrap-rails'
-  gem 'libv8', group: [:development, :test]
+  gem 'libv8'
   gem 'less'
   gem 'less-rails'
-  gem 'therubyracer', :platforms => :ruby
   gem 'font-awesome-rails'
 
 #end

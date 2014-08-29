@@ -3,7 +3,7 @@ class RemovePlantFromUsers < ActiveRecord::Migration
     remove_column :users, :plant, :string
   end
   
-  def self.self.down
+  def self..down
     add_column :users, :plant, :string
   end
 end

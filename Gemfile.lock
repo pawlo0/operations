@@ -180,7 +180,6 @@ DEPENDENCIES
   less
   less-rails
   libv8
-  nokogiri
   pg
   rails (= 4.1.4)
   ransack

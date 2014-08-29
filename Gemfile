@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'sqlite3'
+gem 'sqlite3', group: [:development, :test]
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby, group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -22,7 +22,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'nokogiri'
+# gem 'nokogiri'
 gem 'ransack'
 gem 'devise'
 gem 'roo'
@@ -38,7 +38,7 @@ gem 'cancancan'
   gem 'coffee-rails', '~> 4.0.0'
   
   gem 'twitter-bootstrap-rails'
-  gem 'libv8'
+  gem 'libv8', group: [:development, :test]
   gem 'less'
   gem 'less-rails'
   gem 'therubyracer', :platforms => :ruby

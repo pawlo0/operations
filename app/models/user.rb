@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   ROLES = %i[administrador gestor utilizador]
          
-  belongs_to :plant
+  belongs_to :plant, dependent: :destroy
   
   validates :username, :uniqueness => {:case_sensitive => false}
 

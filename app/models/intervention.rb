@@ -1,5 +1,5 @@
 class Intervention < ActiveRecord::Base
-  belongs_to :equipment
+  belongs_to :equipment, dependent: :destroy
   belongs_to :intervention_type
   
   validates_presence_of :equipment_id, message: "A intervenção tem de estar associada a um equipamento."

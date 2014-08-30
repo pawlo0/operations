@@ -26,7 +26,6 @@ user = User.new.tap do |u|
   u.password_confirmation = '1111'
   u.role = 'administrador'
   u.plant_id = Plant.first.id
-  u.skip_confirmation!
   u.save!
 end
 p "Created #{User.count} users."

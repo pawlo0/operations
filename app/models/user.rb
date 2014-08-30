@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :username, :uniqueness => {:case_sensitive => false}
 
   before_save do
-    self.name = self.name.split.map(&:capitalize).join(' ')
+    self.name = self.name.split.map(&:capitalize).join(' ') if name
   end
          
   def login=(login)

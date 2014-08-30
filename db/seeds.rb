@@ -16,6 +16,6 @@ User.destroy_all
 
 User.create([{username: 'porepxs1', password: '1111', password_confirmation: '1111', role: 'administrador', plant_id: 1}])
 
-InterventionType.create(([{ name: 'Reparacao' }, { name: 'Manutenção Preventiva' }, { name: 'Registo de horas' }])
+InterventionType.create([{ name: 'Reparacao' }, { name: 'Manutenção Preventiva' }, { name: 'Registo de horas' }])
 
 Plant.create([{ id: 1, name: 'Maia' }])

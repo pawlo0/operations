@@ -14,8 +14,19 @@ InterventionType.destroy_all
 Plant.destroy_all
 User.destroy_all
 
-User.create([{username: 'porepxs1', password: '1111', password_confirmation: '1111', role: 'administrador', plant_id: 1}])
-
 InterventionType.create([{ name: 'Reparacao' }, { name: 'Manutenção Preventiva' }, { name: 'Registo de horas' }])
+p "Created #{InterventionType.count} interventions types."
 
-Plant.create([{ id: 1, name: 'Maia' }])
+Plant.create([{ id: '1', name: 'Maia' }])
+p "Created #{Plant.count} plants."
+
+user = User.new.tap do |u|
+  u.username = 'porepxs1'
+  u.password = '1111'
+  u.password_confirmation = '1111'
+  u.role = 'administrador'
+  u.plant_id = Plant.first.id
+  u.skip_confirmation!
+  u.save!
+end
+p "Created #{User.count} users."

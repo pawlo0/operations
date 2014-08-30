@@ -19,40 +19,41 @@
     </div>
   </div>
   <% end %>
-<% end %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= sort_link @search, :num_id, "Número" %></th>
-      <% if @filter == 'false' %>
-      <th><%= sort_link @search, :plant_id, "Fábrica" %></th>
-      <% end %>
-      <th><%= sort_link @search, :name, "Equipamento" %></th>
-      <th><%= sort_link @search, :manufacturer, "Marca" %></th>
-      <th><%= sort_link @search, :model, "Modelo" %></th>
-      <th>
-      <p class ="text-right"><%= link_to '', equipment_index_path(format: "xlsx"), :class => 'fa fa-file-excel-o fa' %></p></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @equipment.each do |equipment| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
+        <th><%= sort_link @search, :num_id, "Número" %></th>
         <% if @filter == 'false' %>
-        <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
+        <th><%= sort_link @search, :plant_id, "Fábrica" %></th>
         <% end %>
-        <td><%= link_to equipment.name, equipment %></td>
-        <td><%= link_to equipment.manufacturer, equipment %></td>
-        <td><%= link_to equipment.model, equipment %></td>
-        <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' if can? :manage, equipment %></td>
+        <th><%= sort_link @search, :name, "Equipamento" %></th>
+        <th><%= sort_link @search, :manufacturer, "Marca" %></th>
+        <th><%= sort_link @search, :model, "Modelo" %></th>
+        <th>
+        <p class ="text-right"><%= link_to '', equipment_index_path(format: "xlsx"), :class => 'fa fa-file-excel-o fa' %></p></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+  
+    <tbody>
+      <% @equipment.each do |equipment| %>
+        <tr>
+          <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
+          <% if @filter == 'false' %>
+          <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
+          <% end %>
+          <td><%= link_to equipment.name, equipment %></td>
+          <td><%= link_to equipment.manufacturer, equipment %></td>
+          <td><%= link_to equipment.model, equipment %></td>
+          <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' if can? :manage, equipment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><strong>Ainda não tem equipamentos inseridos. Comece por criar equipamentos.</strong></p>
+<% end %>
 
 <%= render 'import' if can? :manage, Equipment %>
 

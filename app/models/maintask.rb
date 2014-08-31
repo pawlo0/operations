@@ -1,5 +1,5 @@
 class Maintask < ActiveRecord::Base
-  belongs_to :equipment, dependent: :destroy
+  belongs_to :equipment
   
   def previous
     Maintask.where('equipment_id == ?', self.equipment_id).where('period <?', self.period).sort_by(&:period).last

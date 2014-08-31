@@ -3,8 +3,8 @@ class Equipment < ActiveRecord::Base
   
   belongs_to :plant
   
-  has_many :interventions
-  has_many :maintasks
+  has_many :interventions, dependent: :destroy
+  has_many :maintasks, dependent: :destroy
 
   validates :num_id, 
     presence: {message: "O equipamento tem mesmo de ter um número único."}, 

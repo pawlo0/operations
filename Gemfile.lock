@@ -179,6 +179,7 @@ DEPENDENCIES
   jquery-rails
   less
   less-rails
+  nokogiri
   pg
   rails (= 4.1.4)
   ransack

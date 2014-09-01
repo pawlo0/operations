@@ -148,5 +148,8 @@ when "production"
   end
   p "Created #{User.count} users."
   
+  Equipment.create([{id: 1, num_id: 1, name: 'test', plant_id:1}]) 
+  Intervention.create([{id: 1, description: 'test', equipment_id: 1, day: Date.today, intervention_type_id: 1}])
+  Maintask.create([{id:1, task: 'test', equipment_id: 1}])
   
 end

@@ -55,10 +55,12 @@
   <p><strong>Ainda não tem equipamentos inseridos. Comece por criar equipamentos.</strong></p>
 <% end %>
 
-
+<%= render 'import' if can? :manage, Equipment %>
 
 </div><!--/span9-->
 
-
+<div class="span3">
+  <%= render 'side' %>
+</div>
 <br>
 

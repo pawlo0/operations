@@ -10,12 +10,12 @@ class Intervention < ActiveRecord::Base
   scope :without_hour_registers, -> { where("intervention_type_id <> ?", InterventionType.where("name LIKE ?", "%regist%ho%").first.id) }
   
   def previous
-    Intervention.where('equipment_id == ?', self.equipment_id).where('day <?', self.day).sort_by(&:day).last
+    Intervention.where(equipment_id: self.equipment_id).where('day < ?', self.day).sort_by(&:day).last
    
   end
 
   def next
-    Intervention.where('equipment_id == ?', self.equipment_id).where('day > ?', self.day).sort_by(&:day).first
+    Intervention.where(equipment_id: self.equipment_id).where('day > ?', self.day).sort_by(&:day).first
   end
   
   def self.hour_register(equipment, hours)

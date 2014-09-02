@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sqlite3', group: [:development, :test]
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
- gem 'therubyracer',  platforms: :ruby
+# gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -21,6 +21,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+
+# Following advice from heroku
+gem 'rails_12factor', group: :production
 
 gem 'nokogiri', group: :development
 gem 'ransack'

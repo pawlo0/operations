@@ -1,12 +1,13 @@
 class MaintasksController < ApplicationController
   before_action :set_maintask, only: [:show, :edit, :update, :destroy]
+  before_action :define_user_plant  
   load_and_authorize_resource
 
   # GET /maintasks
   # GET /maintasks.json
   def index
     
-    @equipment = Equipment.filter_plant(current_user.plant_id)
+    @equipment = Equipment.filter_plant(@userpl)
     @equipment_ids = @equipment.pluck(:id)
     @search = Maintask.where(equipment_id: @equipment_ids).search(params[:q])
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?
@@ -89,4 +90,8 @@ class MaintasksController < ApplicationController
     def maintask_params
       params.require(:maintask).permit(:equipment_id, :task, :period, :unit, :parts, :obs)
     end
+    
+    def define_user_plant
+      @userplant = current_user.plant_id.to_i
+    end    
 end

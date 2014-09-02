@@ -3,6 +3,7 @@ require 'linear'
 class EquipmentController < ApplicationController
   rescue_from ActiveRecord::RecordNotUnique, :with => :not_unique
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
+  before_action :define_user_plant
   load_and_authorize_resource
 
   # GET /equipment
@@ -11,7 +12,7 @@ class EquipmentController < ApplicationController
     
     @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
 
-    @search = (@filter == 'true') ? Equipment.filter_plant(current_user.plant_id).search(params[:q]) : Equipment.search(params[:q])
+    @search = (@filter == 'true') ? Equipment.filter_plant(@userplant).search(params[:q]) : Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
     
@@ -26,7 +27,7 @@ class EquipmentController < ApplicationController
   end
   
   def import
-    Equipment.import(current_user.plant_id, params[:file])
+    Equipment.import(@userplant, params[:file])
     redirect_to equipment_index_path, notice: "Equipamentos importados."
   end
 
@@ -80,7 +81,7 @@ class EquipmentController < ApplicationController
   # POST /equipment.json
   def create
     @equipment = Equipment.new(equipment_params)
-    @equipment.plant_id = current_user.plant.id
+    @equipment.plant_id = @userplant
 
     respond_to do |format|
       if @equipment.save
@@ -96,7 +97,7 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
-    @equipment.plant_id = current_user.plant.id
+    @equipment.plant_id = @userplant
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'O Equipamento foi editado com sucesso.' }
@@ -132,5 +133,9 @@ class EquipmentController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
       params.require(:equipment).permit(:id, :num_id, :name, :manufacturer, :model, :serial, :assigned_to, :location, :function, :manuf_date, :buy_date, :obs, :maintenance_period, :maintenance_contact)
+    end
+    
+    def define_user_plant
+      @userplant = current_user.plant_id.to_i
     end
 end

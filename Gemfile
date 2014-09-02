@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sqlite3', group: [:development, :test]
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer-heroku',  platforms: :ruby
+ gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,10 +37,10 @@ gem 'cancancan'
   # Use CoffeeScript for .js.coffee assets and views
   gem 'coffee-rails', '~> 4.0.0'
   
-  gem 'twitter-bootstrap-rails'
+  # gem 'twitter-bootstrap-rails'
   # gem 'libv8'
-  gem 'less'
-  gem 'less-rails'
+  # gem 'less'
+  # gem 'less-rails'
   gem 'font-awesome-rails'
 
 #end

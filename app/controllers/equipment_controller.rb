@@ -1,4 +1,4 @@
-require 'linear'
+#require 'linear'
 
 class EquipmentController < ApplicationController
   rescue_from ActiveRecord::RecordNotUnique, :with => :not_unique
@@ -47,22 +47,22 @@ class EquipmentController < ApplicationController
     session[:filter] = @filter
     
     # linear regression of equipment hours estimate
-    @days = []
-    @hours = []
-    @equipment.interventions.each do |interv|
-      if interv.eq_hours > 0
-        @days << (Date.today - interv.day).to_i.round(0)
-        @hours << interv.eq_hours
-      end
-    end
-    if @days.sort.first == 0 
-      # If registered today it prints today's equipment hours
-      @intercept = @hours.sort.last
-    else 
-      # Else calculates linear regression
-      @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0 
-      @intercept = @linear.y_intercept if @linear
-    end
+    # @days = []
+    # @hours = []
+    # @equipment.interventions.each do |interv|
+    #   if interv.eq_hours > 0
+    #     @days << (Date.today - interv.day).to_i.round(0)
+    #     @hours << interv.eq_hours
+    #   end
+    # end
+    # if @days.sort.first == 0 
+    #   # If registered today it prints today's equipment hours
+    #   @intercept = @hours.sort.last
+    # else 
+    #   # Else calculates linear regression
+    #   @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0 
+    #   @intercept = @linear.y_intercept if @linear
+    # end
     # -------
     
   end

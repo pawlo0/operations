@@ -130,13 +130,11 @@ when "production"
   User.destroy_all
   
   Plant.create([{id: 1, name: 'Maia'},{id: 2, name: 'V.F.Xira'}])
-  p "Created #{Plant.count} plants."
   
   InterventionType.create([
     {id: 1, name: 'Reparação'},
     {id: 2, name: 'Manutenção Preventiva'},
     {id: 3, name: 'Registo de horas'}])
-  p "Created #{InterventionType.count} Intervention types."
   
   user = User.new.tap do |u|
     u.username = 'porepxs1'
@@ -146,10 +144,16 @@ when "production"
     u.plant_id = 1
     u.save!
   end
-  p "Created #{User.count} users."
   
-  Equipment.create([{id: 1, num_id: 1, name: 'test', plant_id:1}]) 
+  Equipment.create([{id: 1, num_id: 1, name: 'test', plant_id:1}])
   Intervention.create([{id: 1, description: 'test', equipment_id: 1, day: Date.today, intervention_type_id: 1}])
   Maintask.create([{id:1, task: 'test', equipment_id: 1}])
+  
+  p "Created #{Plant.count} plants."
+  p "Created #{InterventionType.count} Intervention types."
+  p "Created #{User.count} users."
+  p "Created #{Equipment.count} equipments."
+  p "Created #{Intervention.count} interventions."
+  p "Created #{Maintask.count} maintasks."
   
 end

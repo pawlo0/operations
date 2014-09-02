@@ -12,7 +12,7 @@ class Equipment < ActiveRecord::Base
   
   validates :name, presence: {message: "O equipamento tem de ter um nome."}
   
-  scope :filter_plant, ->(plant) { where("plant_id == ?", plant) }
+  scope :filter_plant, ->(plant) { where("plant_id == ?", plant.to_i) }
   
   def previous(plant, filter)
     if filter == 'true'

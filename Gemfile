@@ -34,6 +34,7 @@ gem 'cancancan'
 
 #group :assets do
   # Use SCSS for stylesheets
+  
   gem 'sass-rails', '~> 4.0.3'
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '>= 1.3.0'
@@ -44,6 +45,8 @@ gem 'cancancan'
   # gem 'libv8'
   # gem 'less'
   # gem 'less-rails'
+  gem 'bootstrap-sass'
+  gem 'autoprefixer-rails'
   gem 'font-awesome-rails'
 
 #end

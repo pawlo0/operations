@@ -1,24 +1,34 @@
 
-<div class = "span9">
+<div class="col-md-9">
 
 <h2>Lista de equipamentos</h2>
 
 <% if @equipment.count > 0 %>
-  <%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
-  <div class="form-group">
-    <div class ="span3">
-      <%= f.text_field :num_id_eq, :class => 'form-control input-small', :placeholder => 'Nº Equip'%>
-      <%= f.submit "Filtrar", :class => 'btn btn-default' %>
-    </div>
-    <div class ="span4">
+  <%= search_form_for @search, :html => { :class => 'well row' , role: 'search' } do |f| %>
+  <div class="col-md-3">
+    <div class="input-group">
+        <%= f.text_field :num_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
+      <span class="input-group-btn">
+        <%= f.submit "Filtrar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+  
+  <div class="col-md-6">
+    <div class="input-group">
       <%= f.text_field :name_or_serial_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
-      <%= f.submit "Buscar", :class => 'btn btn-default' %>    
-    </div>
-    <div class ="span1">
+      <span class="input-group-btn">
+        <%= f.submit "Buscar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+  <div class="col-md-1">
+    <div class ="input-group">
       <%= link_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q]  %>
     </div>
   </div>
-  <% end %>
+<% end %>
 
   <table class="table table-hover">
     <thead>
@@ -38,14 +48,14 @@
   
     <tbody>
       <% @equipment.each do |equipment| %>
-        <tr>
-          <td><p class="text-center"><%= link_to equipment.num_id, equipment %></p></td>
+        <tr data-link="<%= equipment_path(equipment) %>">
+          <td><p class="text-center"><%= equipment.num_id %></p></td>
           <% if @filter == 'false' %>
-          <td><%= link_to equipment.plant.name, equipment unless equipment.plant.nil? %></td>
+          <td><%= equipment.plant.name %></td>
           <% end %>
-          <td><%= link_to equipment.name, equipment %></td>
-          <td><%= link_to equipment.manufacturer, equipment if equipment.manufacturer %></td>
-          <td><%= link_to equipment.model, equipment if equipment.model %></td>
+          <td><%= link_to equipment.name, equipment_path(equipment) %></td>
+          <td><%= equipment.manufacturer %></td>
+          <td><%= equipment.model %></td>
           <td><%= link_to 'Editar', edit_equipment_path(equipment), :class => 'btn btn-default' if can? :manage, equipment %></td>
         </tr>
       <% end %>
@@ -57,9 +67,9 @@
 
 <%= render 'import' if can? :manage, Equipment %>
 
-</div><!--/span9-->
+</div><!--col-md-9 -->
 
-<div class="span3">
+<div class="col-md-3">
   <%= render 'side' %>
 </div>
 <br>

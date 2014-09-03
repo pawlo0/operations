@@ -1,28 +1,29 @@
+<h2><%= link_to 'Equipamentos', equipment_index_path %></h2>
+
 <div class="well sidebar-nav">
-    <h3><%= link_to 'Equipamentos', equipment_index_path %></h3>
+
     <% if params[:action] == 'new' %>
-        <hr>
         <p><%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %></p>
+        <hr>
       <% else %>
         <% if can? :manage, @equipment %>
-            <hr>
             <p><%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %></p>
             <% if params[:id] %>
                 <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
                 <p><%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
             <% end %>
+            <hr>
         <% end %>
         <% if params[:id] %>
-            <hr>
             <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
             <hr>
             <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
+            <hr>
         <% end %>
-        <hr>
         <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
-        
+
         <% if current_user.role == "administrador" %>
-        <hr>
+            <hr>
             <% if @filter == 'true' %>
                 <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
             <% else %>

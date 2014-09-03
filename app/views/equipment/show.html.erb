@@ -1,35 +1,41 @@
-<div class = "span9">
+<div class = "col-md-9">
 
 <h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %><span class="pull-right"><%= render 'arrows' %></span></small></h2>
 
 <hr>
 <div class="row">
-  <div class="span4">
+  <div class="col-md-6">
     <p>Marca: <%= @equipment.manufacturer %></p>
-    <p>Modelo: <%= @equipment.model %></p>
     <p>Número de série: <%= @equipment.serial %></p>
-    <p>Data fabrico: <%= @equipment.manuf_date %></p>
-    <p>Data compra: <%= @equipment.buy_date %></p>    
-  
-  </div>
-
-  <div class="span4">
-    <p>Fábrica: <%= @equipment.plant.name if @equipment.plant %></p>
-    <p>Função: <%= @equipment.function %></p>
-    <p>Localização: <%= @equipment.location %></p>
+    <p>Localização: <%= @equipment.location %></p>    
     <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>
+    <p>Fábrica: <%= @equipment.plant.name if @equipment.plant %></p>  
+  </div>
+  <div class="col-md-6">
+    <p>Modelo: <%= @equipment.model %></p>
+    <p>Função: <%= @equipment.function %></p>   
+    <p>Data fabrico: <%= @equipment.manuf_date %></p>
+    <p>Data compra: <%= @equipment.buy_date %></p>        
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+
     <p>Observações: <%= @equipment.obs %></p>
+    
   </div>
 </div>
 <hr>
-<div class="row">
-  <div class="span6">
-    <%= form_tag hour_register_interventions_path(:id => @equipment.id), multipart: true, :class => 'form-horizontal' do %>
-    <% @intercept = 0 unless @intercept.is_a?(Numeric) %>
-    <p>Horas actuais estimadas: <%= number_field_tag :hours, @intercept.round(0) %> <%= submit_tag "Registar horas" %>
-    <% end %></p>
-  </div>
+<%= form_tag hour_register_interventions_path(:id => @equipment.id), multipart: true, :class => 'row' do %>
+<div class="form-inline">
+  <div class="col-md-12">
+    <div clas="input-group">
+      <% @intercept = 0 unless @intercept.is_a?(Numeric) %>
+      <%= label_tag 'Horas actuais estimadas:' %> <%= number_field_tag :hours, @intercept.round(0), :class => 'form-control' %> <%= submit_tag "Registar horas", :class => 'btn btn-default' %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
 </div>
+<% end %>
 
 
 <% if @maintasks.count > 0 %>
@@ -40,12 +46,13 @@
   <tr>
     <th>Tarefa</th>
     <th>Periodicidade</th>
+    <th></th>
   </tr>
   <% @maintasks.each do |maintask| %>
-    <tr>
+    <tr data-link="<%= equipment_maintask_path(@equipment, maintask) %>">
       <td><%= link_to truncate(maintask.task, :length => 100), equipment_maintask_path(@equipment, maintask) %></td>
       <td><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
-      <td><%= link_to 'Intervenção', new_equipment_intervention_path(@equipment, 
+      <td><%= link_to 'Reg. Intervenção', new_equipment_intervention_path(@equipment, 
       :period => maintask.period, 
       :unit => maintask.unit, 
       :parts => maintask.parts, 
@@ -64,21 +71,22 @@
     <th><%= sort_link @search, :day, 'Data Intervenção' %></th>
     <th>Descrição</th>
     <th>Horas</th>
+    <th></th>
   </tr>
   <% @interventions.each do |intervention| %>
-    <tr>
-    <td><%= link_to intervention.day, equipment_intervention_path(@equipment, intervention) %></td>
-    <td><%= link_to truncate(intervention.description, :length => 100), equipment_intervention_path(@equipment, intervention) %></td>
-    <td><%= link_to intervention.eq_hours, equipment_intervention_path(@equipment, intervention) %></td>
-    <td><%= link_to 'Editar', edit_equipment_intervention_path(@equipment, intervention), :class => 'btn btn-default' %></td>
+    <tr data-link="<%= equipment_intervention_path(@equipment, intervention) %>">
+      <td><%= link_to intervention.day, equipment_intervention_path(@equipment, intervention) %></td>
+      <td><%= truncate(intervention.description, :length => 100) %></td>
+      <td><%= intervention.eq_hours %></td>
+      <td><%= link_to 'Editar', edit_equipment_intervention_path(@equipment, intervention), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>
 </table>
 <% end %>
 
-</div><!-- span9 -->
+</div><!-- col-md-9 -->
 
-<div class="span3">
+<div class="col-md-3">
   <%= render 'side' %>
 </div>
 

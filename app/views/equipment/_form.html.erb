@@ -12,64 +12,80 @@
   <% end %>
 
   <div class = "row">
-    <div class = "span4">
-      <div class="control-group">
-        <%= f.label 'Nº Equipmento:' %>
-        <%= f.number_field :num_id %>
+    <div class="form-group">
+      <%= f.label 'Nº Equipmento:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-2">
+        <%= f.number_field :num_id, :class => 'form-control' %>
+      </div>
+      <%= f.label 'Nome:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_field :name, :class => 'form-control' %>
       </div>
     </div>
-    <div class = "span4"> 
-      <div class="control-group">
-        <%= f.label 'Nome:' %>
-        <%= f.text_field :name %>
-      </div>
-    </div><!-- span6 -->
+    
   </div><!-- row -->
   
+  <hr>
+  
   <div class = "row">
-    <div class = "span4">
-      <div class="control-group">
-        <%= f.label 'Marca:' %>
-        <%= f.text_field :manufacturer %>
+    <div class="form-group">
+      <%= f.label 'Marca:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :manufacturer, :class => 'form-control' %>
       </div>
-      <div class="control-group">
-        <%= f.label 'Modelo' %>
-        <%= f.text_field :model %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Número de série' %>
-        <%= f.text_field :serial %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Observações:' %>
-        <%= f.text_area :obs %>
-      </div>
-    
-    </div><!-- span4 -->
-    <div class="span4">
-      <div class="control-group">
-        <%= f.label 'Função:' %>
-        <%= f.text_field :function %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Localização:' %>
-        <%= f.text_field :location %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Contacto de manutenção:' %>
-        <%= f.text_field :maintenance_contact %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Data de fabrico:' %>
-        <%= f.date_field :manuf_date %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Data de compra:' %>
-        <%= f.date_field :buy_date %>
-      </div>
-    </div><!-- span4 -->
-  </div><!-- row -->
 
+      <%= f.label 'Modelo:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :model, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">  
+      <%= f.label 'N. Série:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :serial, :class => 'form-control' %>
+      </div>
+      <%= f.label 'Função:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :function, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Localização:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :location, :class => 'form-control' %>
+      </div>
+
+      <%= f.label 'Data de fabrico:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :manuf_date, :class => 'form-control' %>
+      </div>    
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Contacto de manutenção:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :maintenance_contact, :class => 'form-control' %>
+      </div>
+
+      <%= f.label 'Data de compra:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :buy_date, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Observações:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_area :obs, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->      
   <div class="actions">
     <%= f.submit "Salvar", :class => 'btn btn-primary' %> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
   </div>

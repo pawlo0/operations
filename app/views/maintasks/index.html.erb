@@ -22,7 +22,7 @@
   
   <div class="col-md-1">
     <div class ="input-group">
-      <%= link_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q]  %>
+      <%= link_to 'Limpar', maintasks_path, :class => 'btn btn-default' if params[:q] %>
     </div>
   </div>
 <% end %>
@@ -57,11 +57,5 @@
 </div><!--/col-md-9-->
 
 <div class="col-md-3">
-  <div class="well sidebar-nav">
-      <h3>Manutenção</h3>
-      <hr>
-      <%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %>
-      <hr>
-      <p><%= link_to 'Imprimir', "", :class => 'btn btn-default' %></p>
-  </div><!--/.well -->
+  <%= render 'side' %>
 </div><!--/col-md-3-->

@@ -1,4 +1,4 @@
-<%= form_for(@intervention_type) do |f| %>
+<%= form_for @intervention_type, :html => { :class => 'form-horizontal'} do |f| %>
   <% if @intervention_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@intervention_type.errors.count, "error") %> prohibited this intervention_type from being saved:</h2>
@@ -11,17 +11,27 @@
     </div>
   <% end %>
 
-<div class="span6">
-  <div class="control-group">
-    <%= f.label 'Nome: ' %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="control-group">
-    <%= f.label 'Observação: ' %>
-    <%= f.text_field :obs %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Salvar', :class => 'btn btn-primary' %> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
-  </div>
-</div>
+  <div class = "row top20">
+    <div class="form-group">
+      <%= f.label 'Nome: ', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Observação: ', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_area :obs, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row top20">
+    <div class="form-group">
+      <div class="actions col-md-offset-2">
+        <%= f.submit 'Salvar', :class => 'btn btn-primary' %> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
 <% end %>

@@ -6,6 +6,11 @@ class InterventionTypesController < ApplicationController
   # GET /intervention_types.json
   def index
     @intervention_types = InterventionType.all
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /intervention_types/1

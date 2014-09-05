@@ -2,33 +2,35 @@
 
 <div class="well sidebar-nav">
 
-    <% if params[:action] == 'new' %>
-        <p><%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %></p>
-        <hr>
-      <% else %>
-        <% if can? :manage, @equipment %>
-            <p><%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %></p>
-            <% if params[:id] %>
-                <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
-                <p><%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
-            <% end %>
-            <hr>
-        <% end %>
+<% if params[:action] == 'new' %>
+    <p><%= link_to 'Voltar', equipment_index_path, :class => 'btn btn-default' %></p>
+    <hr>
+  <% else %>
+    <% if can? :manage, @equipment %>
+        <p><%= link_to 'Novo Equipamento', new_equipment_path, :class => 'btn btn-primary' %></p>
         <% if params[:id] %>
-            <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
-            <hr>
-            <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
-            <hr>
+            <p><%= link_to 'Editar Equipamento', edit_equipment_path(@equipment), :class => 'btn btn-default' %></p>
+            <p><%= link_to 'Apagar Equipamento', @equipment, method: :delete, data: { confirm: 'Tem a certeza?' }, :class => 'btn btn-danger' %></p>
         <% end %>
+        <hr>
+    <% end %>
+    <% if params[:id] %>
+        <p><%= link_to 'Nova intervenção', new_equipment_intervention_path(@equipment), :class => 'btn btn-primary' %></p>
+        <hr>
+        <p><%= link_to 'Nova Tarefa', new_equipment_maintask_path(@equipment), :class => 'btn btn-primary' %></p>
+        <hr>
+    <% else %>
         <%= link_to 'Plano Manutenção', maintasks_path, :class => 'btn btn-primary' %>
+    <% end %>
+    
 
-        <% if current_user.role == "administrador" %>
-            <hr>
-            <% if @filter == 'true' %>
-                <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
-            <% else %>
-                <%= link_to 'Filtrar', {:filter => true}, :class => 'btn btn-default' %>
-            <% end %>
+    <% if current_user.role == "administrador" %>
+        <hr>
+        <% if @filter == 'true' %>
+            <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
+        <% else %>
+            <%= link_to 'Filtrar', {:filter => true}, :class => 'btn btn-default' %>
         <% end %>
     <% end %>
+<% end %>
 </div><!--/.well -->

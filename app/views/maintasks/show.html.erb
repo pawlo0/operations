@@ -1,11 +1,11 @@
-<div class = "span9">
+<div class = "col-md-9">
   
 <h2> Tarefa de Manutenção <small>Equipamento nº <%= Equipment.find(@maintask.equipment_id).num_id %><span class="pull-right"><%= render 'arrows' %></small></h2>
 
 <hr>
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-10">
     <p><strong>Tarefa: </strong><%= @maintask.task %></p>
     <p><strong>Peças a mudar: </strong><%= @maintask.parts %></p>
     <p><strong>Periodicidade: </strong> A cada <%= @maintask.period %> <%= @maintask.unit %></p>
@@ -13,9 +13,9 @@
   </div>
 </div>
 
-</div><!-- span9 -->
+</div><!--/col-md-9 -->
 
-<div class="span3">
+<div class="col-md-3">
     <%= render 'side' %>
-</div><!--/span3-->
+</div><!--/col-md-3-->
 

@@ -7,7 +7,7 @@ class MaintasksController < ApplicationController
   # GET /maintasks.json
   def index
     
-    @equipment = Equipment.filter_plant(@userpl)
+    @equipment = Equipment.filter_plant(@userplant)
     @equipment_ids = @equipment.pluck(:id)
     @search = Maintask.where(equipment_id: @equipment_ids).search(params[:q])
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?
@@ -18,7 +18,6 @@ class MaintasksController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @maintasks.to_csv }
-      format.xls 
       format.xlsx
     end
     

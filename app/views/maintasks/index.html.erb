@@ -1,19 +1,28 @@
-<div class = "span9">
+<div class = "col-md-9">
 
 <h2>Plano de Manutenção</h2>
 
-<%= search_form_for @search, :html => { :class => 'well form-inline'} do |f| %>
-  <div class="form-group">
-    <div class ="span3">
-      <%= f.text_field :equipment_num_id_eq, :class => 'form-control input-small', :placeholder => 'Nº Equip'%>
-      <%= f.submit "Filtrar", :class => 'btn btn-default' %>
-    </div>
-    <div class ="span4">
+<%= search_form_for @search, :html => { :class => 'well row'} do |f| %>
+  <div class="col-md-3">
+    <div class ="input-group">
+      <%= f.text_field :equipment_num_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
+      <span class="input-group-btn">
+        <%= f.submit "Filtrar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /col-md-3 -->
+  <div class="col-md-6">
+    <div class="input-group">
       <%= f.text_field :task_or_period_or_equipment_name_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
-      <%= f.submit "Buscar", :class => 'btn btn-default' %>        
-    </div>
-    <div class ="span1">
-      <%= link_to 'Limpar', maintasks_path, :class => 'btn btn-default' if params[:q] %>
+      <span class="input-group-btn">
+        <%= f.submit "Buscar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /col-md-6 -->
+  
+  <div class="col-md-1">
+    <div class ="input-group">
+      <%= link_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q]  %>
     </div>
   </div>
 <% end %>
@@ -24,7 +33,7 @@
       <th>Equipamento</th>
       <th>Tarefas</th>
       <th>Periodicidade</th>
-      <th><p class ="text-right"><%= link_to '', maintasks_path(format: "xlsx"), :class => 'fa fa-file-excel-o fa' %></p></th>
+      <th><p class ="text-right"><%= link_to '', maintasks_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' %></p></th>
     </tr>
   </thead>
 
@@ -45,9 +54,9 @@
   </tbody>
 </table>
 
-</div><!--/span-->
+</div><!--/col-md-9-->
 
-<div class="span3">
+<div class="col-md-3">
   <div class="well sidebar-nav">
       <h3>Manutenção</h3>
       <hr>
@@ -55,4 +64,4 @@
       <hr>
       <p><%= link_to 'Imprimir', "", :class => 'btn btn-default' %></p>
   </div><!--/.well -->
-</div><!--/span-->
+</div><!--/col-md-3-->

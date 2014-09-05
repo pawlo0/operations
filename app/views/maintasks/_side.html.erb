@@ -1,6 +1,7 @@
+<h3><%= link_to 'Manutenções', equipment_path(params[:equipment_id]), :title => 'Voltar' %></h3>
+
 <div class="well sidebar-nav">
-  <h3><%= link_to 'Manutenções', equipment_path(params[:equipment_id]), :title => 'Voltar' %></h3>
-  <hr>
+
   <% if params[:action] == 'new' %>
     <p><%= link_to 'Voltar', equipment_path(@equipment), :class => 'btn btn-default' %></p>
   <% else %>

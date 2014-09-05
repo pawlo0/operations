@@ -11,40 +11,55 @@
     </div>
   <% end %>
 
-  <div class="span6 col-md-offset-1">
-    <div class="control-group">
-      <%= f.label 'Equipamento:' %>
-      <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}) %>
-    </div>
-    <div class="control-group">
-      <%= f.label 'Tarefa:' %>
-      <%= f.text_area :task %>
-    </div>      
-    <div class="control-group">
-      <%= f.label 'Peças a mudar:' %>
-      <%= f.text_area :parts %>
-    </div> 
-    <div class="control-group">
-      <div class="row">
-        <div class="span3">
-        <p> Periodicidade: </p>
+  <div class = "row top20">
+    <div class="form-group">
+      <%= f.label 'Equipamento:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= collection_select(:maintask, :equipment_id, Equipment.all, :id, :name, {:selected => @equipment.id}, {:class => 'form-control'}) %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">  
+      <%= f.label 'Tarefa:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_area :task, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group"> 
+      <%= f.label 'Peças a mudar:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-6">
+        <%= f.text_area :parts, :class => 'form-control' %>
+      </div> 
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group"> 
+      <%= f.label 'Periodicidade:', :class => 'col-md-2 control-label' %>
+
+      <div class="col-md-2">
+        <%= f.number_field :period, :class => 'form-control' %>
+      </div>
+      <div class="col-md-2">  
+        <%= f.select(:unit, options_for_select(['Horas', 'Meses', 'Dias'], @maintask.unit), {}, :class => 'form-control') %></p>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group"> 
+        <%= f.label 'Observações:', :class => 'col-md-2 control-label' %>
+        <div class="col-md-6">
+          <%= f.text_area :obs, :class => 'form-control' %>
         </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
+  <div class = "row">
+    <div class="form-group">
+      <div class="actions">
+        <%= f.submit "Salvar", :class => 'btn btn-primary' %> 
       </div>
-      <div class="row">
-        <div class="span6">
-          <p>A cada: <%= f.number_field :period, :class => 'input-small' %> <%= f.select(:unit, options_for_select(['Horas', 'Meses', 'Dias'], @maintask.unit), :class => 'input-small') %></p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span6">
-        <%= f.label 'Observações:' %>
-        <%= f.text_area :obs %>
-      </div>
-    </div>
-  <p></p>
-    <div class="actions">
-      <%= f.submit "Salvar", :class => 'btn btn-primary' %> 
-    </div>
-  </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
 <% end %>

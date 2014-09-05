@@ -1,5 +1,9 @@
 
-<%= form_tag import_equipment_index_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Importar" %>
+<%= form_tag import_equipment_index_path, :class =>'well form-inline col-md-8', multipart: true do %>
+<div class="form-group">
+  <%= label_tag 'Importar ficheiro: ' %>
+  <%= file_field_tag :file %> 
+</div>
+  <%= submit_tag "Importar", :class => 'btn btn-default' %>
+
 <% end %>

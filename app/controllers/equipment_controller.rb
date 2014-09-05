@@ -9,7 +9,7 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    
+
     @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
 
     @search = (@filter == 'true') ? Equipment.filter_plant(@userplant).search(params[:q]) : Equipment.search(params[:q])

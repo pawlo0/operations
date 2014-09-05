@@ -14,69 +14,81 @@
   <hr>
 
   <div class = "row">
-    <div class = "span4">
-      <div class="control-group">
-        <%= f.label 'Data:' %>
-        <%= f.date_field :day %>
+    <div class="form-group">
+      <%= f.label 'Data:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.date_field :day, :class => 'form-control' %>
       </div>
-    </div>
-    <div class="span4">
-      <div class="control-group">
-        <%= f.label 'Equipamento:' %>
-        <%= collection_select(:intervention, :equipment_id, Equipment.filter_plant(current_user.plant_id), :id, :name, {:selected => @equipment.id}) %>
+      <%= f.label 'Número de obra:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :task_num, :class => 'form-control' %>
       </div>
-    </div>
-  </div>
+    </div><!-- form-group -->
+  </div><!-- row -->
   
   <div class = "row">
-    <div class = "span4">
-      <div class="control-group">
-        <%= f.label 'Horas do equipamento:' %>
-        <%= f.number_field :eq_hours %>
+    <div class="form-group">
+      <%= f.label 'Horas do equipamento:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.number_field :eq_hours, :class => 'form-control' %>
       </div>
-        <%= f.label 'Tipo de intervenção: ' %>
-        <% @intervention.intervention_type_id = @intervention_type if @intervention_type %>
-        <%= collection_select(:intervention, :intervention_type_id, InterventionType.all, :id, :name, {:selected => @intervention.intervention_type_id}) %>
-      <div class="control-group">
-        <%= f.label 'Peças mudadas:' %>
-        <%= f.text_area :changed_parts, :value => @parts %>
+      <%= f.label 'Orçamento:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :estimate_num, :class => 'form-control' %>
       </div>
-      <div class="control-group">
-        <%= f.label 'Pessoa / empresa que interviu:' %>
-        <%= f.text_field :maintainer %>
-      </div>  
-    </div>
-    
-    <div class = "span4">
-      <div class="control-group">
-        <%= f.label 'Número de obra:' %>
-        <%= f.text_field :task_num %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Número de orçamento:' %>
-        <%= f.text_field :estimate_num %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Número de pedido de compra:' %>
-        <%= f.text_field :purchase_num %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Custo em peças / material:' %>
-        <%= f.text_field :parts_cost %>
-      </div>
-      <div class="control-group">
-        <%= f.label 'Custo de mão-de-obra e deslocações:' %>
-        <%= f.text_field :labor_cost %>
-      </div>
-    </div>
+    </div><!-- form-group -->
   </div><!-- row -->
+  
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Tipo de intervenção:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <% @intervention.intervention_type_id = @intervention_type if @intervention_type %>
+        <%= collection_select(:intervention, :intervention_type_id, InterventionType.all, :id, :name, {:selected => @intervention.intervention_type_id}, :class => 'form-control') %>
+      </div>
+      <%= f.label 'Pedido de compra:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :purchase_num, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->      
 
-  <div class="control-group">
-    <%= f.label 'Descrição:' %>
-    <% @intervention.description = @descrip if @descrip %>
-    <%= f.text_area :description %>
-  </div>
+  <div class = "row">
+    <div class="form-group">
+      <%= f.label 'Peças mudadas:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_area :changed_parts, :value => @parts, :class => 'form-control' %>
+      </div>
+      <%= f.label 'Custo material:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :parts_cost, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->      
 
+  <div class = "row">
+    <div class="form-group">    
+      <%= f.label 'Pessoa / empresa:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :maintainer, :class => 'form-control' %>
+      </div>
+      <%= f.label 'Mão-de-obra e deslocações:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :labor_cost, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->      
+
+  <div class = "row">
+    <div class="form-group">   
+      <%= f.label 'Descrição:', :class => 'col-md-2 control-label' %>
+      <div class="col-md-4">
+        <% @intervention.description = @descrip if @descrip %>
+        <%= f.text_area :description, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+  </div><!-- row -->  
+  
   <div class="actions">
     <%= f.submit "Salvar", :class => 'btn btn-primary' %> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
   </div>

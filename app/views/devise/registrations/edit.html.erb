@@ -1,71 +1,91 @@
-<div class ="span9">
+<div class ="col-md-9">
 
 <h2>Editar <%= current_user.name %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
 
-<div class = "row">
-  <div class = "span4">
-  
-    <div class="control-group">
-      <%= f.label 'Primeiro e último nome:' %>
-      <%= f.text_field :name %> 
+<div class = "row top20">
+  <div class = "form-group">
+    <%= f.label 'Primeiro e último nome:', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.text_field :name, :class => 'form-control' %>
     </div>
-
-    <% if current_user.role == "administrador" %>
-      <div class="control-group">
-        <%= f.label 'Fábrica:' %>
-        <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {:prompt => 'Selecione Fábrica'}) %></div>
-      <div class="control-group">
-        <%= f.label 'Permissões:' %>
-        <%= f.collection_select :role, User::ROLES, :to_s, :to_s %></div>
-    <% elsif current_user.role =="gestor" %>
-        <%= f.hidden_field :plant_id, :value => current_user.plant_id %>
-        <%= f.label 'Permissões:' %>
-        <%= f.select :role, options_for_select([['gestor','gestor'],['utilizador','utilizador']]) %>
-    <% end %>
-
-  </div>
-  
-  <div class = "span4"> 
-  
-    <div class="control-group"> 
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true %></div>
-
+  <% if current_user.role == "administrador" %>
+    <%= f.label 'Fábrica:', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= collection_select(:user, :plant_id, Plant.all, :id, :name, {}, {:class => 'form-control'}) %>
+    </div>
+  </div><!-- /form-group -->
+</div><!-- /row -->
+<div class = "row">
+  <div class = "form-group">
+    <%= f.label 'Permissões:', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.collection_select(:role, User::ROLES, :to_s, :to_s, {}, {:class => 'form-control'}) %>
+    </div>
+  <% elsif current_user.role =="gestor" %>
+    <%= f.hidden_field :plant_id, :value => current_user.plant_id %>
+    <%= f.label 'Permissões:', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.select(:role, options_for_select([['gestor','gestor'],['utilizador','utilizador']]), {}, {:class => 'form-control'}) %>
+    </div>
+  <% end %>
+  </div><!-- /form-group -->
+</div><!-- /row -->
+<div class = "row">
+  <div class = "form-group">
+    <%= f.label :email, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
+    </div>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div class="control-group">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  
-  </div>
-  
-</div>
-
+  </div><!-- /form-group -->
+</div><!-- /row -->  
 <hr>
 <div class="row">
-  <div class = "span4">
-    <div class="control-group"><%= f.label :password %>
+  <div class = "form-group">
+    <%= f.label :password, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
       <p><i>Deixar em branco se não pretende alterar a password</i></p>
-      <%= f.password_field :password, autocomplete: "off" %></div>
+    </div>
+    <%= f.label 'Repetir nova password', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
+      <p><i>Apenas se pretender alterar a password</i></p>  
+    </div>  
+  </div><!-- /form-group -->
+</div><!-- /row -->  
+<div class="row">
+  <div class = "form-group">      
+    <%= f.label 'Password actual', :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
+      <p><i>É necessário a password actual se desejar alterar de password</i></p>
+    </div>
+  </div><!-- /form-group -->
+</div><!-- /row -->  
   
-    <div class="control-group"><%= f.label 'Repetir nova password' %>
-      <p><i>Apenas se pretender alterar a password</i></p>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>  
-  </div>
-  <div class = "span4"> 
-    <div class="control-group"><%= f.label 'Password actual' %>
-    <p><i>É necessário a password actual se a deseja alterar</i></p>
-      <%= f.password_field :current_password, autocomplete: "off" %></div>
-  </div>
-</div>
-
-<div><%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %></div>
+<div class="row">
+  <div class = "form-group">
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.submit "Salvar", :class => 'btn btn-primary'%> | <%= link_to "Voltar", :back, :class => 'btn btn-default' %>
+    </div>
+  </div><!-- /form-group -->
+</div><!-- /row -->  
+  
 <% end %>
 
-<h3>Cancelar usuário</h3>
-
-<%= button_to "Eliminar usuário", registration_path(resource_name), data: { confirm: "Tem a certeza?" }, method: :delete %>
-
+<div class="row bottom20">
+  <div class = "form-group">
+    <div class="col-md-4 col-md-offset-2">
+      <h3>Cancelar usuário</h3>
+      <%= button_to "Eliminar usuário", registration_path(resource_name), data: { confirm: "Tem a certeza?" }, method: :delete, :class => 'btn btn-default' %>
+    </div>
+  </div><!-- /form-group -->
+</div><!-- /row -->
 
 </div>

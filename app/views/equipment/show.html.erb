@@ -47,11 +47,13 @@
     <th>Tarefa</th>
     <th>Periodicidade</th>
     <th></th>
+    <th></th>
   </tr>
   <% @maintasks.each do |maintask| %>
     <tr data-link="<%= equipment_maintask_path(@equipment, maintask) %>">
       <td><%= link_to truncate(maintask.task, :length => 100), equipment_maintask_path(@equipment, maintask) %></td>
       <td><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
+      <td><%= link_to "Em falta",'', :class => 'label label-warning' %></td>
       <td><%= link_to 'Reg. Intervenção', new_equipment_intervention_path(@equipment, 
       :period => maintask.period, 
       :unit => maintask.unit, 

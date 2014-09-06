@@ -15,6 +15,8 @@ class MaintasksController < ApplicationController
     
     @equip_with_maintasks = @equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
     
+    
+    
     respond_to do |format|
       format.html
       format.csv { send_data @maintasks.to_csv }

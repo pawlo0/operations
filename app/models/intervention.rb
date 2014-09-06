@@ -1,6 +1,7 @@
 class Intervention < ActiveRecord::Base
   belongs_to :equipment
   belongs_to :intervention_type
+  belongs_to :maintask
   
   validates_presence_of :equipment_id, message: "A intervenção tem de estar associada a um equipamento."
   validates_presence_of :description, message: "Tem de escrever uma descrição."

@@ -43,6 +43,7 @@ class EquipmentController < ApplicationController
     @interventions = @search.result
     
     @maintasks = @equipment.maintasks
+    @interventions_that_are_maintasks = @interventions.where.not(maintask_id: nil)
     
     session[:filter] = @filter
     
@@ -55,15 +56,28 @@ class EquipmentController < ApplicationController
         @hours << interv.eq_hours
       end
     end
-    if @days.sort.first == 0 
-      # If registered today it prints today's equipment hours
-      @intercept = @hours.sort.last
-    else 
-      # Else calculates linear regression
-      @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0 
-      @intercept = @linear.y_intercept if @linear
+    if @hours.count == 1
+      # when there is only one record, assume that only record. If permited to follow would give NaN error in the linear regression
+      @intercept = @hours.first
+    else
+      if @days.sort.first == 0 
+        # If registered today it prints today's equipment hours
+        @intercept = @hours.sort.last
+      else 
+        # Else calculates linear regression
+        @linear = SimpleLinearRegression.new(@days, @hours) if @days.length > 0 
+        @intercept = @linear.y_intercept if @linear
+      end
     end
     # -------
+    
+    # @maintasks.each do |maintask|
+      
+    #   @lag = .last.hours + maintask.period
+    #   if @lag - @intercept < 0
+    #     @delayed_maintasks << maintask
+    #   end
+    # end
     
   end
 

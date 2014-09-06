@@ -49,12 +49,13 @@
     <th></th>
   </tr>
   <% @maintasks.each do |maintask| %>
-    <tr data-link="<%= equipment_maintask_path(@equipment, maintask) %>">
-      <td><%= link_to truncate(maintask.task, :length => 100), equipment_maintask_path(@equipment, maintask) %></td>
-      <td><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
-      <td><% if @delayed_maintasks.include? maintask.id %>
+    <tr>
+      <td data-link="<%= equipment_maintask_path(@equipment, maintask) %>"><%= link_to truncate(maintask.task, :length => 100), equipment_maintask_path(@equipment, maintask) %></td>
+      <td data-link="<%= equipment_maintask_path(@equipment, maintask) %>"><p> Cada <%= maintask.period %> <%= maintask.unit %></p></td>
+      <td data-link="<%= equipment_maintask_path(@equipment, maintask) %>"><% if @delayed_maintasks.include? maintask.id %>
       <span class = "label label-warning">Em falta</span>
       <% end %></td>
+      <td><%= link_to 'Registar', new_equipment_intervention_path(@equipment.id, :maintask_id => maintask.id), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>
 </table>
@@ -69,14 +70,12 @@
     <th><%= sort_link @search, :day, 'Data Intervenção' %></th>
     <th>Descrição</th>
     <th>Horas</th>
-    <th></th>
   </tr>
   <% @interventions.each do |intervention| %>
     <tr data-link="<%= equipment_intervention_path(@equipment, intervention) %>">
       <td><%= link_to intervention.day, equipment_intervention_path(@equipment, intervention) %></td>
       <td><%= truncate(intervention.description, :length => 100) %></td>
       <td><%= intervention.eq_hours %></td>
-      <td><%= link_to 'Editar', edit_equipment_intervention_path(@equipment, intervention), :class => 'btn btn-default' %></td>
     </tr>
   <% end %>
 </table>

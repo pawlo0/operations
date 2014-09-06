@@ -19,16 +19,14 @@ class InterventionsController < ApplicationController
   def new
     @equipment = Equipment.find(params[:equipment_id])
     @intervention = Intervention.new
-    
+    @interv_day = Date.today
     # When intervention are submited through maintasks the following params are inserted automatically
-    @period = params[:period].to_i
-    @descrip = ""
-    Maintask.where('equipment_id == ?', params[:equipment_id]).where('unit = ?', params[:unit]).sort_by(&:unit).reverse.each do |t|
-      @descrip << t.task + " " if t.period < @period && (@period % t.period).zero?
-      @descrip << t.task + " " if t.period == @period
+    if params[:maintask_id]
+      @maintask = Maintask.where(id: params[:maintask_id]).first
+      @descrip = @maintask.task
+      @parts = @maintask.parts
+      @intervention_type = 2
     end
-    @parts = params[:parts]
-    @intervention_type = params[:intervention_type]
     # ----------------------
   end
   

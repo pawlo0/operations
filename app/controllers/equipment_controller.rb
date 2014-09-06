@@ -70,14 +70,19 @@ class EquipmentController < ApplicationController
       end
     end
     # -------
-    
-    # @maintasks.each do |maintask|
-      
-    #   @lag = .last.hours + maintask.period
-    #   if @lag - @intercept < 0
-    #     @delayed_maintasks << maintask
-    #   end
-    # end
+    @delayed_maintasks = []
+    # @lag = @interventions.where(maintask_id: 145).sort_by(&:day).last
+    @maintasks.each do |maint|
+      interv_maint = @interventions.where(maintask_id: maint.id)
+      if interv_maint.count > 0
+        lag = interv_maint.sort_by(&:day).last.eq_hours + maint.period
+        if (lag - @intercept) < 0
+          @delayed_maintasks << maint.id
+        end
+      else
+        @delayed_maintasks << maint.id
+      end
+     end
     
   end
 

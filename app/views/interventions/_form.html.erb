@@ -17,6 +17,7 @@
     <div class="form-group">
       <%= f.label 'Data:', :class => 'col-md-2 control-label' %>
       <div class="col-md-4">
+        <% @intervention.day = @interv_day if @interv_day %>
         <%= f.date_field :day, :class => 'form-control' %>
       </div>
       <%= f.label 'Número de obra:', :class => 'col-md-2 control-label' %>
@@ -57,6 +58,7 @@
     <div class="form-group">
       <%= f.label 'Peças mudadas:', :class => 'col-md-2 control-label' %>
       <div class="col-md-4">
+        <% @intervention.changed_parts = @parts if @parts %>
         <%= f.text_area :changed_parts, :value => @parts, :class => 'form-control' %>
       </div>
       <%= f.label 'Custo material:', :class => 'col-md-2 control-label' %>
@@ -88,6 +90,7 @@
       </div>
       <%= f.label 'Manutenção preventiva:', :class => 'col-md-2 control-label' %>
       <div class="col-md-4">
+        <% @intervention.maintask_id = params[:maintask_id] if params[:maintask_id] %>
         <%= collection_select(:intervention, :maintask_id, Maintask.where(equipment_id: @equipment.id), :id, :task, {:prompt => 'Selecione tarefa'}, :class => 'form-control') %>
       </div>      
     </div><!-- form-group -->

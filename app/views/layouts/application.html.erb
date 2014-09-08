@@ -30,6 +30,7 @@
         <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><%= link_to "Equipamentos", equipment_index_path  %></li>
+          <li><%= link_to "Intervenções", interventions_path if current_user.role == "gestor" || current_user.role == "administrador" %></li>
           <li><%= link_to "Fábricas", plants_path if can? :manage, Plant %></li>
           <li><%= link_to "Tipos Intervenção", intervention_types_path if can? :manage, InterventionType  %></li>
         <% end %>

@@ -12,8 +12,6 @@ class Equipment < ActiveRecord::Base
   
   validates :name, presence: {message: "O equipamento tem de ter um nome."}
   
-  scope :filter_plant, ->(plant) { where(plant_id: plant) }
-  
   def previous(plant, filter)
     if filter == 'true'
       Equipment.where(plant_id: plant).where('equipment.num_id < ?', self.num_id).last

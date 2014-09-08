@@ -41,8 +41,8 @@
     <% @equip_with_maintasks.each do |equip| %>
       <tr>
         <% name = equip.name + " Eq. " + equip.num_id.to_s %>
-        <td rowspan = "<%= equip.maintasks.count + 1 %>"><%= link_to name, equipment_path(equip) %></td>
-        <% equip.maintasks.each do |eqtask| %>
+        <td rowspan = "<%= @maintasks.select{ |hash| hash[:equipment_id] == equip.id}.count + 1 %>"><%= link_to name, equipment_path(equip) %></td>
+        <% @maintasks.select{ |hash| hash[:equipment_id] == equip.id}.each do |eqtask| %>
           <tr>
             <td><%= link_to eqtask.task, equipment_maintask_path(equip, eqtask) %></td>
             <td><p>A cada <%= eqtask.period %> <%= eqtask.unit %></p></td>

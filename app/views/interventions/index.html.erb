@@ -1,49 +1,64 @@
-<h1>Listing interventions</h1>
+<div class="col-md-9">
 
-<table>
+<h2>Lista de intervenções</h2>
+
+  <%= search_form_for @search, :html => { :class => 'well row' , role: 'search' } do |f| %>
+  <div class="col-md-3">
+    <div class="input-group">
+        <%= f.text_field :equipment_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
+      <span class="input-group-btn">
+        <%= f.submit "Filtrar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /col-md-3 -->
+  <div class="col-md-6">
+    <div class="input-group">
+      <%= f.text_field :description_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
+      <span class="input-group-btn">
+        <%= f.submit "Buscar", :class => 'btn btn-default' %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /col-md-6 -->
+  <div class="col-md-1">
+    <div class ="input-group">
+      <%= link_to 'Limpar', interventions_path, :class => 'btn btn-default' if params[:q]  %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Day</th>
-      <th>Equipment</th>
-      <th>Eq hours</th>
-      <th>Repair</th>
-      <th>Preventive</th>
-      <th>Description</th>
-      <th>Changed parts</th>
-      <th>Maintainer</th>
-      <th>Task num</th>
-      <th>Estimate num</th>
-      <th>Purchase num</th>
-      <th>Parts cost</th>
-      <th>Labor cost</th>
+      <th>Equipamento</th>
+      <th>Dia</th>
+      <th>Horas</th>
+      <th>Descrição</th>
+      <th>
+      <p class ="text-right"><%= link_to '', interventions_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' %></p></th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @interventions.each do |intervention| %>
+    <% @equipments_with_interventions.each do |equip| %>
       <tr>
-        <td><%= intervention.day %></td>
-        <td><%= intervention.equipment_id %></td>
-        <td><%= intervention.eq_hours %></td>
-        <td><%= intervention.repair %></td>
-        <td><%= intervention.preventive %></td>
-        <td><%= intervention.description %></td>
-        <td><%= intervention.changed_parts %></td>
-        <td><%= intervention.maintainer %></td>
-        <td><%= intervention.task_num %></td>
-        <td><%= intervention.estimate_num %></td>
-        <td><%= intervention.purchase_num %></td>
-        <td><%= intervention.parts_cost %></td>
-        <td><%= intervention.labor_cost %></td>
-        <td><%= link_to 'Show', intervention %></td>
-        <td><%= link_to 'Edit', edit_intervention_path(intervention) %></td>
-        <td><%= link_to 'Destroy', intervention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% name = equip.name + " Eq. " + equip.num_id.to_s %>
+        <td rowspan = "<%= @interventions.select{ |hash| hash[:equipment_id] == equip.id}.count + 1 %>"><%= link_to name, equipment_path(equip) %></td>
+          <% @interventions.select{ |hash| hash[:equipment_id] == equip.id}.each do |intervention| %>
+            <tr data-link="<%= equipment_intervention_path(equip, intervention) %>">
+              <td><%= intervention.day %></td>
+              <td><%= intervention.eq_hours %></td>
+              <td><%= truncate(intervention.description, :length => 100) %></td>
+            </tr>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+</div><!--col-md-9 -->
+
+<div class="col-md-3">
+  <%= render 'side' %>
+</div>
 <br>
 
-<%= link_to 'New Intervention', new_intervention_path %>

@@ -1,11 +1,23 @@
 class InterventionsController < ApplicationController
   before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+  before_action :define_user_plant
   load_and_authorize_resource
 
   # GET /interventions
   # GET /interventions.json
   def index
-    @interventions = Intervention.all
+    
+    @search = (@filter == 'true') ? @userplant.interventions.search(params[:q]) : Intervention.search(params[:q])
+    @search.sorts = 'day desc' if @search.sorts.empty?
+    @interventions = @search.result
+    
+    @equipments_with_interventions = @userplant.equipment.where(id: @interventions.map { |x| x.equipment_id}.uniq.sort)
+    
+    respond_to do |format|
+      format.html
+      format.js
+      format.xlsx
+    end
   end
 
   # GET /interventions/1
@@ -95,4 +107,9 @@ class InterventionsController < ApplicationController
     def intervention_params
       params.require(:intervention).permit(:day, :equipment_id, :eq_hours, :description, :changed_parts, :maintainer, :task_num, :estimate_num, :purchase_num, :parts_cost, :labor_cost, :intervention_type_id, :maintask_id)
     end
+
+    def define_user_plant
+      @userplant = Plant.where(id: current_user.plant_id).first
+    end
+    
 end

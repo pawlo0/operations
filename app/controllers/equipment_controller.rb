@@ -12,7 +12,7 @@ class EquipmentController < ApplicationController
 
     @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
 
-    @search = (@filter == 'true') ? Equipment.filter_plant(@userplant).search(params[:q]) : Equipment.search(params[:q])
+    @search = (@filter == 'true') ? @userplant.equipment.search(params[:q]) : Equipment.search(params[:q])
     @search.sorts = 'num_id asc' if @search.sorts.empty?
     @equipment = @search.result.includes(:interventions)
     
@@ -26,7 +26,7 @@ class EquipmentController < ApplicationController
   end
   
   def import
-    Equipment.import(@userplant, params[:file])
+    Equipment.import(@userplant.id, params[:file])
     redirect_to equipment_index_path, notice: "Equipamentos importados."
   end
 
@@ -99,7 +99,7 @@ class EquipmentController < ApplicationController
   # POST /equipment.json
   def create
     @equipment = Equipment.new(equipment_params)
-    @equipment.plant_id = @userplant
+    @equipment.plant_id = @userplant.id
 
     respond_to do |format|
       if @equipment.save
@@ -115,7 +115,7 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
-    @equipment.plant_id = @userplant
+    @equipment.plant_id = @userplant.id
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'O Equipamento foi editado com sucesso.' }
@@ -154,6 +154,6 @@ class EquipmentController < ApplicationController
     end
     
     def define_user_plant
-      @userplant = current_user.plant_id.to_i
+      @userplant = Plant.where(id: current_user.plant_id).first
     end
 end

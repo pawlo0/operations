@@ -3,8 +3,7 @@
 
 <h2>Lista de equipamentos</h2>
 
-<% if @equipment.count > 0 %>
-  <%= search_form_for @search, :html => { :class => 'well row' , role: 'search' } do |f| %>
+<%= search_form_for @search, :html => { :class => 'well row' , role: 'search' } do |f| %>
   <div class="col-md-3">
     <div class="input-group">
         <%= f.text_field :num_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
@@ -16,7 +15,7 @@
   
   <div class="col-md-6">
     <div class="input-group">
-      <%= f.text_field :name_or_serial_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
+      <%= f.text_field :name_or_manufacturer_or_model_or_serial_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
       <span class="input-group-btn">
         <%= f.submit "Buscar", :class => 'btn btn-default' %>
       </span>
@@ -60,9 +59,6 @@
       <% end %>
     </tbody>
   </table>
-<% else %>
-  <p><strong>Ainda não tem equipamentos inseridos. Comece por criar equipamentos.</strong></p>
-<% end %>
 
 <%= render 'import' if can? :manage, Equipment %>
 

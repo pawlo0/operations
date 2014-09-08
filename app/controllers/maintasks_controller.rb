@@ -7,13 +7,11 @@ class MaintasksController < ApplicationController
   # GET /maintasks.json
   def index
     
-    @equipment = Equipment.filter_plant(@userplant)
-    @equipment_ids = @equipment.pluck(:id)
-    @search = Maintask.where(equipment_id: @equipment_ids).search(params[:q])
+    @search = @userplant.maintasks.search(params[:q])
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?
     @maintasks = @search.result.includes(:equipment)
     
-    @equip_with_maintasks = @equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
+    @equip_with_maintasks = @userplant.equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
     
     
     
@@ -93,6 +91,6 @@ class MaintasksController < ApplicationController
     end
     
     def define_user_plant
-      @userplant = current_user.plant_id.to_i
+      @userplant = Plant.find_by_id(current_user.plant_id)
     end    
 end

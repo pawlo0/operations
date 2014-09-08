@@ -31,8 +31,10 @@ class InterventionsController < ApplicationController
   end
   
   def hour_register
-    Intervention.hour_register(params[:id], params[:hours])
-    redirect_to equipment_path(params[:id]), notice: "Horas registas."
+    @intervention = Intervention.new
+    @intervention.attributes = {equipment_id: params[:equipment_id], eq_hours: params[:hours], description: "Registo de horas", day: Date.today, intervention_type_id: InterventionType.where("name LIKE ?", "%regist%ho%").first.id}
+    @intervention.save!
+    redirect_to equipment_path(params[:equipment_id]), notice: "Horas registadas."
   end
     
 

@@ -26,14 +26,19 @@
   </div>
 </div>
 <hr>
-<%= form_tag hour_register_interventions_path(:id => @equipment.id), multipart: true, :class => 'row' do %>
+<%= form_tag hour_register_interventions_path(:equipment_id => @equipment.id), multipart: true, :class => 'row' do %>
 <div class="form-inline">
-  <div class="col-md-12">
-    <div clas="input-group">
-      <% @intercept = 0 unless @intercept.is_a?(Numeric) %>
-      <%= label_tag 'Horas actuais estimadas:' %> <%= number_field_tag :hours, @intercept.round(0), :class => 'form-control' %> <%= submit_tag "Registar horas", :class => 'btn btn-default' %>
+  <div class="col-md-5">
+    <% @intercept = 0 unless @intercept.is_a?(Numeric) %>
+    <p>Horas actuais estimadas: <strong><%= @intercept.round(0) %></strong></p>
+  </div>
+  <div class="col-md-6 text-right">
+    <div clas="input-group">  
+      <%= label_tag 'Registar horas: ' %>
+      <%= number_field_tag :hours, :class => 'form-control' %> 
+      <%= submit_tag "Salvar", :class => 'btn btn-default' %>
     </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+  </div><!-- /col-md-6 -->
 </div>
 <% end %>
 

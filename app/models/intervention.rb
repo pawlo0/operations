@@ -19,11 +19,5 @@ class Intervention < ActiveRecord::Base
     Intervention.where(equipment_id: self.equipment_id).where('day >= ?', self.day).where('id > ?', self.id).sort_by(&:day).first
   end
   
-  def self.hour_register(equipment, hours)
-    intervention = new
-    intervention.attributes = {equipment_id: equipment, eq_hours: hours, description: "Registo de horas", day: Date.today, intervention_type_id: InterventionType.where("name LIKE ?", "%regist%ho%").first.id}
-    intervention.save!
-  end
-  
 end
 

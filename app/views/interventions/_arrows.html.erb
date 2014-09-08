@@ -1,9 +1,15 @@
 <% if params[:id] %>
     <% if @intervention.previous %>
-        <%= link_to '', equipment_intervention_path(@intervention.equipment_id, @intervention.previous), :class => 'glyphicon glyphicon-chevron-left', :title => 'Intervenção Anterior' %> |
+        <%= link_to '', equipment_intervention_path(@intervention.equipment_id, @intervention.previous), :class => 'glyphicon glyphicon-chevron-left', :title => 'Intervenção Anterior' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-left gray"></span>
     <% end %>
+    |
     <%= link_to '', equipment_path(@intervention.equipment_id), :class => 'glyphicon glyphicon-chevron-up', :title => 'Voltar' %>
+    |
     <% if @intervention.next %>
-        | <%= link_to '', equipment_intervention_path(@intervention.equipment_id, @intervention.next), :class => 'glyphicon glyphicon-chevron-right', :title => 'Intervenção Seguinte' %>
+        <%= link_to '', equipment_intervention_path(@intervention.equipment_id, @intervention.next), :class => 'glyphicon glyphicon-chevron-right', :title => 'Intervenção Seguinte' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-right gray"></span>
     <% end %>
 <% end %>

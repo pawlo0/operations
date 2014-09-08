@@ -1,9 +1,15 @@
-    <% if params[:id] %>
-        <% if @equipment.previous(current_user.plant_id, @filter) %>
-            <%= link_to '', @equipment.previous(current_user.plant_id, @filter), :class => 'glyphicon glyphicon-chevron-left', :title => 'Equipamento Anterior' %> |
-        <% end %>
-        <%= link_to '', equipment_index_path, :class => 'glyphicon glyphicon-chevron-up', :title => 'Voltar' %>
-        <% if @equipment.next(current_user.plant_id, @filter) %>
-            | <%= link_to '', @equipment.next(current_user.plant_id, @filter), :class => 'glyphicon glyphicon-chevron-right', :title => 'Equipamento Seguinte' %>
-        <% end %>
+<% if params[:id] %>
+    <% if @equipment.previous(current_user.plant_id, @filter) %>
+        <%= link_to '', @equipment.previous(current_user.plant_id, @filter), :class => 'glyphicon glyphicon-chevron-left', :title => 'Equipamento Anterior' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-left gray"></span>
     <% end %>
+    |
+    <%= link_to '', equipment_index_path, :class => 'glyphicon glyphicon-chevron-up', :title => 'Voltar' %>
+    |
+    <% if @equipment.next(current_user.plant_id, @filter) %>
+        <%= link_to '', @equipment.next(current_user.plant_id, @filter), :class => 'glyphicon glyphicon-chevron-right', :title => 'Equipamento Seguinte' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-right gray"></span>
+    <% end %>
+<% end %>

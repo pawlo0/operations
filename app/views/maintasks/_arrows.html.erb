@@ -1,9 +1,15 @@
 <% if params[:id] %>
     <% if @maintask.previous %>
-        <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.previous), :class => 'glyphicon glyphicon-chevron-left', :title => 'Tarefa Anterior' %> |
+        <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.previous), :class => 'glyphicon glyphicon-chevron-left', :title => 'Tarefa Anterior' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-left gray"></span>
     <% end %>
+    |
     <%= link_to '', equipment_path(@maintask.equipment_id), :class => 'glyphicon glyphicon-chevron-up', :title => 'Voltar' %>
+    |
     <% if @maintask.next %>
-        | <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.next), :class => 'glyphicon glyphicon-chevron-right', :title => 'Tarefa Seguinte' %>
+        <%= link_to '', equipment_maintask_path(@maintask.equipment_id, @maintask.next), :class => 'glyphicon glyphicon-chevron-right', :title => 'Tarefa Seguinte' %>
+    <% else %>
+        <span class ="glyphicon glyphicon-chevron-right gray"></span>
     <% end %>
 <% end %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :interventions do
     collection { post 'hour_register' }
+    collection { post 'import' }
   end
 
   resources :equipment do

@@ -7,17 +7,26 @@ class InterventionsController < ApplicationController
   # GET /interventions.json
   def index
     
-    @search = (@filter == 'true') ? @userplant.interventions.search(params[:q]) : Intervention.search(params[:q])
+    @filter = (params[:filter]) ? params[:filter] : (session[:filter]) ? session[:filter] : "true"
+    
+    @search = (@filter == 'true') ? @userplant.interventions.where.not(intervention_type_id: 3).search(params[:q]) : Intervention.search(params[:q])
     @search.sorts = 'day desc' if @search.sorts.empty?
     @interventions = @search.result
     
-    @equipments_with_interventions = @userplant.equipment.where(id: @interventions.map { |x| x.equipment_id}.uniq.sort)
+    @equipments_with_interventions = Equipment.where(id: @interventions.map { |x| x.equipment_id}.uniq.sort)
+    
+    session[:filter] = @filter
     
     respond_to do |format|
       format.html
       format.js
       format.xlsx
     end
+  end
+
+  def import
+    Intervention.import(params[:file])
+    redirect_to interventions_path, notice: "Intervenções importadas."
   end
 
   # GET /interventions/1

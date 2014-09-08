@@ -34,7 +34,7 @@
       <th>Horas</th>
       <th>Descrição</th>
       <th>
-      <p class ="text-right"><%= link_to '', interventions_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' %></p></th>
+      <p class ="text-right"><%= link_to '', interventions_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' if @filter == 'true'%></p></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -54,6 +54,10 @@
     <% end %>
   </tbody>
 </table>
+
+<% if @filter == 'true' %>
+  <%= render 'import' if current_user.role == "gestor" || current_user.role == "administrador" %>
+<% end %>
 
 </div><!--col-md-9 -->
 

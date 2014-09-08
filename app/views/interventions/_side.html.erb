@@ -13,4 +13,13 @@
   <% else %>
     <p><%= link_to 'Voltar', :back, :class => 'btn btn-default' %></p>
   <% end %>
+  
+  <% if current_user.role == "administrador" %>
+    <hr>
+    <% if @filter == 'true' %>
+        <%= link_to 'Mostrar Tudo', {:filter => false}, :class => 'btn btn-default' %>
+    <% else %>
+        <%= link_to 'Filtrar', {:filter => true}, :class => 'btn btn-default' %>
+    <% end %>
+<% end %>
 </div>

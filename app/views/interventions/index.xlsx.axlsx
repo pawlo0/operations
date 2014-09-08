@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "nterventions") do |sheet|
+wb.add_worksheet(name: "interventions") do |sheet|
   columns_arr = []
-  not_export = ["id", "created_at", "updated_at"]
+  not_export = ["created_at", "updated_at"]
   @interventions.column_names.each do |col_name|
     columns_arr << col_name unless not_export.include?(col_name)
   end

@@ -40,7 +40,7 @@
         <th><%= sort_link @search, :manufacturer, "Marca" %></th>
         <th><%= sort_link @search, :model, "Modelo" %></th>
         <th>
-        <p class ="text-right"><%= link_to '', equipment_index_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' %></p></th>
+        <p class ="text-right"><%= link_to '', equipment_index_path(format: "xlsx"), :class => 'glyphicon glyphicon-list-alt' if @filter == 'true' %></p></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -60,7 +60,9 @@
     </tbody>
   </table>
 
-<%= render 'import' if can? :manage, Equipment %>
+<% if @filter == 'true' %>
+  <%= render 'import' if can? :manage, Equipment %>
+<% end %>
 
 </div><!--col-md-9 -->
 

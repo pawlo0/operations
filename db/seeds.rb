@@ -120,6 +120,17 @@ when "development"
   end
   
   p "Created #{Maintask.count} maintenance tasks."
+  
+  user = User.new.tap do |u|
+    u.username = 'porepxs1'
+    u.name = 'Paulo Santos'
+    u.password = '1111'
+    u.password_confirmation = '1111'
+    u.role = 'administrador'
+    u.plant_id = 1
+    u.save!
+  end  
+  p "Created #{User.count} users."
 
 when "production"
   Equipment.destroy_all

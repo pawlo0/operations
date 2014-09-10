@@ -7,11 +7,18 @@
 <div class="row">
   <div class="col-md-6">
     <p>Data: <%= @intervention.day %></p>
+  </div>
+  <div class="col-md-6">
     <p>Horas equipamento: <%= @intervention.eq_hours %></p>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
     <p>Tipo de intervenção: <%= InterventionType.find_by_id(@intervention.intervention_type_id).name if @intervention.intervention_type_id %></p>
+    <p>Manutenção Preventiva: <%= @intervention.maintask_id %></p>
     <p>Peças mudadas: <%= @intervention.changed_parts %></p>
     <p>Pessoa / empresa que interviu: <%= @intervention.maintainer %></p>
-    <p>Manutenção Preventiva: <%= @intervention.maintask_id %></p>
     <p>Descrição: <%= @intervention.description %></p>
   </div>
   <div class="col-md-6">

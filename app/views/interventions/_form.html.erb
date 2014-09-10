@@ -16,87 +16,90 @@
   <div class = "row">
     <div class="form-group">
       <%= f.label 'Data:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <% @intervention.day = @interv_day if @interv_day %>
         <%= f.date_field :day, :class => 'form-control' %>
       </div>
-      <%= f.label 'Número de obra:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <%= f.text_field :task_num, :class => 'form-control' %>
-      </div>
-    </div><!-- form-group -->
-  </div><!-- row -->
-  
-  <div class = "row">
-    <div class="form-group">
-      <%= f.label 'Horas do equipamento:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+      <%= f.label 'Horas do equipamento:', :class => 'col-md-2 col-md-offset-1 control-label' %>
+      <div class="col-md-3">
         <%= f.number_field :eq_hours, :class => 'form-control' %>
       </div>
-      <%= f.label 'Orçamento:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <%= f.text_field :estimate_num, :class => 'form-control' %>
-      </div>
     </div><!-- form-group -->
   </div><!-- row -->
-  
-  <div class = "row">
+<hr>
+  <div class = "row col-md-6">
     <div class="form-group">
-      <%= f.label 'Tipo de intervenção:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+      <%= f.label 'Tipo de intervenção:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-7">
         <% @intervention.intervention_type_id = @intervention_type if @intervention_type %>
         <%= collection_select(:intervention, :intervention_type_id, InterventionType.all, :id, :name, {:selected => @intervention.intervention_type_id}, :class => 'form-control') %>
       </div>
-      <%= f.label 'Pedido de compra:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <%= f.text_field :purchase_num, :class => 'form-control' %>
+    </div><!-- form-group -->
+    <div class="form-group">
+      <%= f.label 'Manutenção preventiva:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-7">
+        <% @intervention.maintask_id = params[:maintask_id] if params[:maintask_id] %>
+        <%= collection_select(:intervention, :maintask_id, Maintask.where(equipment_id: @equipment.id), :id, :task, {:prompt => 'Selecione tarefa'}, :class => 'form-control') %>
       </div>
     </div><!-- form-group -->
-  </div><!-- row -->      
-
-  <div class = "row">
-    <div class="form-group">
-      <%= f.label 'Peças mudadas:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+    <div class="form-group">     
+      <%= f.label 'Peças mudadas:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-7">
         <% @intervention.changed_parts = @parts if @parts %>
         <%= f.text_area :changed_parts, :value => @parts, :class => 'form-control' %>
       </div>
-      <%= f.label 'Custo material:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <%= f.text_field :parts_cost, :class => 'form-control' %>
-      </div>
     </div><!-- form-group -->
-  </div><!-- row -->      
-
-  <div class = "row">
-    <div class="form-group">    
-      <%= f.label 'Pessoa / empresa:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label 'Pessoa / empresa:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-7">
         <%= f.text_field :maintainer, :class => 'form-control' %>
-      </div>
-      <%= f.label 'Mão-de-obra e deslocações:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <%= f.text_field :labor_cost, :class => 'form-control' %>
-      </div>
+      </div>        
     </div><!-- form-group -->
-  </div><!-- row -->      
-
-  <div class = "row">
     <div class="form-group">   
-      <%= f.label 'Descrição:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
+      <%= f.label 'Descrição:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-7">
         <% @intervention.description = @descrip if @descrip %>
         <%= f.text_area :description, :class => 'form-control' %>
       </div>
-      <%= f.label 'Manutenção preventiva:', :class => 'col-md-2 control-label' %>
-      <div class="col-md-4">
-        <% @intervention.maintask_id = params[:maintask_id] if params[:maintask_id] %>
-        <%= collection_select(:intervention, :maintask_id, Maintask.where(equipment_id: @equipment.id), :id, :task, {:prompt => 'Selecione tarefa'}, :class => 'form-control') %>
-      </div>      
+    </div><!-- form-group -->      
+  </div><!-- /row -->        
+        
+  <div class = "row col-md-5 col-md-offset-1">
+    <div class="form-group">
+      <%= f.label 'Nª obra:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <%= f.text_field :task_num, :class => 'form-control' %>
+      </div>
     </div><!-- form-group -->
-  </div><!-- row -->  
-  
+    <div class="form-group">        
+      <%= f.label 'Nº Orçamento:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <%= f.text_field :estimate_num, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+    <div class="form-group">        
+      <%= f.label 'Pedido de compra:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <%= f.text_field :purchase_num, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+    <div class="form-group">        
+      <%= f.label 'Custo material:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <%= f.text_field :parts_cost, :class => 'form-control' %>
+      </div>
+    </div><!-- form-group -->
+    <div class="form-group">        
+      <%= f.label 'Custo Mão-de-obra:', :class => 'col-md-4 control-label' %>
+      <div class="col-md-8">
+        <%= f.text_field :labor_cost, :class => 'form-control' %>
+      </div>        
+    </div><!-- form-group -->
+  </div><!-- /row -->
+
+<div class="row col-md-12">
   <div class="actions">
     <%= f.submit "Salvar", :class => 'btn btn-primary' %> <%= link_to 'Voltar', :back, :class => 'btn btn-default' %>
   </div>
+</div>  
 <% end %>

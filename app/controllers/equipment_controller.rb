@@ -51,7 +51,7 @@ class EquipmentController < ApplicationController
     @days = []
     @hours = []
     @equipment.interventions.each do |interv|
-      if interv.eq_hours > 0
+      unless interv.eq_hours == 0 || interv.eq_hours.nil?
         @days << (Date.today - interv.day).to_i.round(0)
         @hours << interv.eq_hours
       end

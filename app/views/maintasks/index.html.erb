@@ -1,26 +1,26 @@
-<div class = "col-md-9">
+<div class = "col-sm-9">
 
 <h2>Plano de Manutenção</h2>
 
 <%= search_form_for @search, :html => { :class => 'well row'} do |f| %>
-  <div class="col-md-3">
+  <div class="col-sm-3">
     <div class ="input-group">
       <%= f.text_field :equipment_num_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
       <span class="input-group-btn">
         <%= f.submit "Filtrar", :class => 'btn btn-default' %>
       </span>
     </div><!-- /input-group -->
-  </div><!-- /col-md-3 -->
-  <div class="col-md-6">
+  </div><!-- /col-sm-3 -->
+  <div class="col-sm-6">
     <div class="input-group">
       <%= f.text_field :task_or_period_or_equipment_name_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
       <span class="input-group-btn">
         <%= f.submit "Buscar", :class => 'btn btn-default' %>
       </span>
     </div><!-- /input-group -->
-  </div><!-- /col-md-6 -->
+  </div><!-- /col-sm-6 -->
   
-  <div class="col-md-1">
+  <div class="col-sm-1">
     <div class ="input-group">
       <%= link_to 'Limpar', maintasks_path, :class => 'btn btn-default' if params[:q] %>
     </div>
@@ -54,8 +54,8 @@
   </tbody>
 </table>
 
-</div><!--/col-md-9-->
+</div><!--/col-sm-9-->
 
-<div class="col-md-3">
+<div class="col-sm-3">
   <%= render 'side' %>
-</div><!--/col-md-3-->
+</div><!--/col-sm-3-->

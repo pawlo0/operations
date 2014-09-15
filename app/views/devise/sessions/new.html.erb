@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-sm-6">
 
 <h2>Entrar</h2>
 
@@ -6,16 +6,16 @@
 
 <div class = "row top20">
   <div class="form-group">
-    <%= f.label 'Usuário', :class => 'col-md-2 control-label' %>
-    <div class="col-md-4">
+    <%= f.label 'Usuário', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
       <%= f.text_field :username, autofocus: true, :class => 'form-control' %>
     </div>
   </div><!-- /form-group -->
 </div><!-- /row -->
 <div class = "row top10">
   <div class="form-group">
-    <%= f.label :password, :class => 'col-md-2 control-label' %>
-    <div class="col-md-4">
+    <%= f.label :password, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
       <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
     </div>
   </div><!-- /form-group -->
@@ -23,10 +23,10 @@
 
 <div class = "row top20">
   <div class="form-group">
-    <div><%= f.submit "Entrar", :class => 'col-md-2 col-md-offset-2 btn btn-default' %></div>
+    <div><%= f.submit "Entrar", :class => 'col-sm-2 col-sm-offset-2 btn btn-default' %></div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="col-md-2 col-md-offset-1 checkbox inline"><p><%= f.check_box :remember_me %> <%= f.label 'Lembrar-me' %></p></div>
+    <div class="col-sm-2 col-sm-offset-1 checkbox inline"><p><%= f.check_box :remember_me %> <%= f.label 'Lembrar-me' %></p></div>
   <% end -%>
   </div><!-- /form-group -->
 </div><!-- /row -->

@@ -31,6 +31,7 @@ gem 'devise'
 gem 'roo'
 gem 'axlsx_rails', '>= 0.2.0'
 gem 'cancancan'
+gem 'tzinfo-data'
 
 #group :assets do
   # Use SCSS for stylesheets

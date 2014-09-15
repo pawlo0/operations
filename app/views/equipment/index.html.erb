@@ -1,28 +1,28 @@
 
-<div class="col-md-9">
+<div class="col-sm-9">
 
 <h2>Lista de equipamentos</h2>
 
 <%= search_form_for @search, :html => { :class => 'well row' , role: 'search' } do |f| %>
-  <div class="col-md-3">
+  <div class="col-sm-3">
     <div class="input-group">
         <%= f.text_field :num_id_eq, :class => 'form-control', :placeholder => 'Nº Equip'%>
       <span class="input-group-btn">
         <%= f.submit "Filtrar", :class => 'btn btn-default' %>
       </span>
     </div><!-- /input-group -->
-  </div><!-- /col-md-3 -->
+  </div><!-- /col-sm-3 -->
   
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <div class="input-group">
       <%= f.text_field :name_or_manufacturer_or_model_or_serial_or_location_or_function_or_obs_or_maintenance_contact_cont, :class => 'form-control', :placeholder => 'Procurar'%> 
       <span class="input-group-btn">
         <%= f.submit "Buscar", :class => 'btn btn-default' %>
       </span>
     </div><!-- /input-group -->
-  </div><!-- /col-md-6 -->
+  </div><!-- /col-sm-6 -->
 
-  <div class="col-md-1">
+  <div class="col-sm-1">
     <div class ="input-group">
       <%= link_to 'Limpar', equipment_index_path, :class => 'btn btn-default' if params[:q]  %>
     </div>
@@ -64,9 +64,9 @@
   <%= render 'import' if can? :manage, Equipment %>
 <% end %>
 
-</div><!--col-md-9 -->
+</div><!--col-sm-9 -->
 
-<div class="col-md-3">
+<div class="col-sm-3">
   <%= render 'side' %>
 </div>
 <br>

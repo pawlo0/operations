@@ -149,7 +149,7 @@ when "production"
   
   user = User.new.tap do |u|
     u.username = 'porepxs1'
-    
+    u.name = 'Paulo Santos'
     u.password = '1111'
     u.password_confirmation = '1111'
     u.role = 'administrador'

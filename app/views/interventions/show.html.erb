@@ -1,27 +1,27 @@
-<div class = "col-md-9">
+<div class = "col-sm-9">
 
 <h2> Intervenção do Equipamento nº <%= Equipment.find(@intervention.equipment_id).num_id %><small><span class="pull-right"><%= render 'arrows' %></span></small></h2>
 
 <hr>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Data: <%= @intervention.day %></p>
   </div>
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Horas equipamento: <%= @intervention.eq_hours %></p>
   </div>
 </div>
 <hr>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Tipo de intervenção: <%= InterventionType.find_by_id(@intervention.intervention_type_id).name if @intervention.intervention_type_id %></p>
     <p>Manutenção Preventiva: <%= @intervention.maintask_id %></p>
     <p>Peças mudadas: <%= @intervention.changed_parts %></p>
     <p>Pessoa / empresa que interviu: <%= @intervention.maintainer %></p>
     <p>Descrição: <%= @intervention.description %></p>
   </div>
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Número obra: <%= @intervention.task_num %></p>
     <p>Número de orçamento: <%= @intervention.estimate_num %></p>
     <p>Número de compra: <%= @intervention.purchase_num %></p>
@@ -31,10 +31,10 @@
   </div>
 </div><!-- /row -->
 
-</div><!-- col-md-9 -->
+</div><!-- col-sm-9 -->
 
-<div class="col-md-3">
+<div class="col-sm-3">
   <%= render 'side' %>
 
-</div><!--/col-md-3-->
+</div><!--/col-sm-3-->
 

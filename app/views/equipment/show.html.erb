@@ -1,17 +1,17 @@
-<div class = "col-md-9">
+<div class = "col-sm-9">
 
 <h2><%= @equipment.name %> <small>Equipamento nº<%= @equipment.num_id %><span class="pull-right"><%= render 'arrows' %></span></small></h2>
 
 <hr>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Marca: <%= @equipment.manufacturer %></p>
     <p>Número de série: <%= @equipment.serial %></p>
     <p>Localização: <%= @equipment.location %></p>    
     <p>Contacto de manutenção: <%= @equipment.maintenance_contact %></p>
     <p>Fábrica: <%= @equipment.plant.name if @equipment.plant %></p>  
   </div>
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <p>Modelo: <%= @equipment.model %></p>
     <p>Função: <%= @equipment.function %></p>   
     <p>Data fabrico: <%= @equipment.manuf_date %></p>
@@ -19,7 +19,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-sm-10">
 
     <p>Observações: <%= @equipment.obs %></p>
     
@@ -28,17 +28,17 @@
 <hr>
 <%= form_tag hour_register_interventions_path(:equipment_id => @equipment.id), multipart: true, :class => 'row' do %>
 <div class="form-inline">
-  <div class="col-md-5">
+  <div class="col-sm-5">
     <% @intercept = 0 unless @intercept.is_a?(Numeric) %>
     <p>Horas actuais estimadas: <strong><%= @intercept.round(0) %></strong></p>
   </div>
-  <div class="col-md-6 text-right">
+  <div class="col-sm-6 text-right">
     <div clas="input-group">  
       <%= label_tag 'Registar horas: ' %>
       <%= number_field_tag :hours, :class => 'form-control' %> 
       <%= submit_tag "Salvar", :class => 'btn btn-default' %>
     </div><!-- /input-group -->
-  </div><!-- /col-md-6 -->
+  </div><!-- /col-sm-6 -->
 </div>
 <% end %>
 
@@ -86,9 +86,9 @@
 </table>
 <% end %>
 
-</div><!-- col-md-9 -->
+</div><!-- col-sm-9 -->
 
-<div class="col-md-3">
+<div class="col-sm-3">
   <%= render 'side' %>
 </div>
 

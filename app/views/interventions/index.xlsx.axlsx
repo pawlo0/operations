@@ -1,7 +1,8 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "interventions") do |sheet|
   columns_arr = []
-  not_export = ["created_at", "updated_at"]
+  columns_arr << "num_id"
+  not_export = ["equipment_id", "created_at", "updated_at"]
   @interventions.column_names.each do |col_name|
     columns_arr << col_name unless not_export.include?(col_name)
   end
@@ -9,7 +10,11 @@ wb.add_worksheet(name: "interventions") do |sheet|
   @interventions.each do |element|
     line = sheet.add_row
     columns_arr.each do |col_name|
-      line.add_cell element.send(col_name)
+      if col_name == "num_id"
+        line.add_cell element.equipment.num_id
+      else
+        line.add_cell element.send(col_name)
+      end
     end
   end
 end

@@ -11,7 +11,7 @@ class MaintasksController < ApplicationController
     @search.sorts = 'equipment_id asc' if @search.sorts.empty?
     @maintasks = @search.result.includes(:equipment)
     
-    @equip_with_maintasks = @userplant.equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq))
+    @equip_with_maintasks = @userplant.equipment.where(id: (@maintasks.map {|x| x.equipment_id}.uniq)).order(:num_id)
     
     
     

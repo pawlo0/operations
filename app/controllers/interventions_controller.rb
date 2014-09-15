@@ -13,7 +13,7 @@ class InterventionsController < ApplicationController
     @search.sorts = 'day desc' if @search.sorts.empty?
     @interventions = @search.result
     
-    @equipments_with_interventions = Equipment.where(id: @interventions.map { |x| x.equipment_id}.uniq.sort)
+    @equipments_with_interventions = Equipment.where(id: @interventions.map { |x| x.equipment_id}.uniq).order(:num_id)
     
     session[:filter] = @filter
     

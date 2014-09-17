@@ -17,3 +17,7 @@
 
 # Ignore c9 folder
 /.c9
+
+# Ignore database and secrets
+/config/database.yml
+/config/secrets.yml

@@ -9,7 +9,7 @@ class Intervention < ActiveRecord::Base
   validates_presence_of :day, message: "Tem de escrever uma data."
   validates_presence_of :intervention_type_id, message: "Tem de escolher um tipo de intervenção."
   
-  scope :without_hour_registers, -> { where("intervention_type_id <> ?", InterventionType.where("name LIKE ?", "%regist%ho%").first) }
+  scope :without_hour_registers, -> { where.not("intervention_type_id = ?", InterventionType.where("name LIKE ?", "%regist%ho%").first) }
   
   def previous
     Intervention.where(equipment_id: self.equipment_id).where('day <= ?', self.day).where('id < ?', self.id).sort_by(&:day).last

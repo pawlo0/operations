@@ -21,3 +21,6 @@
 # Ignore database and secrets
 /config/database.yml
 /config/secrets.yml
+
+# Ignore precompile assets
+/public/assets
